@@ -1,0 +1,41 @@
+﻿<div class="content">
+
+    <div class="row" style="margin-bottom:0">
+        <div class="col-md-12">
+
+            <div class="panel panel-inverse" style="background-color: transparent">
+
+                <a href="javascript:window.history.go(-1)" class="btn btn-danger"><i class="fa fa-1x fa-arrow-circle-left"></i> Voltar</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 0;padding:0">
+        <div class="col-md-12">
+            <div class="panel panel-inverse">
+                <div class="panel-heading" style="background-color: #C71313;margin-top:0">
+                    <h2 class="text-center" style="color: white; padding: 0">
+                        <i class="fa fa-car" aria-hidden="true"></i>
+                        Operações
+                    </h2>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-md-12" style="background-color:black">
+
+                            <h3 style="color:white">Não existe operações cadastradas para esta natureza.</h3>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

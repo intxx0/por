@@ -1,0 +1,93 @@
+﻿(function (app) {
+    'use strict';
+
+    app.controller('imagensCtrl', imagensCtrl);
+
+    imagensCtrl.$inject = ['$scope', '$http','apiService','notificationService', '$rootScope'];
+
+    function imagensCtrl($scope, $http, apiService, notificationService, $rootScope) {
+
+
+        $scope.imagens = [];
+        $scope.imagens = new Array();
+        $scope.search = search;
+        $scope.operacao = '';
+
+        function search(op) {
+            console.log(op);
+            $scope.operacao = op;
+        }
+
+
+        function listaImagens() {
+
+            apiService.get('/api/imagens/listarimagens', null,
+                listaImagensSuccess,
+                listaImagensFailed);
+        }
+
+        function listaImagensSuccess(result) {
+            var j = 0;
+            var k = 0;
+            var flag = true;
+            var array = new Array();
+            array[0] = new Array();
+
+            var r = result.data[0][0];
+
+            forEach(result.data, function (value, key) {
+                if (flag) {
+                    array[0]['infos'] = {
+                        "nome": value[1],
+                        "op": value[0],
+                        "href": value[2],
+                        "titulo": value[4],
+                        "desc": value[3]
+                    };
+                }
+                //k = número de operações
+                //j = número de imagens dentro de cada operação
+
+                //Ultima posição de cada linha contem os dados da operação. 
+                //Ex: array[0]['infos'] < - array com as informações da operação dentro do array 0.
+                if (value[0] !== r) {
+                   
+                    k++;
+                    array[k] = new Array();
+                    r = value[0];
+
+                    //Array com todas informações da operação.
+                    array[k]['infos'] = {
+                        "nome": value[1],
+                        "op": value[0],
+                        "href": value[2],
+                        "titulo": value[4],
+                        "desc": value[3]
+                    };
+                    flag = true;
+                }
+                if (!flag)
+                {
+                    //Adiciona os dados de cada imagem do album de cada operação
+                    array[k][j++] = {
+                        "nome": value[1],
+                        "op": value[0],
+                        "href": value[2]
+                    };
+                }
+                flag = false;
+              //PS: nunca usar matriz em um ng-repeat denovo!!!!
+            });
+
+            $scope.imagens = array;
+            console.log(array);
+        }
+
+        function listaImagensFailed(result) {
+            console.log(data);
+        }
+
+     listaImagens();
+    }
+
+})(angular.module('AppKor'));

@@ -1,0 +1,59 @@
+﻿<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'EVENTS' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'EVENTS' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-6 -->
+        <div class="col-md-12">
+            <div class="panel panel-inverse" data-sortable-id="table-basic-4">
+                <div class="panel-heading">
+                    <input type="text" value="" id="txtPesquisarEnviados" class="pull-right" style="color:black" ng-model="evento.$" placeholder="{{ SEARCH_BY_USER | translate }}" />
+                    <h4 class="panel-title">{{ 'EVENTS' | translate }}</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered"> <!--  table-striped -->
+                        <thead>
+                            <tr>
+                                <th>{{ 'EVENT_TYPE' | translate }}</th>
+                                <th>{{ 'USER' | translate }}</th>
+                                <th>{{ 'EVENT_DATE' | translate }}</th>
+                                <th>{{ 'USER_CHECK' | translate }}</th>
+                                <th>{{ 'KOR' | translate }}</th>
+                                <th>{{ 'COORDINATE' | translate }}</th>
+                                <th>{{ 'INSPECTION' | translate }}</th>
+                                <th>{{ 'INSPECTION_STATUS' | translate }}</th>
+                                <th width="80">{{ 'ACTION' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="evento in eventos | filter:evento:strict"
+                                 ng-style="evento.NomeUsuarioVisualizado == null && {'background-color': '#4682B4', 'color': 'white'}"
+                                  ng-dblclick="visualizaEvento(evento)">
+                                <td>{{evento.TipoEvento}}</td>
+                                <td>{{evento.NomeUsuario}}</td>
+                                <td>{{evento.DataCriado | date:'dd/MM/yyyy HH:mm'}}</td>
+                                <td>{{evento.NomeUsuarioVisualizado}}</td>
+                                <td>{{evento.NomeKor}}</td>
+                                <td>{{evento.Coordenada}}</td>
+                                <td>{{evento.DescFisc}}</td>
+                                <td>{{evento.StatusFisc}}</td>
+                                <td>
+                                    <a href="javascript:;" ng-click="loadFiscalizacao(evento.IdFiscalizacao)" class="btn col-md-6" style="padding:2px;" ng-show="evento.StatusFisc != null"><i class="fa fa-2x fa-search" style="color: #777; font-size: 16px;"></i></a>
+                                    <a href="javascript:;" ng-click="loadFichaDigital(evento.IdFiscalizacao)" class="btn col-md-6" style="padding:2px;" ng-show="evento.NumeroAutuacao != null"><i class="fa fa-2x fa-file-text-o" style="color: #777; font-size: 16px;"></i></a>
+                                    <a href="javascript:;" ng-click="loadMap(evento.Coordenada)" class="btn col-md-12" style="padding:2px;" ng-show="evento.Coordenada != null"><i class="fa fa-2x fa-map-marker" style="color: #777; font-size: 23px; " ng-style="evento.NomeUsuarioVisualizado == null && {'color': 'white'}"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

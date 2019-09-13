@@ -1,0 +1,163 @@
+﻿<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'REGISTER_USER' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'REGISTER_USER' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-6 -->
+        <div class="col-md-12">
+            <!-- begin panel -->
+            <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+                <div class="panel-heading">
+                    <h4 class="panel-title">{{ 'REGISTER_USER' | translate }}</h4>
+                </div>
+                <div class="panel-body">
+                    <form name="cadUsuario" role="form" ng-submit="verificaIdUsuarioInserirAtualizar()">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>{{ 'NAME' | translate }}:</label>
+                                        <input type="text" ng-model="novoUsuario.DescNome" placeholder="{{ 'ENTER_NAME' | translate }}" id="txtNomeUsuario" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>{{ 'USER' | translate }}:</label>
+                                        <input type="text" ng-model="novoUsuario.DescLogin" placeholder="{{ 'ENTER_USER' | translate }}" id="txtUsuario" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>{{ 'INSTITUTION' | translate }}:</label>
+                                        <select class="form-control" id="ddlInstituicao" ng-model="novoUsuario.IdInstituicao" ng-options="option.IdInstituicao as option.NomeInstituicao for option in Instituicoes" required></select>
+                                        <input type="hidden" name="novoUsuario.IdInstituicao" ng-value="novoUsuario.IdInstituicao" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>{{ 'GROUP' | translate }}:</label>
+                                        <select class="form-control" id="ddlGrupo" ng-model="novoUsuario.IdGrupo" ng-options="option.IdGrupo as option.DescGrupo for option in Grupos" required></select>
+                                        <input type="hidden" name="novoUsuario.IdGrupo" ng-value="novoUsuario.IdGrupo" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>{{ 'ROLE' | translate }}:</label>
+                                        <select class="form-control" id="ddlCargo" ng-model="novoUsuario.IdCargo" ng-options="option.IdCargo as option.NomeCargo for option in Cargos" required></select>
+                                        <input type="hidden" name="novoUsuario.IdCargo" ng-value="novoUsuario.IdCargo" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>{{ 'EMAIL' | translate }}:</label>
+                                        <input type="email" ng-model="novoUsuario.Email" placeholder="{{ 'ENTER_EMAIL' | translate }}" id="txtEmail" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>{{ 'SMTP_SERVER' | translate }}:</label>
+                                        <input type="text" ng-model="novoUsuario.ImapServer" placeholder="{{ 'ENTER_SMTP_SERVER' | translate }}" id="txtImapServer" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>{{ 'EMAIL_PASSWORD' | translate }}:</label>
+                                        <input type="password" ng-model="novoUsuario.EmailSenha" placeholder="{{ 'ENTER_EMAIL_PASSWORD' | translate }}" id="txtSenhaEmail" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>{{ 'TELEPHONE' | translate }}:</label>
+                                        <input type="text" ng-model="novoUsuario.Tel" placeholder="{{ 'TELEPHONE' | translate }}" id="txtTelefone" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>{{ 'POR_PASSWORD' | translate }}:</label>
+                                        <input type="password" ng-model="novoUsuario.Senha" placeholder="{{ 'ENTER_POR_PASSWORD' | translate }}" id="txtSenha" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>{{ 'CONFIRM_POR_PASSWORD' | translate }}:</label>
+                                        <input type="password" placeholder="{{ 'CONFIRM_POR_PASSWORD' | translate }}" ng-model="confirmSenha" id="txtConfirmarSenha" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="">Status:</label>
+                                    <select class="form-control" id="ddlAtivo" ng-model="novoUsuario.Ativo" required>
+                                        <option value="">{{ 'SELECT' | translate }}...</option>
+                                        <option value="0">{{ 'INACTIVE' | translate }}</option>
+                                        <option value="1">{{ 'ACTIVE' | translate }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-sm btn-success" ng-disabled="cadUsuario.$invalid"><i class="fa fa-play" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'SUBMIT' | translate }}</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <!-- end panel -->
+
+            <div class="panel panel-inverse" data-sortable-id="table-basic-4">
+                <div class="panel-heading">
+                    <input type="text" value="" id="txtPesquisarEnviados" class="pull-right" style="color:black" ng-model="filtroUsuario" placeholder="{{ SEARCH_SUBJECT | translate }}" />
+                    <h4 class="panel-title">{{ 'USERS' | translate }}</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th width="150">{{ 'GROUP' | translate }}</th>
+                                <th>{{ 'USER' | translate }}</th>
+                                <th width="150">{{ 'LOGIN' | translate }}</th>
+                                <!--<th width="150">{{ 'EMAIL' | translate }}</th>-->
+                                <th width="150">{{ 'LAST_ACCESS' | translate }}</th>
+                                <th width="150">{{ 'AMOUNT_ACCESS' | translate }}</th>
+                                <th width="150">Status</th>
+                                <th width="76">{{ 'ACTION' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="usuario in Usuarios | filter:filtroUsuario ">
+                                <td>{{usuario.UsuarioId}}</td>
+                                <td>{{usuario.DescGrupo}}</td>
+                                <td>{{usuario.DescNome}}</td>
+                                <td>{{usuario.DescLogin}}</td>
+                                <!--<td>{{usuario.Email}}</td>-->
+                                <td>{{usuario.UltimoAcesso | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{usuario.QtdAcessos}}</td>
+                                <td translate>{{usuario.Ativo == 1 ? 'ACTIVE' : 'INACTIVE'}}</td>
+                                <td>
+                                    <a href="javascript:;" ng-click="editarUsuario(usuario, confirmSenha)" class="btn" style="padding: 2px"><i class="fa fa-2x fa-pencil" style="color: #777; font-size: 16px;"></i></a>
+                                    <a href="javascript:;" ng-click="deletarUsuario(usuario.UsuarioId)" class="btn" style="padding: 2px"><i class="fa fa-2x fa-times" style="color: #777; font-size: 20px;"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="email-footer clearfix">
+                        <custom-pager page="{{page}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="carregarUsuario(page)"></custom-pager>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

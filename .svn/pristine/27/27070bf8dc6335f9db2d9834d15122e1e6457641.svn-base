@@ -1,0 +1,162 @@
+﻿using AutoMapper;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web;
+using System.Web.Http;
+using WebApiKor.Models;
+
+namespace WebApiKor.Controllers
+{
+    [Authorize(Roles = "Administrador, Operador")]
+    [RoutePrefix("api/imagens")]
+    public class ImagensController : ApiController
+    {
+
+        ModeloBancoEntities db = new ModeloBancoEntities();
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("inseririmagens")]
+        public HttpResponseMessage InserirImagem(HttpRequestMessage request, ImagensViewModel imagensViewModel)
+        {
+
+            HttpResponseMessage response = null;
+
+
+
+            imagem novaImagem = new imagem()
+            {
+                nome = imagensViewModel.NomeImagem,
+                imagem_id = imagensViewModel.ImagemId,
+                img_base64 = imagensViewModel.ImagemBase64
+            };
+
+            response = request.CreateResponse(HttpStatusCode.Created, novaImagem);
+
+            return response;
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("comprimirimagens")]
+        public HttpResponseMessage comprimirImagem(HttpRequestMessage request, ImagensViewModel imagensViewModel)
+        {
+            HttpResponseMessage response = null;
+
+            imagem novaImagem = new imagem()
+            {
+                nome = imagensViewModel.NomeImagem,
+                img_base64 = imagensViewModel.ImagemBase64,
+            };
+
+
+            novaImagem.img_base64 = comprimirImagem(novaImagem.img_base64, novaImagem.nome, 10L);
+
+            response = request.CreateResponse(HttpStatusCode.Created, novaImagem);
+
+            return response;
+        }
+        public String comprimirImagem(string base64String, string nomeArq, long qualidade)
+        {
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+
+            using (var streamBitmap = new MemoryStream(imageBytes))
+            {
+                using (Image img = Image.FromStream(streamBitmap))
+                {
+                    //Parametros para compressão
+                    ImageCodecInfo codec = ImageCodecInfo.GetImageEncoders().First(enc => enc.FormatID == ImageFormat.Jpeg.Guid);
+                    EncoderParameters imgParams = new EncoderParameters(1);
+                    if (nomeArq.Contains(".png"))
+                        qualidade += 30;
+                    imgParams.Param = new[] { new EncoderParameter(Encoder.Quality, qualidade) };
+
+                    var novaLargura = 0;
+                    var novaAltura = 0;
+
+                    //Redimensionamento
+                    if (img.Width >= img.Height)
+                    {
+                        novaAltura = 720;
+                        novaLargura = (img.Width * 720) / img.Height;
+                    }
+                    else
+                    {
+                        novaLargura = 720;
+                        novaAltura = (img.Height * 720) / img.Width;
+                    }
+
+                    //Cria a imagem
+                    var novaImagem = new Bitmap(novaLargura, novaAltura);
+
+                    using (var graphics = Graphics.FromImage(novaImagem))
+                        graphics.DrawImage(img, 0, 0, novaLargura, novaAltura);
+
+                    //Cria um stream na memoria para armazenar a imagem
+                    MemoryStream ms = new MemoryStream();
+
+                    novaImagem.Save(ms, ImageFormat.Jpeg);
+                    byte[] buffer = ms.ToArray();
+                    string serialized = Convert.ToBase64String(buffer);
+
+                    return serialized;
+                }
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("listarimagens")]
+        public HttpResponseMessage ListarImagens(HttpRequestMessage request)
+        {
+            //Cada pasta dentro de 'operacoes' representa uma operação, sendo nomeada com o ID correspondente
+            HttpResponseMessage response = null;
+
+            //Abre o diretorio de operações e atribui ao array Files
+            DirectoryInfo Dir = new DirectoryInfo(HttpContext.Current.Server.MapPath("~\\Gallery\\operacoes"));
+            FileInfo[] Files = Dir.GetFiles("*", SearchOption.AllDirectories);
+            string[,] ops = new string[Files.Length, 5];
+            int i = 0;
+
+            List<operacao> operacoes = db.operacao.OrderByDescending(ope => ope.id_operacao).ToList();
+
+            //Insere no array 'ops' as informações de cada operação e imagens
+            //Cada linha contendo um arquivo com os atributos operacao_id, nomeImagem, Localização, descricao e Titulo da operação
+            //No frontend é feito o tratamento de separação de cada operação.
+            foreach (FileInfo File in Files)
+            {
+                string opId = File.DirectoryName, desc="", titulo="";
+                string[] chunks = opId.Split('\\');
+                opId = chunks[chunks.Length - 1];
+
+                foreach(var op in operacoes)
+                {
+                    if(op.id_operacao == int.Parse(opId))
+                    {
+                        desc = op.desc_observacao;
+                        titulo = op.desc_operacao;
+                    }
+                }
+
+                ops[i, 0] = opId;
+                ops[i, 1] = File.Name;
+                ops[i, 2] = "http:///localhost:62272/Gallery/operacoes/" + opId + "/" + File.Name;
+                ops[i, 3] = desc;
+                ops[i, 4] = titulo;
+
+                i++;
+            }
+
+
+            response = request.CreateResponse(HttpStatusCode.Created, ops);
+
+            return response;
+        }
+    }
+}

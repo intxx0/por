@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="pt-br" ng-app="AppKor">
+<!--<![endif]-->
+<!-- Mirrored from seantheme.com/color-admin-v2.0/admin/html/map_google.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 May 2016 13:57:49 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <title>Censipam | Home</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="/Content/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/css/animate.min.css" rel="stylesheet" />
+    <link href="/Content/css/style.min.css" rel="stylesheet" />
+    <link href="/Content/css/style-responsive.min.css" rel="stylesheet" />
+    <link href="/Content/css/default.css" rel="stylesheet" />
+    <link href="Content/css/toastr.css" rel="stylesheet" />
+    <link href="/Content/css/MeusEstilos.css" rel="stylesheet" />
+    <script src="assets/plugins/pace/pace.min.js"></script>
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link href="assets/plugins/isotope/isotope.css" rel="stylesheet" />
+    <link href="assets/plugins/lightbox/css/lightbox.css" rel="stylesheet" />
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+
+
+    <style>
+        .panel-title .accordion-toggle {
+            background-color: black;
+        }
+    </style>
+
+</head>
+<body ng-controller="rootCtrl">
+
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+    <!-- begin #page-container -->
+    <div id="page-container" class="">
+
+        <top-Bar></top-Bar>
+
+        <menu-Lateral></menu-Lateral>
+
+
+        <!-- begin #content -->
+        <div id="content" class="">
+            <div ng-view></div>
+        </div>
+
+        <footer-Rodape></footer-Rodape>
+        <!-- end #content -->
+        <!-- begin scroll to top btn -->
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <!-- end scroll to top btn -->
+    </div>
+    <!-- end page container -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="/Content/js/jquery-1.9.1.min.js"></script>
+    <script src="/Content/js/jquery-ui.min.js"></script>
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <script src="/Content/js/jquery.slimscroll.min.js"></script>
+    <script src="/Content/js/jquery.cookie.js"></script>
+    <script src="/Scripts/lib/toastr.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    <!-- ================== BEGIN MAPS JS ================== -->
+    <!--<script src="/assets/js/map-google.demo.min.js"></script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqtAeRUm319gTb4CmACOp1u_kg_QnRUWQ" type="text/javascript"></script>
+    <!-- ================== END MAPS JS ================== -->
+
+    <script src="/Scripts/lib/angular.js"></script>
+    <script src="/Scripts/AppKor/modules/app.js"></script>
+    <script src="/Scripts/lib/angular-route.js"></script>
+    <script src="Scripts/lib/angular-cookies.js"></script>
+    <!--<script src="Scripts/lib/angular-ui-router.js"></script>-->
+    <script src="Scripts/lib/ocLazyLoad.js"></script>
+    <!--<script src="Scripts/lib/angular-animate.js"></script>-->
+    <script src="Scripts/lib/ui-bootstrap-tpls-0.13.1.js"></script>
+    <script src="Scripts/lib/angular-validator.js"></script>
+    <script src="Scripts/lib/angular-base64.js"></script>
+
+    <script src="Scripts/AppKor/services/apiService.js"></script>
+    <script src="Scripts/AppKor/services/notificationService.js"></script>
+    <script src="Scripts/AppKor/services/membershipService.js"></script>
+
+    <script src="Scripts/lib/ng-map.min.js"></script>
+    <script src="Scripts/AppKor/paginacao/customPager.directive.js"></script>
+    <script src="/Scripts/AppKor/layout/topBar.directive.js"></script>
+    <script src="Scripts/AppKor/layout/menuLateral.directive.js"></script>
+    <script src="Scripts/AppKor/layout/footer.directive.js"></script>
+    <script src="Scripts/AppKor/modules/rootCtrl.js"></script>
+    <script src="Scripts/AppKor/login/loginCtrl.js"></script>
+    <script src="Scripts/AppKor/home/homeCtrl.js"></script>
+    <script src="/Scripts/AppKor/cadusuario/cadusuarioCtrl.js"></script>
+    <script src="Scripts/AppKor/email/emailCtrl.js"></script>
+    <script src="Scripts/AppKor/fiscalizacaoonline/fiscalizacaoonlineCtrl.js"></script>
+    <script src="Scripts/AppKor/fiscalizacaooffline/fiscalizacaoofflineCtrl.js"></script>
+    <script src="Scripts/AppKor/cadfiscalizacao/cadfiscalizacaoCtrl.js"></script>
+    <script src="Scripts/AppKor/cadfiscalizacao/cadUsuariosfiscalizacaoModalCtrl.js"></script>
+    <script src="Scripts/AppKor/historicoAlarmes/historicoAlarmesCtrl.js"></script>
+    <script src="Scripts/AppKor/cadgrupos/cadgrupoCtrl.js"></script>
+    <script src="Scripts/AppKor/fiscalizacaooffline/detalhesFiscalizacaoOffLineCtrl.js"></script>
+    <script src="Scripts/AppKor/fiscalizacaoonline/detalhesFiscalizacaoOnLineCtrl.js"></script>
+    <script src="Scripts/AppKor/fiscalizacaoonline/detalhesModalCtrl.js"></script>
+    <script src="Scripts/AppKor/email/emailCtrl.js"></script>
+    <script src="Scripts/AppKor/mensagens/mensagensCtrl.js"></script>
+    <script src="Scripts/AppKor/imagens/imagensCtrl.js"></script>
+    <script src="Scripts/AppKor/dashboard/dashboardCtrl.js"></script>
+    <script src="Scripts/AppKor/historicoAlarmes/historicoAlarmesCtrl.js"></script>
+    <script src="Scripts/AppKor/error/errorCtrl.js"></script>
+
+    <script src="Scripts/AppKor/modules/config.js"></script>
+
+    <script src="/assets/js/apps.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            App.init();
+
+            //MapGoogle.init();
+        });
+    </script>
+
+
+</body>
+
+</html>

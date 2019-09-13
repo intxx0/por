@@ -1,0 +1,15 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        {{ 'DIGITAL_PLUG' | translate}}
+    </div>
+    <div class="panel-body">
+        <img src="http://179.190.28.106:8080/afs/FichaDigitalRenderServlet?numeroOcorrencia={{NumeroAutuacao}}" />
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="cancel()">
+                {{ 'CLOSE' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

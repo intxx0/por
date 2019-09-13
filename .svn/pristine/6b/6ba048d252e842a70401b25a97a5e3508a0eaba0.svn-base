@@ -1,0 +1,77 @@
+﻿
+<div id="sidebar" class="sidebar" ng-class="{ 'sidebar-transparent': setting.layout.pageSidebarTransparent }">
+    <!-- begin sidebar scrollbar -->
+
+    <div data-scrollbar="true" data-height="100%">
+        <!-- begin sidebar user -->
+        <!-- end sidebar user -->
+        <!-- begin sidebar nav -->
+        <ul class="nav">
+            <li class="nav-header">Navigation</li>
+            <li class="has-sub" ng-class="{active:$state.includes('app.dashboard')}">
+                <a href="javascript:;" ng-href="#/index">
+                    <i class="fa fa-laptop"></i>
+                    <span>{{ 'HOME' | translate }}</span>
+                </a>
+            </li>
+            <li class="has-sub" ng-class="{active:$state.includes('app.operations')}">
+                <a href="javascript:;" ng-href="#/naturezaoperacao">
+                    <i class="fa fa-crosshairs"></i>
+                    <span>{{ 'OPERATIONS' | translate }}</span>
+                </a>
+            </li>
+            <li class="has-sub" ng-class="{active:$state.includes('app.messages')}">
+                <a href="javascript:;" ng-href="#/mensagens">
+                    <i class="fa fa-envelope"></i>
+                    <span>{{ 'MESSAGES' | translate }}</span>
+                </a>
+            </li>
+            <li class="has-sub" ng-class="{active:$state.includes('app.email')}">
+                <a href="javascript:;" ng-href="#/emailsrecebidos">
+                    <span class="badge pull-right">10</span>
+                    <i class="fa fa-inbox"></i>
+                    <span>{{ 'EMAILS' | translate }}</span>
+                </a>
+            </li>
+            <li class="has-sub" ng-class="{active:$state.includes('app.images')}">
+                <a href="javascript:;" ng-href="#/imagens">
+                    <i class="fa fa-file-image-o"></i>
+                    <span>{{ 'IMAGES' | translate }}</span>
+                </a>
+            </li>
+            <li class="has-sub" ng-class="{active:$state.includes('app.operations')}">
+                <a href="javascript:;" ng-href="#/historicoAlarmes">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    <span>{{ 'EVENTS' | translate }}</span>
+                </a>
+            </li>
+            <li class="has-sub" ng-class="{active:$state.includes('app.configuration')}">
+                <a href="javascript:;" ng-href="#/cadoperacoes">
+                    <i class="fa fa-gear"></i>
+                    <span>{{ 'CONFIGURATION' | translate }}</span>
+                </a>
+            </li>
+            <li class="has-sub" ng-class="{active:$state.includes('app.ui')}" id="cadastroOpen">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b>
+                    <i class="fa fa-edit"></i>
+                    <span>{{ 'REGISTER' | translate }}</span>
+                </a>
+                <ul class="sub-menu">
+                    <li ui-sref-active="active"><a ui-sref="app.ui.typography" ng-href="#/cadoperacoes" translate="OPERATION">Operation</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.ui.general" ng-href="#/cadkor" translate="">KOR</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.ui.typography" ng-href="#/cadnaturezaoperacao" translate="NATURE">Operation Nature</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.ui.tabsAccordions" ng-href="#/cadtipofiscalizacao" translate="INSPECT">Inspection Type</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.ui.modalNotification" ng-href="#/cadusuario" translate="USERS">Users</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.ui.widgetBoxes" ng-href="#/cadgrupo" translate="GROUPS">Groups</a></li>
+                </ul>
+            </li>
+            <!-- begin sidebar minify button -->
+            <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+            <!-- end sidebar minify button -->
+        </ul>
+        
+        <!-- end sidebar nav -->
+    </div>
+    <!-- end sidebar scrollbar -->
+</div>

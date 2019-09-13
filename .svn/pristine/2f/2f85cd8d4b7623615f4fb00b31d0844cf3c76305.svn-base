@@ -1,0 +1,354 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using AutoMapper;
+using WebApiKor.InfraWeb;
+using WebApiKor.Models;
+
+namespace WebApiKor.Controllers
+{
+    [Authorize(Roles = "Operador,Administrador")]
+    [RoutePrefix("api/dashboard")]
+    public class DashboardFiscalizacoesController : ApiController
+    {
+
+        ModeloBancoEntities db = new ModeloBancoEntities();
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("fiscalizacaosemdocumentacao/{idOperacao:int}")]
+        public HttpResponseMessage GetFiscalizacaoSemDocumentacao(HttpRequestMessage request, int? idOperacao)
+        {
+
+
+            //int cont = 0;
+            HttpResponseMessage response = null;
+            List<DashboardFiscalizacaoViewModel> lstfiscalizacoes = new List<DashboardFiscalizacaoViewModel>();
+            List<DashboardFiscalizacaoViewModel> listafiscalizacaopordata = new List<DashboardFiscalizacaoViewModel>();
+            List<DashboardFiscalizacaoViewModel> lista = new List<DashboardFiscalizacaoViewModel>();
+
+            var fiscal =
+               db.fiscalizacao.Where(f => f.id_operacao == idOperacao).ToList();
+
+
+
+            if (fiscal.Count > 0)
+            {
+
+                foreach (var fiscaliza in fiscal)
+                {
+
+                    DashboardFiscalizacaoViewModel detalhes = new DashboardFiscalizacaoViewModel
+                    {
+                        DataFiscalizacao = fiscaliza.data_fiscalizacao.ToShortDateString(),
+
+                    };
+
+                    lstfiscalizacoes.Add(detalhes);
+                }
+
+
+                var listapordata = lstfiscalizacoes.GroupBy(f => f.DataFiscalizacao).Select(f => new { f.Key, Count = f.Count() });
+
+
+
+                foreach (var lst in listapordata)
+                {
+
+                    DashboardFiscalizacaoViewModel details = new DashboardFiscalizacaoViewModel
+                    {
+                        DataFiscalizacao = lst.Key,
+                        QtdFiscalizacoes = lst.Count
+
+                    };
+
+                    listafiscalizacaopordata.Add(details);
+                }
+
+                var listaOrdenada = listafiscalizacaopordata.OrderBy(d => d.DataFiscalizacao);
+
+                response = request.CreateResponse(HttpStatusCode.OK, listaOrdenada);
+
+            }
+            else
+            {
+
+                response = request.CreateResponse(HttpStatusCode.NotFound, "Operação não existe não existe");
+            }
+
+            return response;
+        }
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("fiscalizacaotipoautuacoes/{idOperacao:int}")]
+        public HttpResponseMessage GetFiscalizacaoTipoAutuacao(HttpRequestMessage request, int? idOperacao)
+        {
+
+            //int cont = 0;
+            HttpResponseMessage response = null;
+            List<DashboardFiscalizacaoViewModel> lstfiscalizacoes = new List<DashboardFiscalizacaoViewModel>();
+            List<DashboardFiscalizacaoViewModel> listafiscalizacaoportipoautuacao = new List<DashboardFiscalizacaoViewModel>();
+
+
+            var fiscal =
+               db.fiscalizacao.Where(f => f.id_operacao == idOperacao).ToList();
+
+
+            if (fiscal.Count > 0)
+            {
+
+                //foreach (var fiscaliza in fiscal)
+                //{
+
+                //    DashboardFiscalizacaoViewModel detalhes = new DashboardFiscalizacaoViewModel
+                //    {
+                //        IdStatusFiscalizacao = fiscaliza.id_status_fiscalizacao,
+
+                //    };
+
+                //    lstfiscalizacoes.Add(detalhes);
+                //}
+
+
+                var listapordata = fiscal.GroupBy(f => f.status_fiscalizacao.desc_status_fiscalizacao).Select(f => new { f.Key, Count = f.Count() });
+
+
+
+                foreach (var lst in listapordata)
+                {
+
+                    DashboardFiscalizacaoViewModel details = new DashboardFiscalizacaoViewModel
+                    {
+                        StatusFiscalizacao = lst.Key,
+                        QtdFiscalizacoes = lst.Count
+
+                    };
+
+                    listafiscalizacaoportipoautuacao.Add(details);
+                }
+
+                response = request.CreateResponse(HttpStatusCode.OK, listafiscalizacaoportipoautuacao);
+
+            }
+            else
+            {
+
+                response = request.CreateResponse(HttpStatusCode.NotFound, "Operação não existe não existe");
+            }
+
+            return response;
+        }
+
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("fiscalizacaotipomateriaprima/{idOperacao:int}")]
+        public HttpResponseMessage GetFiscalizacaoMateriaPrima(HttpRequestMessage request, int? idOperacao)
+        {
+
+            HttpResponseMessage response = null;
+            List<DashboardTipoMateriaPrimaViewModel> listafiscalizacaoportipomateriaprima = new List<DashboardTipoMateriaPrimaViewModel>();
+            List<item_guia> itemsGuias = new List<item_guia>();
+            List<DashboardTipoMateriaPrimaViewModel> listafiscalizacaoportipomateriaprima2 = new List<DashboardTipoMateriaPrimaViewModel>();
+
+
+
+            /*var numeroGuia = db.fiscalizacao
+                .Where(f => f.id_operacao == idOperacao && f.id_status_fiscalizacao != 1)
+                .Select(f => f.numero_guia).ToList();
+
+
+            if (numeroGuia.Count > 0)
+            {
+
+                foreach (var guia in numeroGuia)
+                {
+                    var IdGuia = db.guia.Where(g => g.numero_guia == guia).Select(i => i.id_guia).FirstOrDefault();
+
+                    itemsGuias = db.item_guia.Where(i => i.id_guia == IdGuia).ToList();
+
+
+                    var qtdTipoMateriaPrima =
+                        itemsGuias.GroupBy(i => i.descricao_item).Select(i => new { i.Key, Count = i.Count() });
+
+
+                    foreach (var lst in qtdTipoMateriaPrima)
+                    {
+
+                        DashboardTipoMateriaPrimaViewModel materiaPrima = new DashboardTipoMateriaPrimaViewModel
+                        {
+                            DescMateriaPrima = lst.Key,
+                            QtdAutuacoesMateriaPrima = lst.Count
+
+                        };
+
+                        listafiscalizacaoportipomateriaprima.Add(materiaPrima);
+                    }
+
+
+                }
+
+                var materiaPrimaAgrupada =
+                      listafiscalizacaoportipomateriaprima.GroupBy(i => i.DescMateriaPrima).Select(i => new { i.Key, Count = i.Count() });
+
+
+                foreach (var mp in materiaPrimaAgrupada)
+                {
+                    DashboardTipoMateriaPrimaViewModel materiaPrima = new DashboardTipoMateriaPrimaViewModel
+                    {
+                        DescMateriaPrima = mp.Key,
+                        QtdAutuacoesMateriaPrima = mp.Count
+
+                    };
+
+                    listafiscalizacaoportipomateriaprima2.Add(materiaPrima);
+
+                }
+
+                var listaMateriaPrimaOrdenada = listafiscalizacaoportipomateriaprima2.OrderBy(o => o.DescMateriaPrima);
+
+                response = request.CreateResponse(HttpStatusCode.OK, listaMateriaPrimaOrdenada);
+            }
+            else
+            {
+
+                response = request.CreateResponse(HttpStatusCode.NotFound, "Operação não existe não existe");
+            }*/
+
+            return response;
+        }
+
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("fiscalizacaoautuadasorigem/{idOperacao:int}")]
+        public HttpResponseMessage GetFiscalizacaoAutuadasOrigem(HttpRequestMessage request, int? idOperacao)
+        {
+            HttpResponseMessage response = null;
+            List<guia> guias = new List<guia>();
+            List<DashboardAutuadasOrigemViewModel> listaOrigem = new List<DashboardAutuadasOrigemViewModel>();
+
+
+            /*var numeroGuia = db.fiscalizacao
+                .Where(f => f.id_operacao == idOperacao && f.id_status_fiscalizacao != 1)
+                .Select(f => f.numero_guia).Distinct().ToList();
+
+            foreach (var guia in numeroGuia)
+            {
+                var fiscalizacoes = db.guia.Where(f => f.numero_guia == guia).FirstOrDefault();
+
+                guias.Add(fiscalizacoes);
+            }
+
+            if (guias.Count > 0)
+            {
+
+                for (int i = 0; i < guias.Count; i++)
+                {
+                    if (guias[i] == null)
+                    {
+                        guias.Remove(guias[i]);
+                    }
+                }
+
+                var origemAgrupada = guias.GroupBy(g => g.nome_origem).Select(i => new { i.Key, Count = i.Count() });
+
+
+
+                foreach (var or in origemAgrupada)
+                {
+                    DashboardAutuadasOrigemViewModel origemVM = new DashboardAutuadasOrigemViewModel
+                    {
+                        DescAutudasOrigem = or.Key,
+                        QtdAutuacoesOrigem = or.Count
+                    };
+
+                    listaOrigem.Add(origemVM);
+                }
+
+                response = request.CreateResponse(HttpStatusCode.OK, listaOrigem);
+            }
+            else
+            {
+                response = request.CreateResponse(HttpStatusCode.NotFound, "Operação não existe não existe");
+
+            }*/
+
+            return response;
+        }
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("pegaIdOperacao/{idFiscalizacao:int}")]
+        public HttpResponseMessage GetIdOperacao(HttpRequestMessage request, int? idFiscalizacao)
+        {
+
+            HttpResponseMessage response = null;
+
+
+
+            if (idFiscalizacao > 0)
+            {
+                var natureza = db.operacao.Where(o => o.id_operacao == idFiscalizacao).FirstOrDefault();
+
+
+                NaturezaOperacaoViewModel naturezaOperacao = new NaturezaOperacaoViewModel
+                {
+                    IdNaturezaOperacao = Convert.ToInt16(natureza.id_natureza_operacao)
+
+                };
+
+                response = request.CreateResponse(HttpStatusCode.OK, naturezaOperacao);
+
+            }
+            else
+            {
+                response = request.CreateResponse(HttpStatusCode.NotFound, "Id da operação não existe");
+            }
+
+
+            return response;
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("getDashboardData")]
+        public HttpResponseMessage GetDashboard(HttpRequestMessage request)
+        {
+
+            HttpResponseMessage response = null;
+            
+            //var db = db.operacao
+            //var query =
+            //       from fisc in db.fiscalizacao
+            //       join guia in db.guia on fisc.id_guia equals guia.id_guia
+            //       join ig in db.item_guia on guia.id_item_guia equals ig.id_item_guia
+            //       join tmp in db.tipo_materia_prima on ig.id_tipo_materia_prima equals tmp.id_tipo_materia_prima
+            //       where fisc.id_status_fiscalizacao != 1 group fisc by tmp.desc_materia_prima into total
+            //       select new { total = total., Meta = meta };
+
+
+
+
+
+            response = request.CreateResponse(HttpStatusCode.OK, "");
+
+
+
+            response = request.CreateResponse(HttpStatusCode.NotFound, "Id da operação não existe");
+
+
+            return response;
+        }
+
+    }
+}

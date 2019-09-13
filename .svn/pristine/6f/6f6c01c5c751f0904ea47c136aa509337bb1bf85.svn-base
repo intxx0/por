@@ -1,0 +1,70 @@
+﻿<div class="panel panel-primary">
+
+    <div class="panel-heading text-center">
+        <h3>{{ 'SEND_IMAGE' | translate }}</h3>
+    </div>
+
+    <div class="panel-body">
+
+        <div flow-init
+             flow-files-submitted="$flow.upload()"
+             flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+            <div class="drop" flow-drop ng-class="dropClass" style="text-align: center;">
+                <span class="btn btn-default" flow-btn>
+                    {{ 'SELECT_IMAGE' | translate }}
+                    <i class="fa fa-camera pull-right" aria-hidden="true" style="color: red" tooltip-enable="true" tooltip-trigger="mouseenter" tooltip-placement="bottom" tooltip="Imagem"></i>
+                </span>
+
+                <span class="btn btn-default" flow-btn flow-directory ng-show="$flow.supportDirectory">
+                    {{ 'LOAD_IMAGES' | translate }}
+                </span>
+            </div>
+            <br />
+
+            <div class="row">
+                <div ng-repeat="file in $flow.files" class="col-md-3" style="margin-top: 30px;">
+                    <span class="title">{{file.name}}</span>
+                    <div class="thumbnail" ng-show="$flow.files.length">
+
+                        <img flow-img="file" style="height: 150px; width: 150px;" />
+
+                    </div>
+
+                    <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                        <div class="progress-bar" role="progressbar"
+                             aria-valuenow="{{file.progress() * 100}}"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             ng-style="{width: (file.progress() * 100) + '%'}">
+                            <span class="sr-only">{{file.progress()}}% {{ 'COMPLETED' | translate }}</span>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn btn-xs btn-danger" ng-click="remove(file.cancel(), file.name)">
+                            {{ 'REMOVE' | translate }}
+                        </a>
+                        <a class="btn btn-xs btn-success" ng-click="enviar(file)" style="margin-left: 3px;">
+                            {{ 'SEND' | translate }}
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<div class="panel-footer clearfix">
+    <div class="pull-right">
+        <button type="button" class="btn btn-danger" id="fecharModal" ng-click="cancel()">
+            {{ 'CLOSE' | translate }}
+        </button>
+    </div>
+</div>
+
+</div>

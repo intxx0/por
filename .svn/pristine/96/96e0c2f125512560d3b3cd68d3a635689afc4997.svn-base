@@ -1,0 +1,167 @@
+﻿//Documentação para acessar api do mapa
+
+// https://ngmap.github.io/#/!control-custom-state.html
+
+(function (app) {
+    'use strict';
+
+    app.controller('homeCtrl', homeCtrl)
+
+    homeCtrl.$inject = ['$rootScope', '$scope', '$interval', '$http', '$routeParams', 'apiService', 'notificationService', '$translate', 'NgMap', '$timeout', '$route', '$document'];
+
+    function homeCtrl($rootScope, $scope, $interval, $http, $routeParams, apiService, notificationService, $translate, NgMap, $timeout, $route, $document) {
+
+        $scope.pegaEmergencias = pegaEmergencias;
+        $scope.pegaEmergenciaHistorico = pegaEmergenciaHistorico;
+
+        var vm = this;
+        NgMap.getMap().then(function (map) {
+            vm.map = map;
+        });
+
+        //vm.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAJrJYOH27JqSwP3Uf8Ppmi_2mGzlzC3MQ&language=en&region=US";
+        vm.googleMapsUrl = "key=AIzaSyAJrJYOH27JqSwP3Uf8Ppmi_2mGzlzC3MQ&language=en&region=US";
+        vm.pauseLoading = true;
+
+        $timeout(function () {
+            vm.pauseLoading = false;
+        }, 500);
+
+        $scope.locale = { 'language': $translate.use().substring(0, 2), 'region': $translate.use().substring(3, 2) };
+        
+        $scope.infoKor = [];
+        var position = [];
+
+        $scope.positions = [];
+        var generateMarkers = function () {
+
+            $scope.positions = [];
+
+            var numMarkers = Math.floor(Math.random() * 4) + 4; //between 4 to 8 markers
+
+
+            for (var i = 0; i < numMarkers; i++) {
+
+                var lat = -4.703559 + (Math.random() / 100);
+                var lng = -60.7906863 + (Math.random() / 100);
+                $scope.positions.push({ lat: lat, lng: lng });
+            }
+            console.log("positions", $scope.positions);
+        };
+
+
+        function pegaEmergencias() {
+
+            $http.get('http://localhost:62272/api/emergencia/listaemergencia', null).success(function (data) {
+
+                position = data.Items;
+
+                for (var i = 0; i < position.length; i++) {
+
+                    var separada = position[i];
+
+                    var linha = [];
+
+                    if (separada.IdEmergencia !== undefined) {
+
+                        linha = separada.Coordenada.split(",");
+
+                        var lng = linha[0].replace("{lg: ", "");
+                        var lat = linha[1].replace(" lat: ", "").replace("}", "");
+
+                        $scope.positions.push({ lat: lat, lng: lng });
+                    }
+                }
+
+            });
+        }
+
+
+
+
+
+        function pegaEmergenciaHistorico() {
+
+            if ($routeParams.idEmergencia > 0) {
+
+                apiService.get('/api/emergencia/listaemergenciahistorico/' + $routeParams.idEmergencia, null,
+                loadHistoricoEmergenciaSuccess,
+                loadHistoricoEmergenciaFailed);
+            }
+
+
+        }
+
+        function loadHistoricoEmergenciaSuccess(result) {
+
+            var resultado = result.data.Items;
+
+            $scope.infoKor = resultado;
+
+
+        }
+
+        function loadHistoricoEmergenciaFailed(result) {
+
+            notificationService.displayError('Erro ao buscar kor no banco de dados!');
+        }
+
+        //----------------------------------------------- CHARTS AREA----------------------------------------------
+        //General 
+        $scope.options = {
+            legend: {
+                display: true,
+                position: 'bottom'
+            }
+        }
+        $scope.barOptions = {
+            legend: {
+                display: true,
+                position: 'top'
+            }
+        }
+        //First chart of all operations
+        $scope.PieOperacaolabels = ["Isis", "Escudo do deserto", "Minustah"];
+        $scope.PieOperacaoseries = ["Quantidade"];
+        $scope.PieOperacaodata = [65, 59, 80,];
+        $scope.PieOperacaocolors = ["rgb(151,187,205)", "rgb(247,70,74)", "rgb(148,159,177)"];
+        $scope.options = {
+            legend: {
+                    display: true,
+                    position: 'bottom'
+            }
+        }
+        $scope.onClick = function (points, evt) {
+            console.log(points, evt);
+        };
+
+        //second chart of infractions by feedstocktype
+        $scope.InfractionFeedStocklabels = ['Mogno', 'PauBrasil', 'Carvalho', 'CarvalhoVermelho', 'Salgueiro', 'Pinheiro'];
+        $scope.InfractionFeedStockseries = [['Quantidade']];
+        $scope.InfractionFeedStockdata = [[65, 59, 49, 61, 56, 55]];
+        //third chart of infrations by infraction type
+        $scope.labels = ["Execesso de Peso", "Documentação fraudulenta", "Carga ilegal"];
+        $scope.data = [1, 4, 2];
+        $scope.colors = ["rgb(151,187,205)", "rgb(247,70,74)", "rgb(148,159,177)"];
+
+        //forth chart infraction by days
+        $scope.InfractionDaylabels = ["17/09", "18/09", "19/09"];
+        $scope.InfractionDayseries = [['Quantidade']];
+        $scope.InfractionDaydata = [[65, 59, 80, 81, 56, 55, 40]];
+        $scope.onClick = function (points, evt) {
+            console.log(points, evt);
+        };
+        //fifth chart surveillances that were noticed or not by day
+        $scope.InfractionPercentlabels = ['17/09', '17/09', '17/09', '17/09', '17/09', '17/09'];
+        $scope.InfractionPercentseries = ['Total', 'Autuadas'];
+        $scope.InfractionPercentdata =[ [65, 59, 49, 61, 56, 55],
+                                       [28, 48, 40, 19, 20, 27]];
+        $scope.InfractionPercentcolors = ["rgb(151,187,205)", "rgb(250,109,33)"];
+        //----------------------------------------------- CHARTS AREA----------------------------------------------
+        //Pegando Alarmes não atendidos
+        pegaEmergencias();
+        pegaEmergenciaHistorico();
+
+    }
+
+})(angular.module('AppKor'));

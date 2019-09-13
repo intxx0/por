@@ -1,0 +1,76 @@
+﻿<div ng-controller="emailCtrl">
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;" ng-href="#/index">{{ 'HOME' | translate }}</a></li>
+        <li><a href="javascript:;" ng-href="#/emailsrecebidos">{{ 'EMAILS' | translate }}</a></li>
+        <li class="active">{{ 'NEW_EMAIL' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'EMAILS' | translate }} - {{ 'NEW_EMAIL' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-2 -->
+        <div class="col-md-2">
+            <form>
+                <div class="input-group m-b-15">
+                    <input type="text" class="form-control input-sm input-white" placeholder="{{ 'SEARCH_EMAIL' | translate }}" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-sm btn-inverse" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+            <div class="hidden-sm hidden-xs">
+                <ul class="nav nav-pills nav-stacked nav-inbox" style="width:180px;">
+                    <li>
+                        <a ng-href="#/emailsrecebidos">
+                            <i class="fa fa-inbox fa-fw m-r-5"></i> {{ 'INBOX' | translate }} ({{EmailsRecebidosTotal}})
+                        </a>
+                    </li>
+                    <li><a ng-href="#/emailsenviados"><i class="fa fa-inbox fa-fw m-r-5"></i> {{ 'SENT' | translate }}</a></li>
+                    <li><a ng-href="#/emailsexcluidos"><i class="fa fa-trash-o fa-fw m-r-5"></i> {{ 'DELETED' | translate }}</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- end col-2 -->
+        <!-- begin col-10 -->
+        <div class="col-md-10">
+            <div class="wrapper" style="padding-top:0px!important;">
+                <div class="p-30 bg-white">
+                    <!-- begin email form -->
+                    <form name="cadEmail" role="form" ng-submit="enviarEmail()">
+                        <!-- begin email to -->
+                        <label class="control-label">{{ 'TO' | translate }}:</label>
+                        <div class="m-b-15">
+                            <input type="text" class="form-control" placeholder="{{ 'ENTER_EMAIL' | translate }}" ng-model="novoEmail.Para">
+                        </div>
+                        <!-- end email to -->
+                        <label class="control-label">C/C:</label>
+                        <div class="m-b-15">
+                            <input type="text" class="form-control" ng-model="novoEmail.Copia">
+                        </div>
+                        <!-- begin email subject -->
+                        <label class="control-label">{{ 'SUBJECT' | translate }}:</label>
+                        <div class="m-b-15">
+                            <input type="text" id="txtAssuntoEmail" class="form-control" placeholder="{{ 'ENTER_EMAIL_SUBJECT' | translate }}" ng-model="novoEmail.Assunto">
+                        </div>
+                        <!-- end email subject -->
+                        <!-- begin email content -->
+                        <label class="control-label">{{ 'MESSAGE' | translate }}:</label>
+                        <div class="m-b-15">
+                            <textarea rows="5" id="txtTextoEmail" placeholder="{{ 'ENTER_MESSAGE_CONTENT' | translate }}" class="form-control" ng-model="novoEmail.Texto"></textarea>
+                        </div>
+                        <!-- end email content -->
+                        <button type="submit" class="btn btn-primary p-l-40 p-r-40">{{ 'SEND' | translate }}</button>
+                    </form>
+                    <!-- end email form -->
+                </div>
+            </div>
+
+        </div>
+        <!-- end col-10 -->
+    </div>
+    <!-- end row -->
+</div>

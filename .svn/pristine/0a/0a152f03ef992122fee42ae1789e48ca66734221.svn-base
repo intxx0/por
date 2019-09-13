@@ -1,0 +1,215 @@
+﻿(function (app) {
+    'use strict';
+
+    app.controller('topBarCtrl', topBarCtrl);
+
+    topBarCtrl.$inject = ['$scope', '$http', 'apiService', 'notificationService', '$timeout', '$rootScope', '$location'];
+
+    function topBarCtrl($scope, $http, apiService, notificationService, $timeout, $rootScope, $location) {
+
+
+
+        // #region Variáveis
+
+        var promiseMensagens;
+        var promiseEmergencias;
+        var promiseEmails;
+        var contadorMensagens = 5;
+        var contadorEmergencias = 5;
+        var contadorEmails = 5;
+        $scope.editProfile = editProfile;
+        
+
+        // #endregion
+     
+
+
+        // #region Verifica Mensagens não lidas
+
+        function verificaMensagensNaoLidas() {
+
+            apiService.get('/api/mensagem/listamensagem', null,
+                loadMensagensSuccess,
+                loadMensagensFailed);
+        }
+
+        function loadMensagensSuccess(result) {
+
+            $scope.MensagensNaoLidas = result.data;
+
+
+        }
+
+        function loadMensagensFailed(result) {
+
+        }
+
+
+        // #endregion
+     
+
+
+
+        // #region Verifica Emergencias não atendidas
+
+
+        function verificaEmergenciasAtivas() {
+            apiService.get('/api/emergencia/lista_qtd_emergencia_sem_atendimento', null,
+                loadEmergenciasAtivasSuccess,
+                loadEmergenciasAtivasFailed);
+        }
+
+        function loadEmergenciasAtivasSuccess(result) {
+
+            var tamanho = result.data;
+
+            if (tamanho == "") {
+
+                tamanho = 0;
+            }
+
+            $scope.EmergenciasAtivas = tamanho;
+        }
+
+        function loadEmergenciasAtivasFailed(result) {
+
+
+        }
+
+
+
+        // #endregion
+
+
+
+        // #region Verifica E-mails não lidos
+
+        function verificaEmailsNaoLidos() {
+
+            apiService.get('/api/email/lista_qtd_emails_nao_lidos', null,
+                loadVerificaEmailsSuccess,
+                loadVerificaEmailsFailed);
+        }
+
+        function loadVerificaEmailsSuccess(result) {
+            
+            var tamanho = result.data;
+
+            if (tamanho == "") {
+
+                tamanho = 0;
+            }
+
+            $scope.EmailsNaoLidos = tamanho;
+        }
+
+        function loadVerificaEmailsFailed(result) {
+            
+        }
+
+        // #endregion
+
+
+
+        //Chama a API de tempos em tempos para verificar se tem alguma mensagem não lida
+
+        function ativarRefreshMensagens() {
+            contadorMensagens--;
+            if (contadorMensagens === 0) {
+                verificaEmergenciasAtivas();
+                contadorMensagens = 5;
+
+
+            }
+            promiseMensagens = $timeout(ativarRefreshMensagens, 1000);
+        }
+
+
+        //Chama a API de tempos em tempos para verificar se tem alguma emergência não atendida
+
+        function ativarRefreshEmergenciasAtivas() {
+            contadorEmergencias--;
+            if (contadorEmergencias === 0) {
+                verificaMensagensNaoLidas();
+                contadorEmergencias = 5;
+
+
+            }
+            promiseEmergencias = $timeout(ativarRefreshEmergenciasAtivas, 1000);
+        }
+
+
+        //Chama a API de tempos em tempos para verificar se tem algum email não lido
+
+        function ativarRefreshEmailsNaoLidos() {
+            contadorEmails--;
+            if (contadorEmails === 0) {
+                verificaEmailsNaoLidos();
+                contadorEmails = 5;
+
+
+            }
+            promiseEmails = $timeout(ativarRefreshEmailsNaoLidos, 1000);
+        }
+
+        function loadUserData() {
+
+            var userData = JSON.parse(localStorage.getItem('userData'));
+            $scope.UserId = userData.UsuarioId;
+            $scope.UserName = userData.DescNome;
+
+        }
+
+        function editProfile(userId) {
+
+            $location.path('/cadusuario/' + userId);
+            
+        }
+
+        function getUserData(login) {
+
+            apiService.get('/api/usuarios/getuserdata/' + login + '/', null,
+                loadUserDataSuccess,
+                loadUserDataFailed);
+
+        }
+
+        function loadUserDataSuccess(result) {
+
+            localStorage.setItem('userData', JSON.stringify(result.data));
+            $scope.UserId = result.data.UserId;
+            $scope.UserName = result.data.UserName;
+
+        }
+
+        function loadUserDataFailed(result) {
+        }
+
+
+        //cancela todas as requisiçoes de tempos em tempos ao sair da aplicação
+
+        $scope.$on('$destroy', function () {
+            $timeout.cancel(promiseMensagens);
+            $timeout.cancel(promiseEmergencias);
+            $timeout.cancel(promiseEmails);
+        });
+
+
+
+        // #region Chamada de métodos ao carregar página
+
+        verificaMensagensNaoLidas();
+        verificaEmergenciasAtivas();
+        verificaEmailsNaoLidos();
+
+        ativarRefreshMensagens();
+        ativarRefreshEmergenciasAtivas();
+        ativarRefreshEmailsNaoLidos();
+        setTimeout(loadUserData, 1000);
+
+        // #endregion
+
+
+    }
+
+})(angular.module('AppKor'));

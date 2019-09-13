@@ -1,0 +1,123 @@
+﻿(function (app) {
+    'use strict';
+
+    app.controller('operacaoCtrl', operacaoCtrl);
+
+    operacaoCtrl.$inject = ['$scope', 'apiService', 'notificationService', '$translate', '$modal'];
+
+    function operacaoCtrl($scope, apiService, notificationService, $translate, $modal) {
+
+        $scope.clearFields = clearFields;
+        $scope.doSearch = doSearch;
+        
+        $scope.Usuarios = [];
+        $scope.Kor = [];
+        $scope.TiposFiscalizacao = [];
+        $scope.Operacoes = [];
+
+        $scope.loadAtividades = listarAtividades;
+        $scope.loadKor = listarKors;
+        $scope.loadProfissionais = listarProfissionais;
+
+        $scope.TotalOperacoes = 0;
+        $scope.Filtro = {};
+
+        $scope.modelOperacao = {};
+
+        var config = {
+            params: {
+                page: 0,
+                pageSize: 10,
+                filter: null
+            }
+        };
+
+        function doSearch(modelOp) {
+            $scope.Filtro = modelOp;
+            notificationService.displaySuccess('Operações Filtradas com sucesso');
+
+            clearFields();
+        }
+
+        function listarOperacoes() {
+
+            apiService.get('/api/operacoes/listaoperacao', null,
+                function (result) {
+                    $scope.Operacoes = result.data.Items;
+                    $scope.TotalOperacoes = result.data.Count;
+
+                    forEach($scope.Operacoes, function (value, key) {
+                        var descStatus = "";
+
+                        if ($scope.Operacoes[key].Ativo == 0)
+                            descStatus = "Ativo";
+                        else 
+                            descStatus = $scope.Operacoes[key].Ativo == 1 ? "Aguardando" : "Inativo";
+
+                        $scope.Operacoes[key].DescStatus = descStatus;
+                    });
+                },
+                function (result) {
+                    notificationService.displayError($translate.instant('ERROR_LOAD_INSPECTIONS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+
+        function listarAtividades(IdOperacao) {
+
+            apiService.get('/api/tipofiscalizacao/listaatividades/' + IdOperacao , null,
+                (result) => {
+                    $scope.TiposFiscalizacao = result.data;
+                },
+                (result) => {
+                    console.log(result.data);
+                    notificationService.displayError($translate.instant('ERROR_LOAD_INSPECTIONS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+
+        function listarKors(IdAtividade) {
+
+            console.log(IdAtividade);
+
+            apiService.get('/api/kor/listakorbyativadade/' + IdAtividade, null,
+                (result) => {
+                    var newItem = new function () {
+                        this.IdKor = undefined;
+                        this.Nome = $translate.instant('ALL');
+                    };
+                    result.data.push(newItem);
+                    $scope.Kor = result.data;
+                },
+                (result) => {
+                    notificationService.displayError($translate.instant('ERROR_LOAD_MISSIONS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+
+        function listarProfissionais(IdAtividade, IdKor) {
+
+            apiService.get('/api/usuarios/listausuariosfiltro/' + IdAtividade + '/' + IdKor, null,
+                (result) => {
+                    var newItem = new function () {
+                        this.UsuarioId = undefined;
+                        this.DescNome = $translate.instant('ALL');
+                    };
+                    result.data.push(newItem);
+                    $scope.Usuarios = result.data;
+                    console.log(result.data);
+                },
+                (result) => {
+                    notificationService.displayError($translate.instant('ERROR_LOAD_MISSIONS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+        
+
+        function clearFields() {
+            $scope.Operacao = [];
+            $scope.modelOperacao = {}; 
+        }
+
+
+        clearFields();
+        listarOperacoes();
+    }
+
+})(angular.module('AppKor'));

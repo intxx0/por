@@ -1,0 +1,170 @@
+﻿(function (app) {
+    'use strict';
+
+    app.controller('operacaoCtrl', operacaoCtrl);
+
+    operacaoCtrl.$inject = ['$scope', 'apiService', 'notificationService', '$translate', '$modal'];
+
+    function operacaoCtrl($scope, apiService, notificationService, $translate, $modal) {
+
+        $scope.clearFields = clearFields;
+        $scope.doSearch = doSearch;
+        $scope.onChangeInstituicao = loadNaturezaOperacao;
+        $scope.onChangeNatureza = loadOperacao;
+
+        $scope.NaturezaOperacao = [];
+        $scope.TiposFiscalizacao = [];
+        $scope.Operacoes = [];
+        $scope.TotalOperacoes = 0;
+        $scope.Filtro = {};
+
+        $scope.modelOperacao = {};
+
+        var config = {
+            params: {
+                page: 0,
+                pageSize: 10,
+                filter: null
+            }
+        };
+        var naturezas = [];
+        var instituicoes = [];
+
+        function carregaInfos() {
+            apiService.get('/api/instituicao/listainstituicao', config,
+                function (result) {
+                    instituicoes = result.data.Items;
+
+                    apiService.get('/api/naturezaoperacao/listanaturezaoperacao', config,
+                        function (result) {
+                            naturezas = result.data.Items;
+                            listarOperacoes();
+                        },
+                        function (result) {
+                            console.log(result.data);
+                        });
+                },
+                function (result) {
+                    console.log(result.data);
+                });
+        }
+
+        function loadInstituicao() {
+
+            apiService.get('/api/instituicao/listainstituicao', config,
+                function (result) {
+                    var newItem = new function () {
+                        this.IdInstituicao = undefined;
+                        this.NomeInstituicao = $translate.instant('ALL');
+                    };
+                    result.data.Items.push(newItem);
+                    $scope.Instituicao = result.data.Items;
+                },
+                function (result) {
+                    notificationService.displayError($translate.instant('ERROR_LOAD_OPERATIONS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+
+        }
+
+        function loadNaturezaOperacao(idInstituicao) {
+            var rota = "";
+           
+
+            if (idInstituicao != undefined)
+                rota = "listanaturezaoperacaobyinstituicao/" + idInstituicao;
+            else
+                rota = "listanaturezaoperacao";
+
+            apiService.get('/api/naturezaoperacao/' + rota, config,
+                function (result) {
+                    if (result.data.Count > 0) {
+                        var newItem = new function () {
+                            this.IdNaturezaOperacao = undefined;
+                            this.DescnaturezaOperacao = $translate.instant('ALL');
+                        };
+                        result.data.Items.push(newItem);
+                        $scope.NaturezaOperacao = result.data.Items;
+                    } else {
+                        $scope.NaturezaOperacao = [];
+                        $scope.Operacao = [];
+                        notificationService.displayWarning($translate.instant('NATURE_NOT_FOUND'));
+                    }
+                    
+                },
+                function (result) {
+                    notificationService.displayError($translate.instant('ERROR_LOAD_NATURE') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+
+        function loadOperacao(idNatureza) {
+
+            var rota = "";
+
+            if (idNatureza != undefined)
+                rota = "listaoperacaobynatureza/" + idNatureza;
+            else
+                rota = "listaoperacao";
+
+            apiService.get('/api/operacoes/' + rota, config,
+                function (result) {
+                    if (result.data.Count > 0) {
+                        var newItem = new function () {
+                            this.IdOperacao = undefined;
+                            this.DescOperacao = $translate.instant('ALL');
+                        };
+                        result.data.Items.push(newItem);
+                        $scope.Operacao = result.data.Items;
+                    } else {
+                        $scope.Operacao = [];
+                        notificationService.displayWarning($translate.instant('OPERATION_NOT_FOUND'));
+                    }
+                },
+                function (result) {
+                    notificationService.displayError($translate.instant('ERROR_LOAD_OPERATIONS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+
+        function doSearch(modelOp) {
+            $scope.Filtro = modelOp;
+            notificationService.displaySuccess('Operações Filtradas com sucesso');
+
+            clearFields();
+        }
+
+        function listarOperacoes() {
+            apiService.get('/api/operacoes/listaoperacao', null,
+                function (result) {
+                    
+                    $scope.Operacoes = result.data.Items;
+                    $scope.TotalOperacoes = result.data.Count;
+
+                    forEach($scope.Operacoes, function (value, key) {
+                        var descStatus = "";
+
+                        if ($scope.Operacoes[key].Ativo == 0)
+                            descStatus = "Ativo";
+                        else 
+                            descStatus = $scope.Operacoes[key].Ativo == 1 ? "Aguardando" : "Inativo";
+
+                        $scope.Operacoes[key].DescStatus = descStatus;
+                        $scope.Operacoes[key].DescInstituicao = instituicoes.find(i => i.IdInstituicao === $scope.Operacoes[key].IdInstituicao).NomeInstituicao;
+                        $scope.Operacoes[key].DescNatureza = naturezas.find(n => n.IdNaturezaOperacao === $scope.Operacoes[key].IdNaturezaOperacao).DescnaturezaOperacao;
+                    });
+                },
+                function (result) {
+                    notificationService.displayError($translate.instant('ERROR_LOAD_INSPECTIONS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+
+        function clearFields() {
+            $scope.Operacao = [];
+            $scope.NaturezaOperacao = [];
+            $scope.modelOperacao = {}; 
+        }
+
+        clearFields();
+        carregaInfos();
+        loadInstituicao();
+    }
+
+})(angular.module('AppKor'));

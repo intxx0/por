@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModeloBancoKor" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="caixa_email">
+    <Key>
+      <PropertyRef Name="caixa_email_id" />
+    </Key>
+    <Property Name="caixa_email_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario_id" Type="Int32" />
+    <Property Name="destinatario" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="remetente" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="assunto" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ativo" Type="Int32" />
+    <Property Name="enviado" Type="Int32" />
+    <Property Name="baixado" Type="Int32" />
+    <Property Name="datacriado" Type="DateTime" Precision="3" />
+    <Property Name="deleted" Type="Int32" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_caixa_email_usuario" FromRole="caixa_email" ToRole="usuario" />
+    <Property Name="visualizado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="emergencia">
+    <Key>
+      <PropertyRef Name="emergencia_id" />
+    </Key>
+    <Property Name="emergencia_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario_id" Type="Int32" />
+    <Property Name="usuario_atendeu_id" Type="Int32" />
+    <Property Name="latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="coordenada" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="datacriado" Type="DateTime" Precision="3" />
+    <Property Name="deleted" Type="Int32" />
+    <Property Name="ativo" Type="Int32" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_emergencia_usuario" FromRole="emergencia" ToRole="usuario" />
+    <NavigationProperty Name="usuario1" Relationship="Self.FK_emergencia_usuario1" FromRole="emergencia" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="fiscalizacao">
+    <Key>
+      <PropertyRef Name="id_fiscalizacao" />
+    </Key>
+    <Property Name="id_fiscalizacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="data_fiscalizacao" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="posto" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="numero_guia" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="qtd_verificada" Type="Int32" />
+    <Property Name="placa_registro" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="nota_fiscal" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="validade_documento" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="id_status_fiscalizacao" Type="Int32" />
+    <Property Name="id_operacao" Type="Int32" Nullable="false" />
+    <Property Name="ativo" Type="Int32" />
+    <NavigationProperty Name="status_fiscalizacao" Relationship="Self.FK_fiscalizacao_status_fiscalizacao" FromRole="fiscalizacao" ToRole="status_fiscalizacao" />
+    <NavigationProperty Name="imagem" Relationship="Self.FK_imagem_fiscalizacao" FromRole="fiscalizacao" ToRole="imagem" />
+    <Property Name="id_tipo_fiscalizacao" Type="Int32" />
+    <NavigationProperty Name="fiscalizacao1" Relationship="ModeloBancoKor.FK_fiscalizacao_fiscalizacao" FromRole="fiscalizacao" ToRole="fiscalizacao1" />
+    <NavigationProperty Name="fiscalizacao2" Relationship="ModeloBancoKor.FK_fiscalizacao_fiscalizacao" FromRole="fiscalizacao1" ToRole="fiscalizacao" />
+  </EntityType>
+  <EntityType Name="fiscalizacao_operacao">
+    <Key>
+      <PropertyRef Name="id_fiscalizacao_operacao" />
+    </Key>
+    <Property Name="id_fiscalizacao_operacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_operacao" Type="Int32" Nullable="false" />
+    <Property Name="id_fiscalizacao" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="operacao" Relationship="Self.FK_fiscalizacao_operacao_operacao" FromRole="fiscalizacao_operacao" ToRole="operacao" />
+    <NavigationProperty Name="tipo_fiscalizacao" Relationship="ModeloBancoKor.FK_fiscalizacao_operacao_fiscalizacao1" FromRole="fiscalizacao_operacao" ToRole="tipo_fiscalizacao" />
+  </EntityType>
+  <EntityType Name="grupo">
+    <Key>
+      <PropertyRef Name="grupo_id" />
+    </Key>
+    <Property Name="grupo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="datacriado" Type="DateTime" Precision="3" />
+    <Property Name="ativo" Type="Int32" />
+    <Property Name="datamodificado" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_usuario_grupo" FromRole="grupo" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="guia">
+    <Key>
+      <PropertyRef Name="id_guia" />
+    </Key>
+    <Property Name="id_guia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numero_guia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome_emissor" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="cnpj_emissor" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="municipio_emissor" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="nome_origem" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="municipio_origem" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nome_destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="municipio_destino" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="placa_registro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numero_notafiscal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="data_emissao_guia" Type="DateTime" Precision="3" />
+    <Property Name="data_validade_inicio" Type="DateTime" Precision="3" />
+    <Property Name="data_validade_fim" Type="DateTime" Precision="3" />
+    <Property Name="ativo" Type="Int32" />
+    <Property Name="quantidade" Type="Int32" />
+    <Property Name="unidade_medida" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="item_guia" Relationship="Self.FK_item_guia_guia" FromRole="guia" ToRole="item_guia" />
+  </EntityType>
+  <EntityType Name="imagem">
+    <Key>
+      <PropertyRef Name="imagem_id" />
+    </Key>
+    <Property Name="imagem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="usuario_id" Type="Int32" />
+    <Property Name="id_fiscalizacao" Type="Int32" />
+    <Property Name="datacriado" Type="DateTime" Precision="3" />
+    <Property Name="ativo" Type="Int32" />
+    <NavigationProperty Name="fiscalizacao" Relationship="Self.FK_imagem_fiscalizacao" FromRole="imagem" ToRole="fiscalizacao" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_imagem_usuario" FromRole="imagem" ToRole="usuario" />
+    <Property Name="img_base64" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="item_guia">
+    <Key>
+      <PropertyRef Name="id_item_guia" />
+    </Key>
+    <Property Name="id_item_guia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_tipo_materia_prima" Type="Int32" />
+    <Property Name="descricao_item" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="id_guia" Type="Int32" />
+    <Property Name="qtd_item" Type="Int32" />
+    <Property Name="unidade_item" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="valor_item" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ativo" Type="Int32" />
+    <NavigationProperty Name="guia" Relationship="Self.FK_item_guia_guia" FromRole="item_guia" ToRole="guia" />
+    <NavigationProperty Name="tipo_materia_prima" Relationship="Self.FK_item_guia_tipo_materia_prima" FromRole="item_guia" ToRole="tipo_materia_prima" />
+  </EntityType>
+  <EntityType Name="kor">
+    <Key>
+      <PropertyRef Name="id_kor" />
+    </Key>
+    <Property Name="id_kor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome_kor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="modelo_kor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numero_serie_kor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ativo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="kor_operacao" Relationship="Self.FK_kor_operacao_kor" FromRole="kor" ToRole="kor_operacao" />
+  </EntityType>
+  <EntityType Name="kor_operacao">
+    <Key>
+      <PropertyRef Name="id_kor_operacao" />
+    </Key>
+    <Property Name="id_kor_operacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_kor" Type="Int32" Nullable="false" />
+    <Property Name="id_operacao" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="kor" Relationship="Self.FK_kor_operacao_kor" FromRole="kor_operacao" ToRole="kor" />
+  </EntityType>
+  <EntityType Name="mensagem">
+    <Key>
+      <PropertyRef Name="mensagem_id" />
+    </Key>
+    <Property Name="mensagem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario_id" Type="Int32" />
+    <Property Name="usuario_destino_id" Type="Int32" />
+    <Property Name="texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="visualizado" Type="Int32" />
+    <Property Name="baixado" Type="Int32" />
+    <Property Name="datacriado" Type="DateTime" Precision="3" />
+    <Property Name="datamodificado" Type="DateTime" Precision="3" />
+    <Property Name="deleted" Type="Int32" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_mensagem_usuario" FromRole="mensagem" ToRole="usuario" />
+    <NavigationProperty Name="usuario1" Relationship="Self.FK_mensagem_usuario1" FromRole="mensagem" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="natureza_operacao">
+    <Key>
+      <PropertyRef Name="id_natureza_operacao" />
+    </Key>
+    <Property Name="id_natureza_operacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="desc_natureza_operacao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ativo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="operacao" Relationship="Self.FK_operacao_natureza_operacao" FromRole="natureza_operacao" ToRole="operacao" />
+  </EntityType>
+  <EntityType Name="operacao">
+    <Key>
+      <PropertyRef Name="id_operacao" />
+    </Key>
+    <Property Name="id_operacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="desc_operacao" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="id_natureza_operacao" Type="Int32" />
+    <Property Name="nome_responsavel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cargo_responsavel" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="instituicao_responsavel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email_responsavel" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="tel_responsavel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="desc_observacao" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="data_criado_operacao" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="data_final_operacao" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="ativo" Type="Int32" />
+    <Property Name="usuario_id" Type="Int32" />
+    <NavigationProperty Name="fiscalizacao_operacao" Relationship="Self.FK_fiscalizacao_operacao_operacao" FromRole="operacao" ToRole="fiscalizacao_operacao" />
+    <NavigationProperty Name="natureza_operacao" Relationship="Self.FK_operacao_natureza_operacao" FromRole="operacao" ToRole="natureza_operacao" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_operacao_usuario" FromRole="operacao" ToRole="usuario" />
+    <NavigationProperty Name="usuario_operacao" Relationship="Self.FK_usuario_operacao_operacao" FromRole="operacao" ToRole="usuario_operacao" />
+  </EntityType>
+  <EntityType Name="smtp_email">
+    <Key>
+      <PropertyRef Name="id_smtp" />
+    </Key>
+    <Property Name="id_smtp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="desc_smtp" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ativo" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="status_fiscalizacao">
+    <Key>
+      <PropertyRef Name="id_status_fiscalizacao" />
+    </Key>
+    <Property Name="id_status_fiscalizacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="desc_status_fiscalizacao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ativo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="fiscalizacao" Relationship="Self.FK_fiscalizacao_status_fiscalizacao" FromRole="status_fiscalizacao" ToRole="fiscalizacao" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tipo_fiscalizacao">
+    <Key>
+      <PropertyRef Name="id_tipo_fiscalizacao" />
+    </Key>
+    <Property Name="id_tipo_fiscalizacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="desc_tipo_fiscalizacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ativo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="fiscalizacao_operacao" Relationship="ModeloBancoKor.FK_fiscalizacao_operacao_fiscalizacao1" FromRole="tipo_fiscalizacao" ToRole="fiscalizacao_operacao" />
+  </EntityType>
+  <EntityType Name="tipo_materia_prima">
+    <Key>
+      <PropertyRef Name="id_tipo_materia_prima" />
+    </Key>
+    <Property Name="id_tipo_materia_prima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ativo" Type="Int32" />
+    <Property Name="desc_materia_prima" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="item_guia" Relationship="Self.FK_item_guia_tipo_materia_prima" FromRole="tipo_materia_prima" ToRole="item_guia" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="usuario_id" />
+    </Key>
+    <Property Name="usuario_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grupo_id" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="identificador" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="imap_server" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="email_senha" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="senha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="coordenada" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="data_posicao" Type="DateTime" Precision="3" />
+    <Property Name="data_criado" Type="DateTime" Precision="3" />
+    <Property Name="ultimo_acesso" Type="DateTime" Precision="3" />
+    <Property Name="qtd_acessos" Type="Int32" />
+    <Property Name="ativo" Type="Int32" />
+    <Property Name="deleted" Type="Int32" />
+    <NavigationProperty Name="caixa_email" Relationship="Self.FK_caixa_email_usuario" FromRole="usuario" ToRole="caixa_email" />
+    <NavigationProperty Name="emergencia" Relationship="Self.FK_emergencia_usuario" FromRole="usuario" ToRole="emergencia" />
+    <NavigationProperty Name="emergencia1" Relationship="Self.FK_emergencia_usuario1" FromRole="usuario" ToRole="emergencia" />
+    <NavigationProperty Name="grupo" Relationship="Self.FK_usuario_grupo" FromRole="usuario" ToRole="grupo" />
+    <NavigationProperty Name="imagem" Relationship="Self.FK_imagem_usuario" FromRole="usuario" ToRole="imagem" />
+    <NavigationProperty Name="mensagem" Relationship="Self.FK_mensagem_usuario" FromRole="usuario" ToRole="mensagem" />
+    <NavigationProperty Name="mensagem1" Relationship="Self.FK_mensagem_usuario1" FromRole="usuario" ToRole="mensagem" />
+    <NavigationProperty Name="operacao" Relationship="Self.FK_operacao_usuario" FromRole="usuario" ToRole="operacao" />
+    <NavigationProperty Name="usuario_logado" Relationship="Self.FK_usuario_logado_usuario" FromRole="usuario" ToRole="usuario_logado" />
+    <NavigationProperty Name="usuario_operacao" Relationship="Self.FK_usuario_operacao_usuario" FromRole="usuario" ToRole="usuario_operacao" />
+  </EntityType>
+  <EntityType Name="usuario_logado">
+    <Key>
+      <PropertyRef Name="usuario_logado_id" />
+    </Key>
+    <Property Name="usuario_logado_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_usuario_logado_usuario" FromRole="usuario_logado" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="usuario_operacao">
+    <Key>
+      <PropertyRef Name="usuario_operacao_id" />
+    </Key>
+    <Property Name="usuario_operacao_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_operacao" Type="Int32" Nullable="false" />
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="ativo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="operacao" Relationship="Self.FK_usuario_operacao_operacao" FromRole="usuario_operacao" ToRole="operacao" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_usuario_operacao_usuario" FromRole="usuario_operacao" ToRole="usuario" />
+  </EntityType>
+  <Association Name="FK_caixa_email_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="caixa_email" Type="Self.caixa_email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="caixa_email">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emergencia_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="emergencia" Type="Self.emergencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="emergencia">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emergencia_usuario1">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="emergencia" Type="Self.emergencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="emergencia">
+        <PropertyRef Name="usuario_atendeu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fiscalizacao_status_fiscalizacao">
+    <End Role="status_fiscalizacao" Type="Self.status_fiscalizacao" Multiplicity="0..1" />
+    <End Role="fiscalizacao" Type="Self.fiscalizacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_fiscalizacao">
+        <PropertyRef Name="id_status_fiscalizacao" />
+      </Principal>
+      <Dependent Role="fiscalizacao">
+        <PropertyRef Name="id_status_fiscalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_imagem_fiscalizacao">
+    <End Role="fiscalizacao" Type="Self.fiscalizacao" Multiplicity="0..1" />
+    <End Role="imagem" Type="Self.imagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fiscalizacao">
+        <PropertyRef Name="id_fiscalizacao" />
+      </Principal>
+      <Dependent Role="imagem">
+        <PropertyRef Name="id_fiscalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fiscalizacao_operacao_operacao">
+    <End Role="operacao" Type="Self.operacao" Multiplicity="1" />
+    <End Role="fiscalizacao_operacao" Type="Self.fiscalizacao_operacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operacao">
+        <PropertyRef Name="id_operacao" />
+      </Principal>
+      <Dependent Role="fiscalizacao_operacao">
+        <PropertyRef Name="id_operacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_grupo">
+    <End Role="grupo" Type="Self.grupo" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo">
+        <PropertyRef Name="grupo_id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="grupo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_item_guia_guia">
+    <End Role="guia" Type="Self.guia" Multiplicity="0..1" />
+    <End Role="item_guia" Type="Self.item_guia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="guia">
+        <PropertyRef Name="id_guia" />
+      </Principal>
+      <Dependent Role="item_guia">
+        <PropertyRef Name="id_guia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_imagem_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="imagem" Type="Self.imagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="imagem">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_item_guia_tipo_materia_prima">
+    <End Role="tipo_materia_prima" Type="Self.tipo_materia_prima" Multiplicity="0..1" />
+    <End Role="item_guia" Type="Self.item_guia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_materia_prima">
+        <PropertyRef Name="id_tipo_materia_prima" />
+      </Principal>
+      <Dependent Role="item_guia">
+        <PropertyRef Name="id_tipo_materia_prima" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kor_operacao_kor">
+    <End Role="kor" Type="Self.kor" Multiplicity="1" />
+    <End Role="kor_operacao" Type="Self.kor_operacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kor">
+        <PropertyRef Name="id_kor" />
+      </Principal>
+      <Dependent Role="kor_operacao">
+        <PropertyRef Name="id_kor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mensagem_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mensagem_usuario1">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="usuario_destino_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operacao_natureza_operacao">
+    <End Role="natureza_operacao" Type="Self.natureza_operacao" Multiplicity="0..1" />
+    <End Role="operacao" Type="Self.operacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="natureza_operacao">
+        <PropertyRef Name="id_natureza_operacao" />
+      </Principal>
+      <Dependent Role="operacao">
+        <PropertyRef Name="id_natureza_operacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operacao_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="operacao" Type="Self.operacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="operacao">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_operacao_operacao">
+    <End Role="operacao" Type="Self.operacao" Multiplicity="1" />
+    <End Role="usuario_operacao" Type="Self.usuario_operacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operacao">
+        <PropertyRef Name="id_operacao" />
+      </Principal>
+      <Dependent Role="usuario_operacao">
+        <PropertyRef Name="id_operacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_logado_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="usuario_logado" Type="Self.usuario_logado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="usuario_logado">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_operacao_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="usuario_operacao" Type="Self.usuario_operacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="usuario_operacao">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModeloBancoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="caixa_email" EntityType="Self.caixa_email" />
+    <EntitySet Name="emergencia" EntityType="Self.emergencia" />
+    <EntitySet Name="fiscalizacao" EntityType="Self.fiscalizacao" />
+    <EntitySet Name="fiscalizacao_operacao" EntityType="Self.fiscalizacao_operacao" />
+    <EntitySet Name="grupo" EntityType="Self.grupo" />
+    <EntitySet Name="guia" EntityType="Self.guia" />
+    <EntitySet Name="imagem" EntityType="Self.imagem" />
+    <EntitySet Name="item_guia" EntityType="Self.item_guia" />
+    <EntitySet Name="kor" EntityType="Self.kor" />
+    <EntitySet Name="kor_operacao" EntityType="Self.kor_operacao" />
+    <EntitySet Name="mensagem" EntityType="Self.mensagem" />
+    <EntitySet Name="natureza_operacao" EntityType="Self.natureza_operacao" />
+    <EntitySet Name="operacao" EntityType="Self.operacao" />
+    <EntitySet Name="smtp_email" EntityType="Self.smtp_email" />
+    <EntitySet Name="status_fiscalizacao" EntityType="Self.status_fiscalizacao" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tipo_fiscalizacao" EntityType="Self.tipo_fiscalizacao" />
+    <EntitySet Name="tipo_materia_prima" EntityType="Self.tipo_materia_prima" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" />
+    <EntitySet Name="usuario_logado" EntityType="Self.usuario_logado" />
+    <EntitySet Name="usuario_operacao" EntityType="Self.usuario_operacao" />
+    <AssociationSet Name="FK_caixa_email_usuario" Association="Self.FK_caixa_email_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="caixa_email" EntitySet="caixa_email" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emergencia_usuario" Association="Self.FK_emergencia_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="emergencia" EntitySet="emergencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emergencia_usuario1" Association="Self.FK_emergencia_usuario1">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="emergencia" EntitySet="emergencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fiscalizacao_status_fiscalizacao" Association="Self.FK_fiscalizacao_status_fiscalizacao">
+      <End Role="status_fiscalizacao" EntitySet="status_fiscalizacao" />
+      <End Role="fiscalizacao" EntitySet="fiscalizacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_imagem_fiscalizacao" Association="Self.FK_imagem_fiscalizacao">
+      <End Role="fiscalizacao" EntitySet="fiscalizacao" />
+      <End Role="imagem" EntitySet="imagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fiscalizacao_operacao_operacao" Association="Self.FK_fiscalizacao_operacao_operacao">
+      <End Role="operacao" EntitySet="operacao" />
+      <End Role="fiscalizacao_operacao" EntitySet="fiscalizacao_operacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_grupo" Association="Self.FK_usuario_grupo">
+      <End Role="grupo" EntitySet="grupo" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_item_guia_guia" Association="Self.FK_item_guia_guia">
+      <End Role="guia" EntitySet="guia" />
+      <End Role="item_guia" EntitySet="item_guia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_imagem_usuario" Association="Self.FK_imagem_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="imagem" EntitySet="imagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_item_guia_tipo_materia_prima" Association="Self.FK_item_guia_tipo_materia_prima">
+      <End Role="tipo_materia_prima" EntitySet="tipo_materia_prima" />
+      <End Role="item_guia" EntitySet="item_guia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kor_operacao_kor" Association="Self.FK_kor_operacao_kor">
+      <End Role="kor" EntitySet="kor" />
+      <End Role="kor_operacao" EntitySet="kor_operacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mensagem_usuario" Association="Self.FK_mensagem_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mensagem_usuario1" Association="Self.FK_mensagem_usuario1">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operacao_natureza_operacao" Association="Self.FK_operacao_natureza_operacao">
+      <End Role="natureza_operacao" EntitySet="natureza_operacao" />
+      <End Role="operacao" EntitySet="operacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operacao_usuario" Association="Self.FK_operacao_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="operacao" EntitySet="operacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_operacao_operacao" Association="Self.FK_usuario_operacao_operacao">
+      <End Role="operacao" EntitySet="operacao" />
+      <End Role="usuario_operacao" EntitySet="usuario_operacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_logado_usuario" Association="Self.FK_usuario_logado_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuario_logado" EntitySet="usuario_logado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_operacao_usuario" Association="Self.FK_usuario_operacao_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuario_operacao" EntitySet="usuario_operacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fiscalizacao_operacao_fiscalizacao1" Association="ModeloBancoKor.FK_fiscalizacao_operacao_fiscalizacao1">
+      <End Role="tipo_fiscalizacao" EntitySet="tipo_fiscalizacao" />
+      <End Role="fiscalizacao_operacao" EntitySet="fiscalizacao_operacao" />
+    </AssociationSet>
+    <EntitySet Name="cargo" EntityType="ModeloBancoKor.cargo" />
+    <EntitySet Name="instituicao" EntityType="ModeloBancoKor.instituicao" />
+    <EntitySet Name="perfil" EntityType="ModeloBancoKor.perfil" />
+    <EntitySet Name="missao" EntityType="ModeloBancoKor.missao" />
+    <EntitySet Name="missao_operacao" EntityType="ModeloBancoKor.missao_operacao" />
+    <EntitySet Name="subtipo_fiscalizacao" EntityType="ModeloBancoKor.subtipo_fiscalizacao" />
+    <EntitySet Name="tipo_guia" EntityType="ModeloBancoKor.tipo_guia" />
+    <AssociationSet Name="FK_fiscalizacao_fiscalizacao" Association="ModeloBancoKor.FK_fiscalizacao_fiscalizacao">
+      <End Role="fiscalizacao" EntitySet="fiscalizacao" />
+      <End Role="fiscalizacao1" EntitySet="fiscalizacao" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_fiscalizacao_operacao_fiscalizacao1">
+    <End Type="ModeloBancoKor.tipo_fiscalizacao" Role="tipo_fiscalizacao" Multiplicity="1" />
+    <End Type="ModeloBancoKor.fiscalizacao_operacao" Role="fiscalizacao_operacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_fiscalizacao">
+        <PropertyRef Name="id_tipo_fiscalizacao" />
+      </Principal>
+      <Dependent Role="fiscalizacao_operacao">
+        <PropertyRef Name="id_fiscalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="id_cargo" />
+    </Key>
+    <Property Name="id_cargo" Type="Int32" Nullable="false" />
+    <Property Name="nome_cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="instituicao">
+    <Key>
+      <PropertyRef Name="id_instituicao" />
+    </Key>
+    <Property Name="id_instituicao" Type="Int32" Nullable="false" />
+    <Property Name="nome_instituicao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="perfil">
+    <Key>
+      <PropertyRef Name="id_perfil" />
+    </Key>
+    <Property Name="id_perfil" Type="Int32" Nullable="false" />
+    <Property Name="desc_perfil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="missao">
+    <Key>
+      <PropertyRef Name="id_missao" />
+    </Key>
+    <Property Name="id_missao" Type="Int32" Nullable="false" />
+    <Property Name="desc_missao" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="missao_operacao">
+    <Key>
+      <PropertyRef Name="id_missao_operacao" />
+    </Key>
+    <Property Name="id_missao_operacao" Type="Int32" Nullable="false" />
+    <Property Name="id_missao" Type="Int32" Nullable="false" />
+    <Property Name="id_operacao" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subtipo_fiscalizacao">
+    <Key>
+      <PropertyRef Name="id_subtipo_fiscalizacao" />
+    </Key>
+    <Property Name="id_subtipo_fiscalizacao" Type="Int32" Nullable="false" />
+    <Property Name="desc_subtipo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tipo_guia">
+    <Key>
+      <PropertyRef Name="id_tipo_guia" />
+    </Key>
+    <Property Name="id_tipo_guia" Type="Int32" Nullable="false" />
+    <Property Name="desc_tipo_guia" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_fiscalizacao_fiscalizacao">
+    <End Type="ModeloBancoKor.fiscalizacao" Role="fiscalizacao" Multiplicity="1" />
+    <End Type="ModeloBancoKor.fiscalizacao" Role="fiscalizacao1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="fiscalizacao">
+        <PropertyRef Name="id_fiscalizacao" />
+      </Principal>
+      <Dependent Role="fiscalizacao1">
+        <PropertyRef Name="id_fiscalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

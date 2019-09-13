@@ -1,0 +1,94 @@
+﻿<div>
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'OPERATION_DASHBOARD' | translate }}</li>
+    </ol>
+    <h1 class="page-header">{{ 'OPERATION_DASHBOARD' | translate }}</h1>
+    <div class="row">
+        <div class="col-md-12 ui-sortable">
+            <label class="operation-label">{{ 'OPERATION' | translate }}:</label>{{DescOperacao}}</br>
+            <label class="operation-label">{{ 'INSTITUTION' | translate }}:</label> {{InstituicaoResp}}<br />
+            <label class="operation-label">{{ 'PERIOD' | translate }}:</label> {{DataCriado}} - {{DataFinalOperacao}}<br /><br />
+    </div>
+    <div class="row">
+            <div class="col-md-12 ui-sortable">
+                <div class="panel panel-inverse" data-sortable-id="index-1">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        </div>
+                        <h4 class="panel-title">{{ 'MOST_TAXED_PRODUCTS' | translate }}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <!--<div id="interactive-chart" class="height-sm" style="padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 683px; height: 300px;" width="683" height="300"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div style="position: absolute; max-width: 34px; top: 283px; left: 75px; text-align: center;" class="flot-tick-label tickLabel">May&nbsp;15</div><div style="position: absolute; max-width: 34px; top: 283px; left: 176px; text-align: center;" class="flot-tick-label tickLabel">May&nbsp;19</div><div style="position: absolute; max-width: 34px; top: 283px; left: 277px; text-align: center;" class="flot-tick-label tickLabel">May&nbsp;22</div><div style="position: absolute; max-width: 34px; top: 283px; left: 379px; text-align: center;" class="flot-tick-label tickLabel">May&nbsp;25</div><div style="position: absolute; max-width: 34px; top: 283px; left: 480px; text-align: center;" class="flot-tick-label tickLabel">May&nbsp;28</div><div style="position: absolute; max-width: 34px; top: 283px; left: 581px; text-align: center;" class="flot-tick-label tickLabel">May&nbsp;31</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div style="position: absolute; top: 270px; left: 13px; text-align: right;" class="flot-tick-label tickLabel">0</div><div style="position: absolute; top: 243px; left: 7px; text-align: right;" class="flot-tick-label tickLabel">20</div><div style="position: absolute; top: 216px; left: 7px; text-align: right;" class="flot-tick-label tickLabel">40</div><div style="position: absolute; top: 189px; left: 7px; text-align: right;" class="flot-tick-label tickLabel">60</div><div style="position: absolute; top: 162px; left: 7px; text-align: right;" class="flot-tick-label tickLabel">80</div><div style="position: absolute; top: 135px; left: 1px; text-align: right;" class="flot-tick-label tickLabel">100</div><div style="position: absolute; top: 108px; left: 1px; text-align: right;" class="flot-tick-label tickLabel">120</div><div style="position: absolute; top: 81px; left: 1px; text-align: right;" class="flot-tick-label tickLabel">140</div><div style="position: absolute; top: 54px; left: 1px; text-align: right;" class="flot-tick-label tickLabel">160</div><div style="position: absolute; top: 27px; left: 1px; text-align: right;" class="flot-tick-label tickLabel">180</div><div style="position: absolute; top: 0px; left: 1px; text-align: right;" class="flot-tick-label tickLabel">200</div></div></div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 683px; height: 300px;" width="683" height="300"></canvas><div class="legend"><div style="position: absolute; width: 88px; height: 45px; top: 18px; right: 27px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div><table style="position:absolute;top:18px;right:27px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ddd;padding:1px"><div style="width:4px;height:0;border:5px solid #348fe2;overflow:hidden"></div></div></td><td class="legendLabel">Page Views</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ddd;padding:1px"><div style="width:4px;height:0;border:5px solid #00acac;overflow:hidden"></div></div></td><td class="legendLabel">Visitors</td></tr></tbody></table></div></div>-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nvd3 options="options" data="data" class="text-center"></nvd3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-inverse" data-sortable-id="index-1">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        </div>
+                        <h4 class="panel-title">{{ 'TAX_DISTRIBUTION' | translate }}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nvd3 options="opcoes" data="dados" class="text-center"></nvd3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-inverse" data-sortable-id="index-1">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        </div>
+                        <h4 class="panel-title">{{ 'TAX_EVOLUTION' | translate }}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div area-chart
+                                     area-data='morrisdata'
+                                     area-xkey='y'
+                                     area-ykeys='["a"]'
+                                     area-labels='["Quantidade"]'
+                                     line-colors='["#31C0BE", "#c7254e"]'>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-inverse" data-sortable-id="index-1">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        </div>
+                        <h4 class="panel-title">{{ 'TAXED_GUIDES' | translate }}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div bar-chart
+                                     bar-data='morrisdataOrigem'
+                                     bar-x='y'
+                                     bar-y='["a"]'
+                                     bar-labels='["Quantidade"]'
+                                     bar-colors='["#C71313"]'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

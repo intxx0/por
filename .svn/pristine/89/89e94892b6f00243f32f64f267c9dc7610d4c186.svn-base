@@ -1,0 +1,54 @@
+﻿
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="javascript:window.history.go(-1)" class="btn btn-danger"><i class="fa fa-1x fa-arrow-circle-left"></i>  Voltar</a>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div data-sortable-id="table-basic-6" class="panel panel-inverse">
+                <div class="panel-heading" style="padding-top:1px;">
+                   
+                    <h2 class="text-center" style="color:white;">Documento de Origem Florestal</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Guia</th>
+                                <th style="width:50px;">Data Fiscalização</th>
+                                <th>Placa</th>
+                                <th style="width:50px;">Validade Documento</th>
+                                <th style="width:50px;">Quantidade Autorizada</th>
+                                <th style="width:50px;">Quantidade Verificada</th>
+                                <th>Status</th>
+                                <th>Ação</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="active" ng-repeat="fiscalizacao in FiscalizacoesOnLine">
+                                <td>{{fiscalizacao.NumeroGuia}}</td>
+                                <td>{{fiscalizacao.DataFiscalizacao | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{fiscalizacao.PlacaRegistro}}</td>
+                                <td>{{fiscalizacao.ValidadeDocumento}}</td>
+                                <td>{{10+1}}</td>
+                                <td>{{fiscalizacao.QuantidadeVerificada}}</td>
+                                <td>{{fiscalizacao.DescStatusFiscalizacao}}</td>
+                                <td colspan="3">
+                                    <a href="javascript:;" ng-click="openEditDialog(fiscalizacao);"><i class="fa fa-2x fa-desktop" style="color: blue; font-size: 20px;"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,811 @@
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\ApplicationInsights.config
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\csc.exe
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\vbc.exe
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\WebApiKor.dll.config
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\WebApiKor.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\WebApiKor.pdb
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Antlr3.Runtime.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\AutoMapper.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\EntityFramework.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Newtonsoft.Json.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Cors.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Helpers.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Http.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Mvc.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Optimization.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Razor.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.WebPages.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\WebGrease.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\AutoMapper.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\EntityFramework.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Newtonsoft.Json.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Helpers.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Http.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Mvc.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Optimization.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Razor.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.WebPages.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\obj\Debug\WebApiKor.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Owin.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\Users\vsouza\Documents\Visual Studio 2015\Projects\PORTALKOR\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\ApplicationInsights.config
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\csc.exe
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\vbc.exe
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\WebApiKor.dll.config
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\WebApiKor.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\WebApiKor.pdb
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Antlr3.Runtime.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\AutoMapper.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\EntityFramework.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Newtonsoft.Json.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Owin.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Cors.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Helpers.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Http.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Mvc.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Optimization.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Razor.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.WebPages.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\WebGrease.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\AutoMapper.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\EntityFramework.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Newtonsoft.Json.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Helpers.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Http.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Mvc.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Optimization.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.Razor.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.WebPages.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\obj\Debug\WebApiKor.dll
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\Users\vsouza\Desktop\PORTALKOR\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache
+C:\dev\PORTALKOR\WebApiKor\bin\ApplicationInsights.config
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\csc.exe
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\vbc.exe
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\dev\PORTALKOR\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\dev\PORTALKOR\WebApiKor\bin\WebApiKor.dll.config
+C:\dev\PORTALKOR\WebApiKor\bin\WebApiKor.dll
+C:\dev\PORTALKOR\WebApiKor\bin\WebApiKor.pdb
+C:\dev\PORTALKOR\WebApiKor\bin\Antlr3.Runtime.dll
+C:\dev\PORTALKOR\WebApiKor\bin\AutoMapper.dll
+C:\dev\PORTALKOR\WebApiKor\bin\EntityFramework.dll
+C:\dev\PORTALKOR\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Newtonsoft.Json.dll
+C:\dev\PORTALKOR\WebApiKor\bin\Owin.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Cors.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Helpers.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Http.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Mvc.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Optimization.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Razor.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.WebPages.dll
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\dev\PORTALKOR\WebApiKor\bin\WebGrease.dll
+C:\dev\PORTALKOR\WebApiKor\bin\AutoMapper.xml
+C:\dev\PORTALKOR\WebApiKor\bin\EntityFramework.xml
+C:\dev\PORTALKOR\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Newtonsoft.Json.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Helpers.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Http.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Mvc.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Optimization.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.Razor.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.WebPages.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\dev\PORTALKOR\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\dev\PORTALKOR\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\dev\PORTALKOR\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache
+C:\dev\PORTALKOR\WebApiKor\obj\Debug\WebApiKor.dll
+C:\dev\PORTALKOR\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\dev\KOR\WebApiKor\bin\ApplicationInsights.config
+C:\dev\KOR\WebApiKor\bin\roslyn\csc.exe
+C:\dev\KOR\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\dev\KOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\dev\KOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\dev\KOR\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\dev\KOR\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\dev\KOR\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\dev\KOR\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\dev\KOR\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\dev\KOR\WebApiKor\bin\roslyn\vbc.exe
+C:\dev\KOR\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\dev\KOR\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\dev\KOR\WebApiKor\bin\WebApiKor.dll.config
+C:\dev\KOR\WebApiKor\bin\WebApiKor.dll
+C:\dev\KOR\WebApiKor\bin\WebApiKor.pdb
+C:\dev\KOR\WebApiKor\bin\Antlr3.Runtime.dll
+C:\dev\KOR\WebApiKor\bin\AutoMapper.dll
+C:\dev\KOR\WebApiKor\bin\EntityFramework.dll
+C:\dev\KOR\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\dev\KOR\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\dev\KOR\WebApiKor\bin\Newtonsoft.Json.dll
+C:\dev\KOR\WebApiKor\bin\Owin.dll
+C:\dev\KOR\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.Cors.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.Helpers.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.Http.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.Mvc.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.Optimization.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.Razor.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.WebPages.dll
+C:\dev\KOR\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\dev\KOR\WebApiKor\bin\WebGrease.dll
+C:\dev\KOR\WebApiKor\bin\AutoMapper.xml
+C:\dev\KOR\WebApiKor\bin\EntityFramework.xml
+C:\dev\KOR\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\dev\KOR\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\dev\KOR\WebApiKor\bin\Newtonsoft.Json.xml
+C:\dev\KOR\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.Helpers.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.Http.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.Mvc.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.Optimization.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.Razor.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.WebPages.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\dev\KOR\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\dev\KOR\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\dev\KOR\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache
+C:\dev\KOR\WebApiKor\obj\Debug\WebApiKor.dll
+C:\dev\KOR\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\dev\KOR2\WebApiKor\bin\ApplicationInsights.config
+C:\dev\KOR2\WebApiKor\bin\roslyn\csc.exe
+C:\dev\KOR2\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\dev\KOR2\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\dev\KOR2\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\dev\KOR2\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\dev\KOR2\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\dev\KOR2\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\dev\KOR2\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\dev\KOR2\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\dev\KOR2\WebApiKor\bin\roslyn\vbc.exe
+C:\dev\KOR2\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\dev\KOR2\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\dev\KOR2\WebApiKor\bin\WebApiKor.dll.config
+C:\dev\KOR2\WebApiKor\bin\WebApiKor.dll
+C:\dev\KOR2\WebApiKor\bin\WebApiKor.pdb
+C:\dev\KOR2\WebApiKor\bin\Antlr3.Runtime.dll
+C:\dev\KOR2\WebApiKor\bin\AutoMapper.dll
+C:\dev\KOR2\WebApiKor\bin\EntityFramework.dll
+C:\dev\KOR2\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\dev\KOR2\WebApiKor\bin\Newtonsoft.Json.dll
+C:\dev\KOR2\WebApiKor\bin\Owin.dll
+C:\dev\KOR2\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.Cors.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.Helpers.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.Http.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.Mvc.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.Optimization.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.Razor.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.WebPages.dll
+C:\dev\KOR2\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\dev\KOR2\WebApiKor\bin\WebGrease.dll
+C:\dev\KOR2\WebApiKor\bin\AutoMapper.xml
+C:\dev\KOR2\WebApiKor\bin\EntityFramework.xml
+C:\dev\KOR2\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\dev\KOR2\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\dev\KOR2\WebApiKor\bin\Newtonsoft.Json.xml
+C:\dev\KOR2\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.Helpers.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.Http.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.Mvc.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.Optimization.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.Razor.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.WebPages.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\dev\KOR2\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\dev\KOR2\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\dev\KOR2\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache
+C:\dev\KOR2\WebApiKor\obj\Debug\WebApiKor.dll
+C:\dev\KOR2\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\ApplicationInsights.config
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\csc.exe
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\vbc.exe
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\WebApiKor.dll.config
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\WebApiKor.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\WebApiKor.pdb
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Antlr3.Runtime.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\AutoMapper.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\EntityFramework.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Newtonsoft.Json.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Owin.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Cors.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Helpers.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Http.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Mvc.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Optimization.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Razor.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.WebPages.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\WebGrease.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\AutoMapper.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\EntityFramework.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Newtonsoft.Json.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Helpers.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Http.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Mvc.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Optimization.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.Razor.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.WebPages.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\obj\Debug\WebApiKor.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\branches\3\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\ApplicationInsights.config
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\csc.exe
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\vbc.exe
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\WebApiKor.dll.config
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\WebApiKor.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\WebApiKor.pdb
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Antlr3.Runtime.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\AutoMapper.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\EntityFramework.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Newtonsoft.Json.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Owin.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Cors.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Helpers.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Http.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Mvc.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Optimization.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Razor.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.WebPages.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\WebGrease.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\AutoMapper.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\EntityFramework.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Newtonsoft.Json.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Helpers.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Http.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Mvc.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Optimization.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.Razor.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.WebPages.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\obj\Debug\WebApiKor.dll
+C:\Users\gabriel.ICCONSULTING\Documents\Projetos\PortalKor2\trunk\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\dev\POR 0.3\WebApiKor\bin\ApplicationInsights.config
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\csc.exe
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\vbc.exe
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\dev\POR 0.3\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\dev\POR 0.3\WebApiKor\bin\WebApiKor.dll.config
+C:\dev\POR 0.3\WebApiKor\bin\WebApiKor.dll
+C:\dev\POR 0.3\WebApiKor\bin\WebApiKor.pdb
+C:\dev\POR 0.3\WebApiKor\bin\Antlr3.Runtime.dll
+C:\dev\POR 0.3\WebApiKor\bin\AutoMapper.dll
+C:\dev\POR 0.3\WebApiKor\bin\EntityFramework.dll
+C:\dev\POR 0.3\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\dev\POR 0.3\WebApiKor\bin\Newtonsoft.Json.dll
+C:\dev\POR 0.3\WebApiKor\bin\Owin.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Cors.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Helpers.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Http.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Mvc.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Optimization.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Razor.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.WebPages.dll
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\dev\POR 0.3\WebApiKor\bin\WebGrease.dll
+C:\dev\POR 0.3\WebApiKor\bin\AutoMapper.xml
+C:\dev\POR 0.3\WebApiKor\bin\EntityFramework.xml
+C:\dev\POR 0.3\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\dev\POR 0.3\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\dev\POR 0.3\WebApiKor\bin\Newtonsoft.Json.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Helpers.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Http.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Mvc.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Optimization.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.Razor.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.WebPages.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\dev\POR 0.3\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\dev\POR 0.3\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\dev\POR 0.3\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache
+C:\dev\POR 0.3\WebApiKor\obj\Debug\WebApiKor.dll
+C:\dev\POR 0.3\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\csc.exe
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\vbc.exe
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\ApplicationInsights.config
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\WebApiKor.dll.config
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\WebApiKor.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\WebApiKor.pdb
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Antlr3.Runtime.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\AutoMapper.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\EntityFramework.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Newtonsoft.Json.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Owin.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Cors.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Helpers.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Http.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Mvc.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Optimization.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Razor.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.WebPages.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\WebGrease.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\AutoMapper.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\EntityFramework.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Newtonsoft.Json.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Helpers.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Http.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Mvc.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Optimization.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.Razor.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.WebPages.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\obj\Debug\WebApiKor.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\obj\Debug\WebApiKor.dll
+C:\Users\Gabriel\Documents\Projetos\POR\trunk\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\dev\POR 0.3 2\WebApiKor\bin\ApplicationInsights.config
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\csc.exe
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\System.Collections.Immutable.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\System.Reflection.Metadata.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\vbc.exe
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\VBCSCompiler.exe
+C:\dev\POR 0.3 2\WebApiKor\bin\roslyn\VBCSCompiler.exe.config
+C:\dev\POR 0.3 2\WebApiKor\bin\WebApiKor.dll.config
+C:\dev\POR 0.3 2\WebApiKor\bin\WebApiKor.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\WebApiKor.pdb
+C:\dev\POR 0.3 2\WebApiKor\bin\Antlr3.Runtime.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\AutoMapper.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\EntityFramework.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\EntityFramework.SqlServer.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.Agent.Intercept.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.DependencyCollector.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.Web.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.WindowsServer.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.ApplicationInsights.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.Cors.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.Security.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.Security.OAuth.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Web.Infrastructure.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Newtonsoft.Json.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\Owin.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Net.Http.Formatting.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Cors.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Helpers.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Http.Cors.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Http.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Http.Owin.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Http.WebHost.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Mvc.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Optimization.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Razor.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.WebPages.Deployment.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.WebPages.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.WebPages.Razor.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\WebGrease.dll
+C:\dev\POR 0.3 2\WebApiKor\bin\AutoMapper.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\EntityFramework.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\EntityFramework.SqlServer.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.DependencyCollector.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.Web.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.AI.WindowsServer.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.ApplicationInsights.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.Cors.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.Security.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Microsoft.Owin.Security.OAuth.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Http.Cors.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Http.Owin.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Newtonsoft.Json.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Net.Http.Formatting.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Helpers.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Http.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Http.WebHost.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Mvc.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Optimization.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.Razor.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.WebPages.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.WebPages.Deployment.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\System.Web.WebPages.Razor.xml
+C:\dev\POR 0.3 2\WebApiKor\bin\Antlr3.Runtime.pdb
+C:\dev\POR 0.3 2\WebApiKor\obj\Debug\WebApiKor.dll
+C:\dev\POR 0.3 2\WebApiKor\obj\Debug\WebApiKor.pdb
+C:\dev\POR 0.3 2\WebApiKor\obj\Debug\WebApiKor.csprojResolveAssemblyReference.cache

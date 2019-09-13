@@ -1,0 +1,46 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading text-center" style="padding: 20px 0;">
+        <span class="label label-warning" style="font-size: 25px;">Associar os usuários para operação abaixo</span>
+        <br />
+        
+    </div>
+    <div class="panel-body">
+        <br/>
+
+        <div class="row">
+            <div class="col-md-2" style="font-size: 30px;">
+                <label class="label label-success">Operação:</label>
+            </div>
+            <div class="col-md-10" style="font-size: 30px;">
+                <label class="label label-danger">{{Operacao.DescOperacao}}</label>
+            </div>
+        </div>
+        <br/>
+        <br/>
+  
+        <div class="row">
+            <div class="col-md-6">
+                <label class="">Selecionar operadores:</label>
+                <div class="m-b-5">
+                    <select multiple="" class="form-control" id="ddlOperadores" ng-model="novoUsuarioOperacao.IdUsuario" ng-options="options.UsuarioId as options.DescNome for options in Usuarios" required>
+                        <option value="">Selecine...</option>
+
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="inserirUsuarioOperacao()">
+                Salvar
+            </button>
+            <button type="button" class="btn btn-danger" ng-click="cancel()">
+                Fechar
+            </button>
+        </div>
+    </div>
+</div>

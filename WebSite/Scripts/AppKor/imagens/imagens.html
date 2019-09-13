@@ -1,0 +1,129 @@
+﻿<script>
+    $('#pesquisar').click(function () {
+        setTimeout(function () {
+            $('#gallerySlider .placeholder').remove();
+            $('.fresco').touchTouch();
+
+            $('.btn-filter').on("click", function () {
+                console.log("teste");
+                $('#gallerySlider .placeholder').remove();
+                $('.fresco').touchTouch();
+            });
+        }, 1000);
+    });
+
+</script>
+<style>
+    .placeholder img{
+        width: 50%;
+    }
+
+    .datepicker {
+        background: white !important;
+        color: black;
+    }
+</style>
+<!-- begin breadcrumb -->
+<ol class="breadcrumb pull-right">
+    <li><a href="javascript:;">Home</a></li>
+    <li class="active">Gallery</li>
+</ol>
+<!-- end breadcrumb -->
+<!-- begin page-header -->
+<h1 class="page-header">{{ 'OPERATION_IMAGES' | translate }}</h1>
+<!-- end page-header -->
+<!-- begin panel -->
+<div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{ 'SEARCH' | translate }}</h4>
+    </div>
+    <div class="panel-body">
+        <form name="formFiltroOperacao" role="form" novalidate>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>{{ 'OPERATION' | translate }}:</label>
+                        <select class="form-control" id="ddlOperacao" ng-change="loadAtividades(modelOperacao.IdOperacao)" ng-model="modelOperacao.IdOperacao" ng-options="option.IdOperacao as option.DescOperacao for option in Operacoes" required></select>
+                        <input type="hidden" name="modelOperacao.IdOperacao" ng-value="modelOperacao.IdOperacao" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>{{ 'ACTIVITY' | translate }}:</label>
+                        <select class="form-control" id="ddlAtividade" ng-change="loadKor(modelOperacao.IdTipoFiscalizacao)" ng-model="modelOperacao.IdTipoFiscalizacao" ng-options="option.IdTipoFiscalizacao as option.DescTipoFiscalizacao for option in TiposFiscalizacao"></select>
+                        <input type="hidden" name="modelOperacao.IdTipoFiscalizacao" ng-value="modelOperacao.IdTipoFiscalizacao" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>KOR:</label>
+                        <select class="form-control" id="ddlKor" ng-change="loadProfissionais(modelOperacao.IdTipoFiscalizacao, modelOperacao.IdKor)" ng-model="modelOperacao.IdKor" ng-options="option.IdKor as option.Nome for option in Kor"></select>
+                        <input type="hidden" name="modelOperacao.IdKor" ng-value="modelOperacao.IdKor" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>{{ 'USERS' | translate }}:</label>
+                        <select class="form-control" id="ddlUsuarios" ng-model="modelOperacao.IdUsuario" ng-options="option.UsuarioId as option.DescNome for option in Usuarios"></select>
+                        <input type="hidden" name="modelOperacao.IdUsuario" ng-value="modelOperacao.IdUsuario" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>{{ 'START_DATE' | translate }}:</label>
+                        <div class="input-group date" data-provide="datepicker">
+                            <input class="datepicker form-control" name="DataInicio" readonly ng-change="formatDate(modelOperacao, 'inicio')" ng-model="modelOperacao.DataInicio" required>
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>{{ 'END_DATE' | translate }}:</label>
+                        <div class="input-group date" data-provide="datepicker">
+                            <input class="datepicker form-control" name="DataTermino" readonly ng-change="formatDate(modelOperacao, 'fim')" ng-model="modelOperacao.DataTermino" required>
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-6" style="height:71px;">
+                        <button type="submit" id="pesquisar" class="btn btn-sm btn-success" ng-click="doSearch(modelOperacao)"
+                                style="margin-top:23px; float:right;">
+                            <i class="fa fa-search" style="font-size:10px;">
+                            </i>&nbsp;&nbsp;{{ 'SEARCH' | translate }}
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- end panel -->
+    
+<div class="gallery isotope" id="gallery" style="position: relative; overflow: hidden; margin-right: -10px;">
+    <!-- ITEM-->
+    <div class="image gallery-group-1 isotope-item" style="float: left; margin: 0 15px;" ng-if="imagens.length != 0">
+        <!-- Album de fotos da operação -->
+        <div class="image-inner">
+            <a data-gallery="album1" href="{{imagens.nome}}" class="fresco"><img src="{{imagens.nome}}" /></a>
+            <a data-gallery="album1" href="{{img.nome}}" class="fresco" ng-repeat="img in imagens.album"></a>
+        </div>
+        <!--   -->
+        <!-- Informações da operação -->
+        <div class="image-info">
+            <h5 class="title">{{info.DescAtividade}}</h5>
+            <div class="desc">Quantidade: {{imagens.album.length + 1}}</div>
+        </div>
+        <!--   -->
+    </div>
+    <!--   -->
+</div>
+

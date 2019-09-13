@@ -1,0 +1,327 @@
+﻿<style>
+    .mytext {
+        border: 0;
+        padding: 10px;
+        background: whitesmoke;
+    }
+
+    .text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        word-wrap: break-word;
+    }
+
+    .text > p:first-of-type {
+        width: 90%;
+        margin-top: 0;
+        margin-bottom: auto;
+        line-height: 13px;
+        font-size: 12px;
+        word-wrap: break-word;
+        color:black;
+    }
+
+    .text > p:last-of-type {
+        width: 100%;
+        text-align: right;
+        color: #707478;
+        margin-bottom: -7px;
+        margin-top: auto;
+        word-wrap: break-word;
+    }
+
+    .text-l {
+        float: left;
+        padding-right: 10px;
+        word-wrap: break-word;
+    }
+
+    .text-r {
+        float: right;
+        padding-left: 10px;
+        word-wrap: break-word;
+    }
+
+    .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+        float: left;
+        padding-right: 10px;
+    }
+
+    .macro {
+        margin-top: 5px;
+        width: 85%;
+        border-radius: 5px;
+        padding: 5px;
+        display: flex;
+    }
+
+    .msj-rta {
+        float: right;
+        background: whitesmoke;
+    }
+
+    .msj {
+        float: left;
+        background: white;
+    }
+
+    .frame {
+        background: #e0e0de;
+        height: 450px;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .frame > div:last-of-type {
+        position: absolute;
+        bottom: 1px;
+        width: 100%;
+        display: flex;
+        padding-left: 12px;
+    }
+
+    #chatList {
+        width: 100%;
+        list-style-type: none;
+        padding: 18px;
+        position: absolute;
+        bottom: 45px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 88%;
+    }
+    #chatList::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    #chatList::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+        display: none;
+    }
+
+    #chatList::-webkit-scrollbar-track-piece {
+        background-color: #3b3b3b;
+        -webkit-border-radius: 6px;
+    }
+
+    #chatList::-webkit-scrollbar-thumb:vertical {
+        background-color: #666;
+        -webkit-border-radius: 6px;
+    }
+
+    .msj:before {
+        width: 0;
+        height: 0;
+        content: "";
+        top: -5px;
+        left: -14px;
+        position: relative;
+        border-style: solid;
+        border-width: 0 13px 13px 0;
+        border-color: transparent #ffffff transparent transparent;
+    }
+
+    .msj-rta:after {
+        width: 0;
+        height: 0;
+        content: "";
+        top: -5px;
+        position: relative;
+        border-style: solid;
+        border-width: 13px 13px 0 0;
+        border-color: #dcf8c6 transparent transparent transparent;
+    }
+    .msj-rta2:after {
+        width: 0;
+        height: 0;
+        content: "";
+        top: -5px;
+        left: 14px;
+        position: relative;
+        border-style: solid;
+        border-width: 13px 13px 0 0;
+        border-color: whitesmoke transparent transparent transparent;
+    }
+    .msj-rta3:after {
+        width: 0;
+        height: 0;
+        content: "";
+        top: -5px;
+        left: 14px;
+        position: relative;
+        border-style: solid;
+        border-width: 13px 13px 0 0;
+        border-color: #dcf8c6 transparent transparent transparent;
+    }
+    input:focus {
+        outline: none;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #d4d4d4;
+    }
+
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: #d4d4d4;
+    }
+
+    :-ms-input-placeholder { /* IE 10+ */
+        color: #d4d4d4;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+        color: #d4d4d4;
+    }   
+
+    ul.list-group:after {
+        clear: both;
+        display: block;
+        content: "";
+    }
+
+    .list-group-item {
+        float: left;
+        margin-left: 3px;
+        margin-top: 5px;
+        background-color: #ddd;
+    }
+
+    #removeImg {
+        top: 6%;
+        position: absolute;
+        right: 2%;
+    }
+
+    .userRows:nth-of-type(odd) {
+        background: #e0e0e0;
+    }
+
+    .userRows:nth-of-type(even) {
+        background: #FFFFFF;
+    }
+
+    #conversasContainer {
+        height: 445px;
+        overflow: auto;
+    }
+        #conversasContainer::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        #conversasContainer::-webkit-scrollbar-button:start:decrement,
+        ::-webkit-scrollbar-button:end:increment {
+            display: none;
+        }
+
+        #conversasContainer::-webkit-scrollbar-track-piece {
+            background-color: #3b3b3b;
+            -webkit-border-radius: 6px;
+        }
+
+        #conversasContainer::-webkit-scrollbar-thumb:vertical {
+            background-color: #666;
+            -webkit-border-radius: 6px;
+        }
+</style>
+<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'MESSAGES' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'MESSAGES' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-6 -->
+        <div class="col-md-4" id="conversasContainer">
+            <div class="panel panel-inverse" data-sortable-id="table-basic-4">
+
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" ng-click="abreModalNovaConversa()" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-plus"></i></a>
+                    </div>
+                    <input type="text" value="" id="txtPesquisarEnviados" class="pull-right" style="color: black" ng-model="mensagemrecebidas.$" placeholder="{{ SEARCH_SUBJECT | translate }}" />
+                    <h4 class="panel-title">{{ 'MESSAGES' | translate }}</h4>
+                </div>
+
+                <div class="panel-body" style="height: 100%; padding-top: 0;">
+                    <div class="row userRows" style="margin: 0 -15px; padding: 7px" 
+                         ng-click="loadMensagens(mensagemrecebidas.usuario_destino_id != UsuarioId && mensagemrecebidas.usuario_destino_id || mensagemrecebidas.usuario_id)" 
+                          ng-style="userId == (mensagemrecebidas.usuario_destino_id != UsuarioId && mensagemrecebidas.usuario_destino_id || mensagemrecebidas.usuario_id) && {'border-color': 'blue', 'border-width': '1px', 'border-style': 'double'}"
+                           ng-repeat="mensagemrecebidas in MensagensRecebidas | orderBy: mensagemrecebidas.DataCriado 
+                            | filter: mensagemrecebidas:strict">
+                        <label>
+                            {{ 'USER' | translate }}: <span>{{mensagemrecebidas.nome}}</span>
+                        </label>
+                        <label style="position:absolute; right:16px">
+                            {{ 'NOT_READ' | translate }}:
+                            <span ng-style="mensagemrecebidas.count_mensagem == 0 && {'color': 'red', 'font-weight': 'bold'}
+                                || mensagemrecebidas.count_mensagem != 0 && {'color': 'green', 'font-weight': 'bold'}">
+                                 {{mensagemrecebidas.count_mensagem}}
+                            </span>
+                        </label><br/>
+                        <label style="padding-top: 7px">
+                            {{ 'MESSAGE' | translate }}: <span>{{mensagemrecebidas.texto | limitTo: 10 }}{{mensagemrecebidas.texto.length > 10 ? '...' : ''}}</span>
+                        </label>
+                        <label style="position:absolute; right:16px; padding-top: 7px">
+                            {{ 'DATE' | translate }}: <span>{{mensagemrecebidas.datacriado | date: 'dd/MM/yyyy HH:mm:ss'}}</span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- BEGIN CHAT -->
+        <div class="col-md-8">
+            <div class="col-sm-12 col-md-12 frame">
+                <ul id="chatList" ng-style="imgsrc.length != 0 && {'bottom': '105px'}">
+                    <li style="width: 50%" ng-repeat="mensagem in Mensagens" ng-style="mensagem.IdUsuario == UsuarioId && {'margin-left': '55%'}">
+                        <div ng-class="mensagem.IdUsuario == UsuarioId ? 'msj-rta3' : 'msj'" ng-style="mensagem.IdUsuario == UsuarioId && {'background-color': '#dcf8c6'}" class="macro">
+                            <div class="text" ng-class="mensagem.IdUsuario == UsuarioId ? 'text-l' : 'text-r'">
+                                <p>{{mensagem.TextoMensagem}}</p>
+                                <img width="100" height="50" style="margin-top:5px" ng-repeat="anx in mensagem.anexosNome" class="img-thumbnail" src="http:///localhost:62272/Gallery/Anexos/{{anx}}">
+                                <p><small>{{mensagem.DataCriado | date: 'dd/MM HH:mm'}}</small></p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="col-md-12" style="bottom:35px; position:absolute;">
+                    <ul class="list-group btn-group">
+                        <li ng-repeat="imgInfo in imgsrc" class="list-group-item" id="{{imgInfo.nomeArq}}">
+                            <a href="javascript:void(0)" ng-click="removeImagem(imgInfo.nomeArq)"><span class="glyphicon glyphicon-remove-circle" id="removeImg"></span></a>
+                            <span>{{imgInfo.nome}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="msj-rta msj-rta2 macro" style="margin:auto; width: 75%; padding-right: 10px">
+                        <div class="text text-r" style="background:whitesmoke !important">
+                            <input class="mytext" placeholder="{{ 'MESSAGE_CONTENT' | translate }}" ng-model="novaMensagem.TextoMensagem" maxlength="255" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 15px;">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm btn-success col-md-6" ng-click="inserirMensagem(novaMensagem)"><i class="fa fa-play" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'SUBMIT' | translate }}</button>
+                            <button type="button" class="btn btn-sm btn-success col-md-6" ng-click="abreModalImagens()"><i class="fa fa-photo" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'IMAGE' | translate }}</button>
+                            <!--<button type="button" class="btn btn-sm btn-success col-md-4" ng-click="abreModalVoz()"><i class="fa fa-microphone" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'AUDIO' | translate }}</button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END CHAT -->
+    </div>
+</div>

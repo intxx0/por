@@ -1,0 +1,291 @@
+﻿(function (app) {
+    'use strict';
+
+    app.controller('mensagensCtrl', mensagensCtrl);
+
+    mensagensCtrl.$inject = ['$scope', '$http', 'apiService', '$routeParams', 'notificationService', '$timeout', '$rootScope', '$modal', '$translate'];
+
+    function mensagensCtrl($scope, $http, apiService, $routeParams, notificationService, $timeout, $rootScope, $modal, $translate) {
+
+
+        $scope.novaMensagem = {};
+        $scope.MensagensRecebidas = [];
+        $scope.inserirMensagem = inserirMensagem;
+        $scope.limparCampos = limparCampos;
+        $scope.carregarMensagens = carregarMensagens;
+        $scope.carregarMensagensRecebidas = carregarMensagensRecebidas;
+        $scope.abreModalVoz = abreModalVoz;
+        $scope.abreModalImagens = abreModalImagens;
+        $scope.removeImagem = removeImagem;
+
+
+        var promise;
+        var contador = 10;
+
+
+        function ativarRefresh() {
+            contador--;
+            if (contador === 0) {
+                carregarMensagensRecebidas();
+                contador = 10;
+
+            }
+            promise = $timeout(ativarRefresh, 1000);
+        }
+
+
+        function removeImagem(id) {
+
+            for (var i = 0; i < $rootScope.imgsrc.length; i++) {
+                if (id == $rootScope.imgsrc[i].nomeArq) {
+
+                    $rootScope.imgsrc.splice(i, 1);
+                }
+            }
+        }
+
+        //1---------Carrega todos os usuários diferente do que estiver logado-------
+
+        function carregarUsuarios() {
+
+            apiService.get('/api/mensagem/listausuarios', null,
+                loadUsuariosSuccess,
+                loadUsuariosFailed);
+        }
+
+        function loadUsuariosSuccess(result) {
+
+            $scope.Usuarios = result.data.Items;
+
+        }
+
+        function loadUsuariosFailed(result) {
+
+            notificationService.displayError($translate.instant('ERROR_LOADING_USERS') + '!\n\n' + result.status, $translate.instant('ATTENTION') + '!');
+
+        }
+
+        //1-------------------------------------------------------------------------
+
+
+        //2------Carrega todas as mensagens do banco enviadas e recebidas pelo usuário logado-----
+
+        function carregarMensagens() {
+
+            apiService.get('/api/mensagem/listamensagem', null,
+                loadMensagensSuccess,
+                loadMensagensFailed);
+
+        }
+
+        function loadMensagensSuccess(result) {
+
+            $scope.Mensagens = result.data.Items;
+
+
+            notificationService.displayInfo("(" + $scope.Mensagens.length + ")" + " " + $translate.instant('LOADED_MESSAGES') + "!", $translate.instant('ATTENTION') + "<br /><br />");
+
+            $scope.page = result.data.Page;
+            $scope.pagesCount = result.data.TotalPages;
+            $scope.totalCount = result.data.TotalCount;
+        }
+
+        function loadMensagensFailed(result) {
+
+            notificationService.displayInfo($translate.instant('ERROR_LOADING_MESSAGES') + "!\n " + result.status, $translate.instant('ATTENTION') + "!<br /><br />");
+        }
+
+        //2------------------------------------------------------------------------------------
+
+
+
+
+        //3--------------------Inserir Mensagem------------------------------------------------
+
+        function inserirMensagem() {
+
+            if (validaCampos()) {
+
+                apiService.post('/api/mensagem/inserirmensagem', $scope.novaMensagem,
+                    inserirMensagensSuccess,
+                    inserirMensagensFailed);
+            }
+
+        }
+
+        function inserirMensagensSuccess(result) {
+
+            $scope.novaMensagem = result.data;
+
+            notificationService.displaySuccess($translate.instant('MESSAGE_SEND_SUCCESS') + '!', result.status, $translate.instant('ATTENTION') + '!');
+
+            carregarMensagensRecebidas();
+            limparCampos();
+        }
+
+        function inserirMensagensFailed(result) {
+
+            notificationService.displayError($translate.instant('ERROR_SEND_MESSAGE') + '!', result.status, $translate.instant('ATTENTION') + '!');
+
+        }
+
+        //3------------------Fim---------------------------------------------------------------
+
+
+
+
+        //4----Carrega todas as mensagens do banco enviadas e recebidas pelo usuário logado-----
+
+        function carregarMensagensRecebidas() {
+
+            apiService.get('/api/mensagem/listamensagemrecebidas', null,
+                loadMensagensRecebidasSuccess,
+                loadMensagensRecebidasFailed);
+
+        }
+
+        function loadMensagensRecebidasSuccess(result) {
+
+            $scope.MensagensRecebidas = result.data.Items;
+
+            $scope.idUsuarioLogado = result.data.IdUsuarioLogado;
+
+
+            //notificationService.displayInfo("(" + $scope.Mensagens.length + ")" + " mensagens carregadas !", "Atenção<br /><br />");
+
+        }
+
+        function loadMensagensRecebidasFailed(result) {
+
+            notificationService.displayInfo($translate.instant('ERROR_LOADING_MESSAGES') + '!\n' + result.data.status, $translate.instant('ATTENTION') + '!');
+        }
+
+        //4-------------------------------------------------------------------------------------
+
+
+
+
+        //5----------------Atualiza quantidade de mensagens-------------------------------------
+
+        function atualizaQtd() {
+
+            $scope.Mensagem = {
+                Visualizado: 1
+            };
+
+            apiService.post('/api/mensagem/atualizamensagensbaixadas', $scope.Mensagem,
+                loadAtualizaMensBaixadasSuccess,
+                loadAtualizaMensBaixadasFailed);
+        }
+
+        function loadAtualizaMensBaixadasSuccess(result) {
+
+            var teste = result.status;
+
+            $rootScope.MensagemNaoLidas = 0;
+
+        }
+
+        function loadAtualizaMensBaixadasFailed(result) {
+            notificationService.displayError($translate.instant('ERROR_MARK_MESSAGES'));
+        }
+
+        //5------------------------------------------------------------------------------------
+
+
+
+        //6-------------------Limpa campos das mensagens-----------------------------------------
+
+        function limparCampos() {
+            $scope.novaMensagem = {};
+        }
+
+        //6-------------------------------------------------------------------------------------
+
+
+
+        //7--------------------Valida Campos antes de enviar a mensagem-------------------------
+
+        function validaCampos() {
+
+            if ($scope.novaMensagem != null) {
+
+                if ($scope.novaMensagem.UsuarioDestino == undefined) {
+
+                    notificationService.displayError($translate.instant('CHOOSE_RECIPIENT'));
+                    return false;
+                }
+
+                if ($scope.novaMensagem.TextoMensagem == undefined) {
+
+                    notificationService.displayError($translate.instant('ENTER_MESSAGE'));
+                    return false;
+                }
+
+            }
+            return true;
+
+        }
+
+        //7------------------------------------------------------------------------------------
+
+
+
+        //8--------------------------Abre modal para gravar voz--------------------------------
+
+        function abreModalVoz() {
+
+            $modal.open({
+                animation: true,
+                templateUrl: 'scripts/AppKor/mensagens/modalmensagemaudio.html',
+                controller: 'modalMensagemAudioCtrl',
+                size: 'lg',
+                resolve: {
+                    items: function () {
+                        return '';
+                    }
+                }
+            });
+        }
+
+        //8-------------------------------------------------------------------------------------
+
+
+        //9------------------------Abre modal de imagens---------------------------------------
+
+        function abreModalImagens() {
+
+            $modal.open({
+                animation: true,
+                templateUrl: 'scripts/AppKor/mensagens/modalenviaimagem.html',
+                controller: 'modalenviaimagemCtrl',
+                size: 'lg',
+                resolve: {
+                    items: function () {
+                        return $rootScope.imgsrc;
+                    }
+                }
+            });
+        }
+
+        //9------------------------------------------------------------------------------------
+
+
+
+        carregarUsuarios();
+        //carregarMensagens();
+        carregarMensagensRecebidas();
+        ativarRefresh();
+        atualizaQtd();
+
+
+        //Destrói as chamadas de tempos em tempos ao sair da tela
+        $scope.$on('$destroy', function () {
+
+            $timeout.cancel(promise);
+
+        });
+
+    }
+
+})(angular.module('AppKor'));

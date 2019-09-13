@@ -1,0 +1,202 @@
+﻿.page-header-fixed {
+    padding-top: 0;
+}
+
+.sidebar .nav > li.nav-profile {
+    padding: 0;
+    background-color: #2D353C;
+}
+
+.sidebar {
+    padding-top: 0;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 10px 10px;
+}
+
+.header {
+    z-index: auto;
+}
+
+.botao-tabela-laranja {
+    background-color: orange;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.botao-tabela-vermelho {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.botao-tabela-verde {
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.botao-tabela-preto {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.login .login-header {
+    position: absolute;
+    top: -140px;
+    left: 53%;
+    right: 0;
+    width: 450px;
+    padding: 0 40px;
+    margin-left: -225px;
+    font-weight: 300;
+}
+
+.bg-black {
+    background-color: #C71313 !important;
+}
+
+/*.navbar-default .navbar-nav>li>a {
+    color: white;
+}*/
+/*.hidden-xs:hover {
+    color: white;
+    font-weight: bold;
+}*/
+
+.row {
+    margin: 10px 10px;
+}
+
+.btn-block {
+    margin-bottom: 2px;
+}
+
+
+.legend > div {
+    margin-left: 0px !important;
+}
+
+.button-menu {
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: #242A30;
+    color: white;
+    outline-offset: 0px;
+}
+
+    .button-menu:hover {
+        color: white;
+        font-weight: bold;
+    }
+
+    .button-menu:focus {
+        margin-bottom: 10px;
+        padding: 15px;
+        color: white;
+    }
+
+.login {
+    margin: 2px 0 !important;
+}
+
+body, html {
+    height: auto !important;
+}
+
+.accordionativo {
+    background-color: green;
+    padding: 10px;
+}
+
+.accordiondesativado {
+    background-color: red;
+    padding: 10px;
+}
+
+.accordionaguardando {
+    background-color: orange;
+    padding: 10px;
+}
+
+.recebidas {
+    background-color: white;
+}
+
+.fundomensagem {
+    background: url("/Content/images/fundoWhatsApp.png");
+    overflow: auto;
+    height: 900px;
+}
+
+.enviadas {
+    background-color: #DCF8C6;
+}
+
+
+.sortorder:after {
+    content: '\25b2'; /*// BLACK UP-POINTING TRIANGLE*/
+}
+
+.sortorder.reverse:after {
+    content: '\25bc'; /*// BLACK DOWN-POINTING TRIANGLE*/
+}
+
+.widget-stats .stats-icone {
+    color: #fff;
+    font-size: 42px;
+    height: 56px;
+    line-height: 56px;
+    margin-left: 20px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 5px;
+    width: 56px;
+}
+
+.stats-info a {
+    text-decoration: none;
+}
+
+    .stats-info a p {
+        border-radius: 2%;
+        color: white;
+        padding: 2px;
+        background: #007336 none repeat scroll 0 0;
+    }
+
+        .stats-info a p:hover {
+            background: #00A650;
+            color: white;
+        }
+
+        .stats-info a p i {
+            color: white;
+            font-size: 50px;
+        }
+
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.emailnaovisualizado {
+    color:black;
+    font-weight:bold;
+}
+
+.fa-sidebar         { float:left; margin:3px 14px auto 0; opacity:0.8; }
+.slimScrollDiv .btn { text-align:left; }
+.button-menu:hover  { background:#777; font-weight:normal; cursor:pointer; }
+.logout             { padding-left:20px!important; padding-right:25px!important; }
+.navbar-default .navbar-nav > li > a { padding-top:19px; }
+a.btn-default        { background:transparent!important; border:none!important; }

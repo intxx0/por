@@ -1,0 +1,21 @@
+﻿.operation-label {
+    width: 100px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.chart-pie.dashboard {
+    margin-top: 5%;
+}
+
+.chart-bar.dashboard {
+    margin-top: 10%;
+}
+
+.chart-line.dashboard {
+    margin-top: 10%;
+}
+
+.registers h5   { color:#348fe2; }
+ul.register li { list-style:none; padding-top:8px; }
+ul.register li a { font-size:14px; color:#777!important; }

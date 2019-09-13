@@ -1,0 +1,59 @@
+﻿<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'EVENTS' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'EVENTS' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-6 -->
+        <div class="col-md-12">
+            <div class="panel panel-inverse" data-sortable-id="table-basic-4">
+                <div class="panel-heading">
+                    <input type="text" value="" id="txtPesquisarEnviados" class="pull-right" style="color:black" ng-model="mensagemrecebidas.$" placeholder="{{ SEARCH_BY_USER | translate }}" />
+                    <h4 class="panel-title">{{ 'EVENTS' | translate }}</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="50">{{ 'ID_EVENT' | translate }}</th>
+                                <th width="150">{{ 'REQUESTER' | translate }}</th>
+                                <th width="150">{{ 'ATTENDED_BY' | translate }}</th>
+                                <th width="150">{{ 'COORDINATE' | translate }}</th>
+                                <th width="80">{{ 'LATITUDE' | translate }}</th>
+                                <th width="80">{{ 'LONGITUDE' | translate }}</th>
+                                <th width="150">{{ 'EVENT_DATE' | translate }}</th>
+                                <th>{{ 'ACTION' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="emergencia in Emergencias | filter:filtroEmergencia" style="border-bottom: 1px solid #E2E7EB;width:100%;" ng-class="{'red':emergencia.Ativo == 1}" ng-click="atualizaHistoricoEmergencia(emergencia)">
+                                <td>{{emergencia.IdEmergencia}}</td>
+                                <td>{{emergencia.DescUsuario}}</td>
+                                <td>{{emergencia.DescUsuarioAtendeu}}</td>
+                                <td>{{emergencia.Coordenada}}</td>
+                                <td>{{emergencia.Latitude}}</td>
+                                <td>{{emergencia.Longitude}}</td>
+                                <td>{{emergencia.DataCriado | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>
+                                    <a href="javascript:;" ng-href="#/home/{{emergencia.IdEmergencia}}" class="" style="padding: 2px; text-decoration: none" tooltip-enable="true" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip="Ver no Mapa">
+                                        <img src="/Content/images/mapa.png" alt="" height="30e.m" width="30e.m" />
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="clearfix">
+                        <custom-pager page="{{page}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="carregaAlarmes(page)"></custom-pager>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

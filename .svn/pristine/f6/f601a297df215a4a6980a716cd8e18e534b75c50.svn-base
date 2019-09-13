@@ -1,0 +1,53 @@
+﻿<div class="stats-info text-center">
+    <h3>{{ 'DETAILS_OPERATION' | translate }}</h3>
+</div>
+<fieldset style="background-color: white; border-radius: 10px; padding: 10px;">
+    <!--      Gráficos       -->
+    <div class="row">
+        <div class="text-center" style="background: #f0f3f4; color: #242a30; border-radius: 5px; margin-bottom: 20px; margin-top: 20px; font-size: 18px; padding: 5px;">{{ 'INSPECTION_CHARTS' | translate }}</div>
+        <div class="col-md-1">
+            <label>{{ 'INSPECTION_CHARTS' | translate }}: </label>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                    <div style="display:flex; margin-top:30px; justify-content: space-around">
+
+                        <div style="height: 300px; width: 400px; position: relative; margin-left: 24px;">
+                            <h5>Autuações por Matérias Primas</h5>
+                            <canvas id="bar" class="chart chart-bar dashboard"
+                                    chart-data="InfractionFeedStockdata" chart-labels="InfractionFeedStocklabels"
+                                    chart-series="InfractionFeedStockseries" chart-options="Options"></canvas>
+                        </div>
+                        <div style="height: 300px; width: 400px; position: relative; margin-left: 24px;">
+                            <h5>Autuações por tipo de Autuação</h5>
+                            <canvas id="pie" class="chart chart-pie dashboard"
+                                    chart-data="data" chart-labels="labels" chart-options="options" chart-colors="colors"></canvas>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div style="display:flex;margin-top:30px; justify-content: space-around">
+                    <div style="height: 300px;width: 400px;position: relative;margin-left: 24px;">
+                        <h5>Evolução das autuações por dia</h5>
+                        <canvas id="line" class="chart chart-line dashboard" chart-data="InfractionDaydata"
+                                chart-labels="InfractionDaylabels" chart-series="InfractionDayseries" chart-options="Options"></canvas>
+                    </div>
+
+                    <div style="height: 300px;width: 400px;position: relative;margin-left: 24px;">
+                        <h5>Total Fiscalização e % de Autuações</h5>
+                        <canvas id="bar" class="chart chart-bar dashboard" chart-options="Options"
+                                chart-data="InfractionPercentdata" chart-labels="InfractionPercentlabels"
+                                chart-series="InfractionPercentseries" chart-colors="InfractionPercentcolors"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------------------------->
+</fieldset>
+<div class="row" style="margin-top: 10px">
+    <div class="col-md-12">
+        <a href="javascript:;" ng-href="#/operacoes" class="btn btn-sm btn-success" style="float:left;"><i class="fa fa-arrow-left" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'BACK' | translate }}</a>
+    </div>
+</div>

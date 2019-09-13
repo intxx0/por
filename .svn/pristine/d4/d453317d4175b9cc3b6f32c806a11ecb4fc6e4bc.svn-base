@@ -1,0 +1,97 @@
+﻿<div ng-controller="emailCtrl">
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;" ng-href="#/index">{{ 'HOME' | translate }}</a></li>
+        <li><a href="javascript:;" ng-href="#/emailsrecebidos">{{ 'EMAILS' | translate }}</a></li>
+        <li class="active">{{ 'SENT' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'EMAILS' | translate }} - {{ 'SENT' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-2 -->
+        <div class="col-md-2">
+            <form>
+                <div class="input-group m-b-15">
+                    <input type="text" class="form-control input-sm input-white" placeholder="{{ 'SEARCH_EMAIL' | translate }}" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-sm btn-inverse" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+            <div class="hidden-sm hidden-xs">
+                <ul class="nav nav-pills nav-stacked nav-inbox" style="width:180px;">
+                    <li>
+                        <a ng-href="#/emailsrecebidos">
+                            <i class="fa fa-inbox fa-fw m-r-5"></i> {{ 'INBOX' | translate }} ({{EmailsRecebidosTotal}})
+                        </a>
+                    </li>
+                    <li class="active"><a ng-href="#/emailsenviados"><i class="fa fa-inbox fa-fw m-r-5"></i> {{ 'SENT' | translate }}</a></li>
+                    <li><a ng-href="#/emailsexcluidos"><i class="fa fa-trash-o fa-fw m-r-5"></i> {{ 'DELETED' | translate }}</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- end col-2 -->
+        <!-- begin col-10 -->
+        <div class="col-md-10">
+            <div class="email-btn-row hidden-xs">
+                <a ng-href="#/email" class="btn btn-sm btn-inverse"><i class="fa fa-plus m-r-5"></i> {{ 'NEW_EMAIL' | translate }}</a>
+            </div>
+            <div class="email-content">
+                <table class="table table-email">
+                    <thead>
+                        <tr>
+                            <th class="email-select"><a href="#" data-click="email-select-all"><i class="fa fa-square-o fa-fw"></i></a></th>
+                            <th colspan="2">
+                                <div class="dropdown">
+                                    <a href="#" class="email-header-link" data-toggle="dropdown">{{ 'VIEW' | translate }} <i class="fa fa-angle-down m-l-5"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="active"><a href="#">{{ 'ALL' | translate }}</a></li>
+                                        <li><a href="#">{{ 'UNREAD' | translate }}</a></li>
+                                        <li><a href="#">{{ 'READ' | translate }}</a></li>
+                                    </ul>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dropdown">
+                                    <a href="#" class="email-header-link" data-toggle="dropdown">{{ 'ORDER_BY' | translate }} <i class="fa fa-angle-down m-l-5"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="active"><a href="#">{{ 'DATE' | translate }}</a></li>
+                                        <li><a href="#">{{ 'FROM' | translate }}</a></li>
+                                        <li><a href="#">{{ 'SUBJECT' | translate }}</a></li>
+                                    </ul>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr ng-repeat="enviado in EmailsEnviados | orderBy:propertyName:reverse | filter: enviado:restrict" ng-class="{'emailnaovisualizado':recebidos.Visualizado == false}">
+                            <td class="email-select"><a href="#" data-click="email-select-single"><i class="fa fa-square-o fa-fw"></i></a></td>
+                            <td class="email-sender">
+                                {{enviado.Remetente}}
+                            </td>
+                            <td class="email-subject">
+                                <a ng-click="abreModal(enviado)" class="email-btn" data-click="email-archive"><i class="fa fa-folder-open"></i></a>
+                                <a ng-click="atualizaCampoDelete(enviado)" class="email-btn" data-click="email-remove"><i class="fa fa-trash-o"></i></a>
+                                <a href="#" class="email-btn" data-click="email-highlight"><i class="fa fa-flag"></i></a>
+                                {{enviado.Assunto}}
+                            </td>
+                            <td class="email-date">{{enviado.DataCriado | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="email-footer clearfix">
+                    {{EmailsEnviadosTotal}} {{ 'MESSAGES_TOTAL' | translate }}
+                    <custom-pager page="{{page}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="emailsEnviados(page)"></custom-pager>
+                </div>
+            </div>
+        </div>
+        <!-- end col-10 -->
+    </div>
+    <!-- end row -->
+</div>

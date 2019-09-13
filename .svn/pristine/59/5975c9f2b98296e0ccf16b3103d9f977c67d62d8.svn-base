@@ -1,0 +1,104 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        {{ 'INSPECTION_DETAIL' | translate}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>{{ 'INSPECTION_DATA' | translate }}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="font-weight:bold;">{{ 'DESCRIPTION' | translate }}:</div>
+            <div class="col-md-9">{{Fiscalizacao.DescFiscalizacao}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="font-weight:bold;">{{ 'INSPECTION_DATE' | translate }}:</div>
+            <div class="col-md-9">{{Fiscalizacao.DataFiscalizacao | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="font-weight:bold;">{{ 'WRITE_DATE' | translate }}:</div>
+            <div class="col-md-9">{{Fiscalizacao.DataGravacao | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="font-weight:bold;">{{ 'STATION' | translate }}:</div>
+            <div class="col-md-9">{{Fiscalizacao.Posto}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="font-weight:bold;">{{ 'INSPECTION_STATUS' | translate }}:</div>
+            <div class="col-md-9">{{Fiscalizacao.StatusFiscalizacao}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="font-weight:bold;">{{ 'NOTICE_NUMBER' | translate }}:</div>
+            <div class="col-md-9">{{Fiscalizacao.NumeroAutuacao}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="font-weight:bold;">{{ 'INSPECTION_SUBTYPE' | translate }}:</div>
+            <div class="col-md-9">{{Fiscalizacao.SubTipoFiscalizacao}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="font-weight:bold;">{{ 'OPERATION' | translate }}:</div>
+            <div class="col-md-9">{{Fiscalizacao.DescOperacao}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="font-weight:bold;">{{ 'REGISTERED_BY' | translate }}:</div>
+            <div class="col-md-9">{{Fiscalizacao.Usuario}}</div>
+        </div>
+        <div class="row" style="margin-top:15px;">
+            <div class="col-md-12">
+                <h4>{{ 'GUIDE_DATA' | translate }}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="font-weight:bold;">{{ 'GUIDE_NUMBER' | translate }}:</div>
+            <div class="col-md-4">{{Fiscalizacao.NumeroGuia}}</div>
+            <div class="col-md-2" style="font-weight:bold;">{{ 'GUIDE_DATE' | translate }}:</div>
+            <div class="col-md-4">{{Fiscalizacao.DataEmissaoGuia | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="font-weight:bold;">{{ 'GUIDE_TYPE' | translate }}:</div>
+            <div class="col-md-4">{{Fiscalizacao.TipoGuia}}</div>
+            <div class="col-md-2" style="font-weight:bold;">{{ 'VALIDITY' | translate }}:</div>
+            <div class="col-md-4">{{Fiscalizacao.DataValidadeInicio | date:'dd/MM/yyyy'}} - {{Fiscalizacao.DataValidadeFim | date:'dd/MM/yyyy'}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="font-weight:bold;">{{ 'EMISSION_NAME' | translate }}:</div>
+            <div class="col-md-4">{{Fiscalizacao.NomeEmissor}}</div>
+            <div class="col-md-2" style="font-weight:bold;">{{ 'EMISSION_CNPJ' | translate }}:</div>
+            <div class="col-md-4">{{Fiscalizacao.CnpjEmissor}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="font-weight:bold;">{{ 'EMISSION_CITY' | translate }}:</div>
+            <div class="col-md-10">{{Fiscalizacao.MunicipioEmissor}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="font-weight:bold;">{{ 'SOURCE_NAME' | translate }}:</div>
+            <div class="col-md-10">{{Fiscalizacao.NomeOrigem}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="font-weight:bold;">{{ 'SOURCE_CITY' | translate }}:</div>
+            <div class="col-md-10">{{Fiscalizacao.MinicipioOrigem}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="font-weight:bold;">{{ 'DESTINATION_NAME' | translate }}:</div>
+            <div class="col-md-10">{{Fiscalizacao.NomeDestino}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="font-weight:bold;">{{ 'DESTINATION_CITY' | translate }}:</div>
+            <div class="col-md-10">{{Fiscalizacao.MunicipioDestino}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="font-weight:bold;">{{ 'BOARD' | translate }}:</div>
+            <div class="col-md-4">{{Fiscalizacao.Placa}}</div>
+            <div class="col-md-2" style="font-weight:bold;">{{ 'INVOICE_NUMBER' | translate }}:</div>
+            <div class="col-md-4">{{Fiscalizacao.NumeroNotaFiscal}}</div>
+        </div>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="cancel()">
+                {{ 'CLOSE' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

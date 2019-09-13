@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da23de9f0f6b4af2949f819b2fcf3aad" Name="Diagram1">
+        <EntityTypeShape EntityType="ModeloBancoKor.caixa_email" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.emergencia" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.fiscalizacao" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.fiscalizacao_operacao" Width="1.5" PointX="12.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.grupo" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.guia" Width="1.5" PointX="10.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.imagem" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.item_guia" Width="1.5" PointX="13" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.kor" Width="1.5" PointX="0.875" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.kor_operacao" Width="1.5" PointX="2" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.mensagem" Width="1.5" PointX="7.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.natureza_operacao" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.operacao" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.smtp_email" Width="1.5" PointX="4.375" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.status_fiscalizacao" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.sysdiagrams" Width="1.5" PointX="7.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.tipo_fiscalizacao" Width="2" PointX="1.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.tipo_materia_prima" Width="1.5" PointX="10.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.usuario" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.usuario_logado" Width="1.5" PointX="1.875" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloBancoKor.usuario_operacao" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="ModeloBancoKor.FK_caixa_email_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_emergencia_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_emergencia_usuario1" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_fiscalizacao_operacao" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_fiscalizacao_status_fiscalizacao" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_imagem_fiscalizacao" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_fiscalizacao_operacao_operacao" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_usuario_grupo" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_item_guia_guia" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_imagem_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_item_guia_tipo_materia_prima" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_kor_operacao_kor" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_mensagem_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_mensagem_usuario1" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_operacao_natureza_operacao" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_operacao_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_usuario_operacao_operacao" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_usuario_logado_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_usuario_operacao_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloBancoKor.FK_fiscalizacao_operacao_fiscalizacao1" />
+        <EntityTypeShape EntityType="ModeloBancoKor.cargo" Width="1.5" PointX="4.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ModeloBancoKor.instituicao" Width="1.5" PointX="13.375" PointY="5.75" />
+        <EntityTypeShape EntityType="ModeloBancoKor.perfil" Width="1.5" PointX="13.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ModeloBancoKor.missao" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ModeloBancoKor.missao_operacao" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ModeloBancoKor.subtipo_fiscalizacao" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ModeloBancoKor.tipo_guia" Width="1.5" PointX="5.375" PointY="15.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

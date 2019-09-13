@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace WebApiKor.Models
+{
+    public class AnexoViewModel
+    {
+        public int id_anexo { set; get; }
+        public string nome { set; get; }
+        public DateTime data_criado { set; get; }
+        public int ativo { set; get; }
+        public int usuario_id { set; get; }
+        public string desc_anexo { set; get; }
+        public string nomeArq { set; get; }
+        public string base64 { set; get; }
+    }
+}

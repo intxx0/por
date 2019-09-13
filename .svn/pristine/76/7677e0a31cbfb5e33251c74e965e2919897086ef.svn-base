@@ -1,0 +1,17 @@
+﻿.operation-label {
+    width: 100px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.chart-pie.dashboard {
+    margin-top: 5%;
+}
+
+.chart-bar.dashboard {
+    margin-top: 10%;
+}
+
+.chart-line.dashboard {
+    margin-top: 10%;
+}

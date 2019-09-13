@@ -1,0 +1,183 @@
+﻿
+(function () {
+    'use strict';
+
+    angular.module('AppKor', ['ngRoute', 'ui.bootstrap', 'ngMap', 'base64', 'ngRoute', 'ngCookies', 'ui.mask', 'nvd3', 'ngMd5', 'ngMessages', 'ngTagsInput', 'angular.morris', 'ngLocale', 'flow', 'pascalprecht.translate', 'chart.js', 'googlechart'])
+        .config(function ($routeProvider) {
+            $routeProvider
+                .when('/home/:idEmergencia', {
+                    templateUrl: 'scripts/AppKor/home/home.html',
+                    controller: 'homeCtrl'
+                })
+                .when('/login', {
+                    templateUrl: 'scripts/AppKor/login/login.html',
+                    controller: 'loginCtrl'
+                })
+                .when('/cadusuario', {
+                    templateUrl: 'scripts/AppKor/cadusuario/cadusuario.html',
+                    controller: 'cadusuarioCtrl'
+                })
+                .when('/cadusuario/:idUsuario', {
+                    templateUrl: 'scripts/AppKor/cadusuario/cadusuario.html',
+                    controller: 'cadusuarioCtrl'
+                })
+                .when('/cadoperacoes', {
+                    templateUrl: 'scripts/AppKor/cadoperacoes/cadoperacao.html',
+                    controller: 'cadoperacaoCtrl'
+                })
+                .when('/operacoes/:id', {
+                    templateUrl: 'scripts/AppKor/operacoes/operacao.html',
+                    controller: 'operacaoCtrl'
+                })
+                .when('/historicoAlarmes', {
+                    templateUrl: 'scripts/AppKor/historicoAlarmes/historicoAlarmes.html',
+                    controller: 'historicoAlarmesCtrl'
+                })
+                .when('/cadgrupo', {
+                    templateUrl: 'scripts/AppKor/cadgrupos/cadgrupo.html',
+                    controller: 'cadgrupoCtrl'
+                })
+                .when('/email', {
+                    templateUrl: 'scripts/AppKor/email/email.html',
+                    controller: 'emailCtrl'
+                })
+                .when('/emailsrecebidos', {
+                    templateUrl: 'scripts/AppKor/email/emailsrecebidos.html',
+                    controller: 'emailCtrl'
+                })
+                .when('/emailsenviados', {
+                    templateUrl: 'scripts/AppKor/email/emailsenviados.html',
+                    controller: 'emailCtrl'
+                })
+                .when('/emailsexcluidos', {
+                    templateUrl: 'scripts/AppKor/email/emailsexcluidos.html',
+                    controller: 'emailCtrl'
+                })
+                .when('/mensagens', {
+                    templateUrl: 'scripts/AppKor/mensagens/mensagens.html',
+                    controller: 'mensagensCtrl'
+                })
+                .when('/chatmensagens/:id', {
+                    templateUrl: 'scripts/AppKor/mensagens/chatmensagens.html',
+                    controller: 'chatmensagensCtrl'
+                })
+                .when('/imagens', {
+                    templateUrl: 'scripts/AppKor/imagens/imagens.html',
+                    controller: 'imagensCtrl'
+                })
+                .when('/dashboard', {
+                    templateUrl: 'scripts/AppKor/dashboard/dashboard.html',
+                    controller: 'dashboardCtrl'
+                })
+                .when('/detalhesOperacao/:id', {
+                    templateUrl: 'scripts/AppKor/operacoes/detalhesOperacao.html',
+                    controller: 'detalhesOperacaoCtrl'
+                })
+                .when('/error', {
+                    templateUrl: 'scripts/AppKor/error/error.html',
+                    controller: 'errorCtrl'
+                })
+                .when('/naturezaoperacao', {
+                    templateUrl: 'scripts/AppKor/naturezaoperacao/naturezaoperacao.html',
+                    controller: 'naturezaoperacaoCtrl'
+                })
+                .when('/operacaoveiculo', {
+                    templateUrl: 'scripts/AppKor/operacoes/operacaoVeiculo.html',
+                    controller: 'operacaoVeiculoCtrl'
+                })
+                .when('/cadkor', {
+                    templateUrl: 'scripts/AppKor/cadkor/cadkor.html',
+                    controller: 'cadkorCtrl'
+                })
+                .when('/cadtipofiscalizacao', {
+                    templateUrl: 'scripts/AppKor/cadtipofiscalizacao/cadtipofiscalizacao.html',
+                    controller: 'cadtipofiscalizacaoCtrl'
+                })
+                .when('/cadnaturezaoperacao', {
+                    templateUrl: 'scripts/AppKor/cadnaturezaoperacao/cadnaturezaoperacao.html',
+                    controller: 'cadnaturezaoperacaoCtrl'
+                })
+                .when('/cadcargo', {
+                    templateUrl: 'scripts/AppKor/cadcargo/cadcargo.html',
+                    controller: 'cadcargoCtrl'
+                })
+                .when('/cadmissao', {
+                    templateUrl: 'scripts/AppKor/cadmissao/cadmissao.html',
+                    controller: 'cadmissaoCtrl'
+                })
+                .when('/cadperfil', {
+                    templateUrl: 'scripts/AppKor/cadperfil/cadperfil.html',
+                    controller: 'cadperfilCtrl'
+                })
+                .when('/cadinstituicao', {
+                    templateUrl: 'scripts/AppKor/cadinstituicao/cadinstituicao.html',
+                    controller: 'cadinstituicaoCtrl'
+                })
+                .when('/cadmateriaprima', {
+                    templateUrl: 'scripts/AppKor/cadmateriaprima/cadmateriaprima.html',
+                    controller: 'cadmateriaprimaCtrl'
+                })
+                .when('/cadtipoguia', {
+                    templateUrl: 'scripts/AppKor/cadtipoguia/cadtipoguia.html',
+                    controller: 'cadtipoguiaCtrl'
+                })
+                .when('/cadsubtipofiscalizacao', {
+                    templateUrl: 'scripts/AppKor/cadsubtipofiscalizacao/cadsubtipofiscalizacao.html',
+                    controller: 'cadsubtipofiscalizacaoCtrl'
+                })
+                .when('/dashboard/:id', {
+                    templateUrl: 'scripts/AppKor/dashboard/dashboard.html',
+                    controller: 'dashboardCtrl'
+                })
+                .when('/fiscalizacao', {
+                    templateUrl: 'scripts/AppKor/fiscalizacao/fiscalizacao.html',
+                    controller: 'fiscalizacaoCtrl'
+                })
+                .when('/operacoes', {
+                    templateUrl: 'scripts/AppKor/fiscalizacao/operacao.html',
+                    controller: 'operacaoCtrl'
+                })
+                .when('/detalhesoperacao/:id', {
+                    templateUrl: 'scripts/AppKor/fiscalizacao/detalhesoperacao.html',
+                    controller: 'detalhesoperacaoCtrl'
+                })
+                .when('/', {
+                    templateUrl: 'scripts/AppKor/home/home.html',
+                    controller: 'homeCtrl'
+                })
+                .otherwise('/');
+        }).config(['$translateProvider', function ($translateProvider) {
+            $translateProvider.useStaticFilesLoader({
+                prefix: 'i18n/',
+                suffix: '.json'
+            });
+            $translateProvider.preferredLanguage('pt_BR');
+            //$translateProvider.fallbackLanguage('pt_BR');
+            //$translateProvider.forceAsyncReload(true);
+            $translateProvider.useLocalStorage();
+        }]).run(run);
+
+    run.$inject = ['$rootScope', '$location', '$route'];
+
+    function run($rootScope, $location) {
+
+        $rootScope.$on('$locationChangeStart', function () {
+
+            var sessao = localStorage.getItem("kor");
+
+            if (sessao == null) {
+                $('#sidebar').hide();
+                $('#header').hide();
+                $('#footer').hide();
+                $location.path('/login');
+                //$route.reload();
+            } else {
+                $('#sidebar').show();
+                $('#header').show();
+                $('#footer').show();
+            }
+        });
+
+    }
+
+})();

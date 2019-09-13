@@ -1,0 +1,222 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using AutoMapper;
+using WebApiKor.InfraWeb;
+using WebApiKor.Models;
+
+namespace WebApiKor.Controllers
+{
+    [Authorize(Roles = "Administrador")]
+    [RoutePrefix("api/naturezaoperacao")]
+    public class NaturezaOperacaoController : ApiController
+    {
+        ModeloBancoEntities db = new ModeloBancoEntities();
+
+        /*
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("listanaturezaoperacao")]
+       public HttpResponseMessage GetNaturezaOperacao(HttpRequestMessage request)
+        {
+
+            int qtdOperacaoAtiva = 0;
+            int qtdOperacaoAguardando = 0;
+            int qtdOperacaoDesativada = 0;
+
+            List<NaturezaOperacaoViewModel> naturezaOp = new List<NaturezaOperacaoViewModel>();
+
+            HttpResponseMessage response = null;
+
+
+            List<natureza_operacao> naturezaoperacoes = db.natureza_operacao.OrderBy(k => k.desc_natureza_operacao).ToList();
+
+
+            for (int i = 0; i < naturezaoperacoes.Count; i++)
+            {
+
+                int idnatureza = naturezaoperacoes[i].id_natureza_operacao;
+
+                qtdOperacaoAtiva = db.operacao.Where(o => o.id_natureza_operacao == idnatureza && o.ativo == 0).Count();
+
+                qtdOperacaoAguardando = db.operacao.Where(o => o.id_natureza_operacao == idnatureza && o.ativo == 1).Count();
+
+                qtdOperacaoDesativada = db.operacao.Where(o => o.id_natureza_operacao == idnatureza && o.ativo == 2).Count();
+
+
+                NaturezaOperacaoViewModel naturezaOperacaoVM = new NaturezaOperacaoViewModel()
+                {
+                    IdNaturezaOperacao = idnatureza,
+                    DescnaturezaOperacao = naturezaoperacoes[i].desc_natureza_operacao,
+                    QtdAtivo = qtdOperacaoAtiva,
+                    QtdAguardando = qtdOperacaoAguardando,
+                    QtdDesativado = qtdOperacaoDesativada
+                };
+
+                naturezaOp.Add(naturezaOperacaoVM);
+
+            }
+
+            PaginacaoConfig<NaturezaOperacaoViewModel> pagSet = new PaginacaoConfig<NaturezaOperacaoViewModel>()
+            {
+                Items = naturezaOp
+            };
+
+
+            response = request.CreateResponse(HttpStatusCode.OK, pagSet);
+
+
+            return response;
+        }*/
+        /*
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("listanaturezaoperacaobyinstituicao/{idInstituicao}")]
+        public HttpResponseMessage GetNaturezaOperacaoByInstituicao(HttpRequestMessage request, int idInstituicao)
+        {
+            List<NaturezaOperacaoViewModel> naturezaOp = new List<NaturezaOperacaoViewModel>();
+
+            HttpResponseMessage response = null;
+
+            List<natureza_operacao> naturezaoperacoes = db.natureza_operacao.OrderBy(k => k.desc_natureza_operacao).ToList();
+
+            for (int i = 0; i < naturezaoperacoes.Count; i++)
+            {
+                int idnatureza = naturezaoperacoes[i].id_natureza_operacao;
+
+                NaturezaOperacaoViewModel naturezaOperacaoVM = new NaturezaOperacaoViewModel()
+                {
+                    IdNaturezaOperacao = idnatureza,
+                    DescnaturezaOperacao = naturezaoperacoes[i].desc_natureza_operacao,
+                };
+
+                naturezaOp.Add(naturezaOperacaoVM);
+            }
+
+            List<string> idsNatureza = db.operacao.Where(op => op.id_instituicao == idInstituicao).Select(op => op.id_natureza_operacao.ToString()).ToList();
+
+            naturezaOp = naturezaOp.Where(n => idsNatureza.Contains(n.IdNaturezaOperacao.ToString())).ToList();
+
+            PaginacaoConfig<NaturezaOperacaoViewModel> pagSet = new PaginacaoConfig<NaturezaOperacaoViewModel>()
+            {
+                Items = naturezaOp
+            };
+
+            response = request.CreateResponse(HttpStatusCode.OK, pagSet);
+
+            return response;
+        }*/
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("naturezaoperacaoid/{id:int}")]
+        public HttpResponseMessage GetNaturezaOperacaoId(HttpRequestMessage request, int? id)
+        {
+
+            List<NaturezaOperacaoViewModel> naturezaOp = new List<NaturezaOperacaoViewModel>();
+
+            HttpResponseMessage response = null;
+
+
+            var naturezaoperacoes = db.natureza_operacao.Find(id);
+
+
+            NaturezaOperacaoViewModel naturezaOperacaoVM = new NaturezaOperacaoViewModel()
+            {
+                IdNaturezaOperacao = naturezaoperacoes.id_natureza_operacao,
+                DescnaturezaOperacao = naturezaoperacoes.desc_natureza_operacao,
+                QtdAtivo = naturezaoperacoes.ativo
+
+            };
+
+            
+            response = request.CreateResponse(HttpStatusCode.OK, naturezaOperacaoVM);
+
+
+            return response;
+        }
+
+
+
+        [HttpPost]
+        [Route("inserirnaturezaoperacao")]
+        public HttpResponseMessage InserirNaturezaOperacao(HttpRequestMessage request, NaturezaOperacaoViewModel naturezaOperacaoViewModel)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                          .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+
+                natureza_operacao novoNaturezaoperacao = new natureza_operacao()
+                {
+                    desc_natureza_operacao = naturezaOperacaoViewModel.DescnaturezaOperacao,
+                    ativo = naturezaOperacaoViewModel.Ativo
+                };
+
+                db.natureza_operacao.Add(novoNaturezaoperacao);
+                db.SaveChanges();
+
+                // Update view model
+                naturezaOperacaoViewModel = Mapper.Map<natureza_operacao, NaturezaOperacaoViewModel>(novoNaturezaoperacao);
+
+                response = request.CreateResponse(HttpStatusCode.OK, naturezaOperacaoViewModel);
+
+            }
+
+            return response;
+
+        }
+
+
+
+        [HttpPost]
+        [Route("alterarnaturezaoperacao")]
+        public HttpResponseMessage AlterarNaturezaOperacao(HttpRequestMessage request, NaturezaOperacaoViewModel naturezaOperacaoViewModel)
+        {
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                   ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                         .Select(m => m.ErrorMessage).ToArray());
+            }
+
+            else
+
+            {
+
+                natureza_operacao novoNaturezaOperacao = new natureza_operacao()
+                {
+                    id_natureza_operacao = naturezaOperacaoViewModel.IdNaturezaOperacao,
+                    desc_natureza_operacao = naturezaOperacaoViewModel.DescnaturezaOperacao,
+                    ativo = naturezaOperacaoViewModel.Ativo
+                };
+
+                db.Entry(novoNaturezaOperacao).State = EntityState.Modified;
+                db.SaveChanges();
+
+                naturezaOperacaoViewModel = Mapper.Map<natureza_operacao, NaturezaOperacaoViewModel>(novoNaturezaOperacao);
+
+                response = request.CreateResponse(HttpStatusCode.OK, naturezaOperacaoViewModel);
+            }
+
+            return response;
+
+        }
+
+
+    }
+}

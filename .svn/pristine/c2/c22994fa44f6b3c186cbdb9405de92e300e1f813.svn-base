@@ -1,0 +1,215 @@
+﻿<div ng-controller="imagensCtrl">
+    <script>
+        setTimeout(function () {
+            $('#gallerySlider .placeholder').remove();
+            $('.fresco').touchTouch();
+
+            $('.btn-filter').on("click", function () {
+                console.log("teste");
+                $('#gallerySlider .placeholder').remove();
+                $('.fresco').touchTouch();
+            });
+        }, 1000);
+
+    </script>
+    <style>
+        .placeholder img{
+            width: 50%;
+        }
+    </style>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">Home</a></li>
+        <li class="active">Gallery</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'OPERATION_IMAGES' | translate }}</h1>
+    <!-- end page-header -->
+
+    <div id="options" class="m-b-10">
+        <span class="gallery-option-set" id="filter" data-option-key="filter">
+            <a href="javascript:void(0);" ng-click="search('')" class="btn btn-default btn-xs active">
+                {{ 'SHOW_ALL' | translate }}
+            </a>
+            <a href="javascript:void(0);" class="btn btn-default btn-xs btn-filter" ng-click="search(imagem['infos'].op)" ng-repeat="imagem in imagens">
+               <!--{{ 'OPERATION' | translate }}--> {{imagem['infos'].titulo}}
+            </a>
+        </span>
+    </div>
+    <div class="gallery isotope" id="gallery" style="position: relative; overflow: hidden; height: 1047px; margin-right: -10px;">
+        <!-- ITEM-->
+        <div class="image gallery-group-1 isotope-item" style="float: left; margin: 0 15px;" ng-repeat="img in imagens | filter: { op: operacao }">
+            <!-- Album de fotos da operação -->
+            <div class="image-inner">
+                <a data-gallery="{{img['infos'].op}}" href="{{img['infos'].href}}" class="fresco"><img src="{{img['infos'].href}}" /></a>
+                <a data-gallery="{{img2.op}}" href="{{img2.href}}" class="fresco" ng-repeat="img2 in img track by $index" ng-if="img2.op != undefined"></a>
+            </div>
+            <!--   -->
+            <!-- Informações da operação -->
+            <div class="image-info">
+                <h5 class="title">{{img['infos'].titulo}}</h5>
+                <div class="desc">{{img['infos'].desc}}</div>
+            </div>
+            <!--   -->
+        </div>
+        <!--   -->
+
+        <!--
+        <div class="image gallery-group-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(270px, 0px) scale(1); opacity: 1;">
+            <div class="image-inner">
+                <a data-group="gallery-group-2" href="/Content/images/caminhao9.jpg" class="fresco">
+                    <img src="/Content/images/caminhao9.jpg" />
+                </a>
+                <a data-group="gallery-group-2" href="/Content//images//caminhao9.jpg" class="fresco"></a>
+                <a data-group="gallery-group-2" href="/Content//images//caminhao9.jpg" class="fresco"></a>
+            </div>
+            <div class="image-info">
+                <h5 class="title">Capacidade acima do permitido</h5>
+
+                <div class="desc">
+                    Fusce eu rutrum nisi, ut pretium mi. Sed mollis nisi sed auctor molestie. Vestibulum dictum pharetra leo sed euismod.
+                </div>
+            </div>
+        </div>
+
+        <div class="image gallery-group-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(540px, 0px) scale(1); opacity: 1;">
+            <div class="image-inner">
+                <a data-lightbox="gallery-group-1" href="#">
+
+                    <img src="/Content/images/caminhao8.jpg" />
+                </a>
+
+            </div>
+            <div class="image-info">
+                <h5 class="title">Carga sem documentos</h5>
+
+                <div class="desc">
+                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus eget ultricies arcu.
+                </div>
+            </div>
+        </div>
+        <div class="image gallery-group-2 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(809px, 0px) scale(1); opacity: 1;">
+            <div class="image-inner">
+                <a data-lightbox="gallery-group-2" href="#">
+
+                    <img src="/Content/images/caminhao7.jpg" />
+                </a>
+
+            </div>
+            <div class="image-info">
+                <h5 class="title">Capacidade acima do permitido</h5>
+                <div class="desc">
+                    Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut et augue luctus libero dignissim sodales, sapien consequat lacinia fringilla.
+                </div>
+            </div>
+        </div>
+        <div class="image gallery-group-2 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 349px) scale(1); opacity: 1;">
+            <div class="image-inner">
+                <a data-lightbox="gallery-group-2" href="#">
+                    <img src="/Content/images/caminhao6.jpg" />
+                </a>
+                <p class="image-caption">
+                    # Sem documento veículo.
+                </p>
+            </div>
+            <div class="image-info">
+                <h5 class="title">Apreendido</h5>
+
+                <div class="desc">
+                    Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut et augue luctus libero, feugiat sapien consequat lacinia fringilla.
+                </div>
+            </div>
+        </div>
+        <div class="image gallery-group-3 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(270px, 349px) scale(1); opacity: 1;">
+            <div class="image-inner">
+                <a data-lightbox="gallery-group-3" href="#">
+                    <img src="/Content/images/caminhao5.jpg" />
+                </a>
+                <p class="image-caption">
+                    # Enviado para PRF
+                </p>
+            </div>
+            <div class="image-info">
+                <h5 class="title">Veículo irregular.</h5>
+                <div class="desc">
+                    Ut et augue luctus libero dignissim sodales. Fusce feugiat sapien consequat lacinia fringilla. Vivamus eget ultricies arcu.
+                </div>
+            </div>
+        </div>
+        <div class="image gallery-group-3 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(540px, 349px) scale(1); opacity: 1;">
+            <div class="image-inner">
+                <a data-lightbox="gallery-group-3" href="#">
+
+                    <img src="/Content/images/caminhao4.jpg" />
+                </a>
+                <p class="image-caption">
+                    # Descrição 03
+                </p>
+            </div>
+            <div class="image-info">
+                <h5 class="title">Levado para o pátio.</h5>
+
+                <div class="desc">
+                    Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut et augue luctus libero dignissim sodales, sapien consequat lacinia fringilla.
+                </div>
+            </div>
+        </div>
+        <div class="image gallery-group-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(809px, 349px) scale(1); opacity: 1;">
+            <div class="image-inner">
+                <a data-lightbox="gallery-group-4" href="#">
+
+                    <img src="/Content/images/caminhao3.jpg" />
+                </a>
+                <p class="image-caption">
+                    # Descrição 04
+                </p>
+            </div>
+            <div class="image-info">
+                <h5 class="title">Transporte fora da rota</h5>
+
+                <div class="desc">
+                    Ut et augue nisi sodales luctus libero dignissim sodales. Fusce feugiat nisi sodales sapien consequat lacinia fringilla.
+                </div>
+            </div>
+        </div>
+        <div class="image gallery-group-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 698px) scale(1); opacity: 1;">
+            <div class="image-inner">
+                <a data-lightbox="gallery-group-4" href="#">
+
+                    <img src="/Content/images/caminhao2.jpg" />
+                </a>
+                <p class="image-caption">
+                    # Descrição 05
+                </p>
+            </div>
+            <div class="image-info">
+                <h5 class="title">Irregular no Detran</h5>
+
+                <div class="desc">
+                    Ut et augue luctus libero dignissim sodales. Fusce feugiat sapien consequat libero dignissim lacinia fringilla.
+                </div>
+            </div>
+        </div>
+        <div class="image gallery-group-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(270px, 698px) scale(1); opacity: 1;">
+            <div class="image-inner">
+                <a data-lightbox="gallery-group-4" href="/Content/images/CarregadoGado.jpg">
+
+                    <img src="/Content/images/CarregadoGado.jpg" />
+                </a>
+                <p class="image-caption">
+                    # Gado apreendido
+                </p>
+            </div>
+            <div class="image-info">
+                <h5 class="title">Apreendido</h5>
+
+                <div class="desc">
+                    Vestibulum dictum pharetra leo sed euismod. Lorem ipsum dolor sit amet, consectetur adipiscing feugiat sapien elit.
+                </div>
+            </div>
+        </div>
+            -->
+
+    </div>
+</div>

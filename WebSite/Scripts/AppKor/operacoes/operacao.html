@@ -1,0 +1,147 @@
+﻿<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'OPERATION' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'OPERATION' | translate }}<small>{{DescNatureza}}</small></h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+
+        <div id="accordion" class="panel-group" ng-repeat="fiscalizacao in Operacoes | filter: fiscalizacao:restrict">
+
+            <!-- begin col-12 -->
+            <div class="col-md-12 ui-sortable">
+                <!-- begin panel -->
+                <div class="panel panel-inverse" data-sortable-id="ui-general-5">
+                    <div class="panel-body">
+                        <div class="alert alert-info m-b-0">
+                            <h4 class="block" style="margin-bottom:0;">{{fiscalizacao.DescOperacao}}</h4>
+                            <!--<p>
+                                Progress bars use CSS3 transitions and animations to achieve some of their effects. These features are not supported in Internet Explorer 9 and below or older versions of Firefox. Opera 12 does not support animations.
+                            </p>-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h4 style="font-size:14px;">{{ 'CREATE_DATE' | translate }}:</h4>
+                                <div>
+                                    {{fiscalizacao.DataCriado | date: 'dd/MM/yyyy HH:mm:ss'}}
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 style="font-size:14px;">{{ 'FINISH_DATE' | translate }}:</h4>
+                                <div>
+                                    {{fiscalizacao.DataFinalOperacao | date: 'dd/MM/yyyy HH:mm:ss'}}
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <button ng-click="openReports(fiscalizacao.IdFiscalizacao)" type="button" class="btn btn-sm btn-success ng-binding" style="float:right; margin:20px 20px auto auto;">
+                                    <i class="fa fa-bar-chart-o"></i>
+                                    {{ 'INDICATORS' | translate }}
+                                </button>
+                            </div>
+
+
+                            <div class="panel" id="{{fiscalizacao.IdFiscalizacao}}" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body" ng-if="fiscalizacao.Ativo == 0">
+
+                                    <!--<div id="accordion{{fiscalizacao.IdFiscalizacao}}" style="padding: 0px;">-->
+                                        <div class="panel panel-inverse overflow-hidden">
+                                            <div class="alert" style="background-color:#797A7E">
+                                                <h3 class="panel-title" style="padding: 0px">
+                                                    <a ng-href="#/dashboard/{{fiscalizacao.IdFiscalizacao}}" title="Indicadores">
+                                                        <label style="color: white; font-size: 25px; font-weight: bold" class="text-center">
+                                                            <i class="fa fa-bar-chart-o" aria-hidden="true" style="margin-right: 5px; font-size: 30px;"></i>
+                                                            Indicadores
+                                                        </label>
+                                                    </a>
+                                                </h3>
+                                            </div>
+
+                                        </div>
+                                    <!--</div>-->
+
+                                    <div id="accordion3{{tipo.id_tipo_fiscalizacao}}{{fiscalizacao.IdFiscalizacao}}" ng-repeat="tipo in fiscalizacao.tipoFiscalizacao" style="padding: 0px;">
+                                        <div class="panel panel-inverse overflow-hidden">
+                                            <div class="alert" style="background-color:#797A7E">
+                                                <h3 class="panel-title">
+                                                    <a ng-href="#{{tipo.id_tipo_fiscalizacao}}{{fiscalizacao.IdFiscalizacao}}" data-parent="#{{tipo.id_tipo_fiscalizacao}}{{fiscalizacao.IdFiscalizacao}}" data-toggle="collapse" target="_self" class="accordion-toggle accordion-toggle-styled collapsed" aria-expanded="false">
+                                                        <label style="color: white; font-size: 25px; font-weight: bold" class="text-center">
+                                                            <i class="fa fa-asterisk" aria-hidden="true" style="margin-right: 5px; font-size: 30px;"></i>
+                                                            {{tipo.desc_tipo_fiscalizacao}}
+                                                        </label>
+                                                    </a>
+                                                </h3>
+                                            </div>
+
+                                            <div class="panel-collapse collapse" id="{{tipo.id_tipo_fiscalizacao}}{{fiscalizacao.IdFiscalizacao}}" aria-expanded="false" style="height: 0px;">
+                                                <div class="panel-body" style="padding: 0; margin-bottom: 15px;">
+
+                                                    <!--<p>a:{{fiscalizacao.tipoFiscalizacao[$index].id_tipo_fiscalizacao}}</p>-->
+                                                    <div ng-show="fiscalizacao.tipoFiscalizacao[$index].id_tipo_fiscalizacao == 1">
+
+                                                        <div class="panel panel-inverse" data-sortable-id="table-basic-4" style="margin-top:10px;">
+                                                            <div class="panel-heading">
+                                                                <input type="text" value="" id="txtPesquisarEnviados" class="pull-right" style="color:black" ng-model="filtroUsuario" placeholder="{{ SEARCH_SUBJECT | translate }}" />
+                                                                <h4 class="panel-title">{{ 'GUIDES' | translate }}</h4>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <table class="table table-striped table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th width="150">{{ 'GUIDE' | translate }}</th>
+                                                                            <th width="150">{{ 'INSPECTION_DATE' | translate }}</th>
+                                                                            <th width="150">{{ 'PLATE' | translate }}</th>
+                                                                            <th width="150">{{ 'DOCUMENT_VALIDITY' | translate }}</th>
+                                                                            <th width="150">{{ 'AUTHORIZED_AMOUNT' | translate }}</th>
+                                                                            <th width="150">{{ 'VERIFIED_AMOUNT' | translate }}</th>
+                                                                            <th width="150">Status</th>
+                                                                            <th width="76">{{ 'ACTION' | translate }}</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr ng-repeat="fiscal in Fiscalizacoes | filter:fiscal:restrict">
+                                                                            <td>{{fiscal.NumeroGuia}}</td>
+                                                                            <td>{{fiscal.DataFiscalizacao | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                                                            <td>{{fiscal.PlacaRegistro}}</td>
+                                                                            <td>{{fiscal.ValidadeDocumento}}</td>
+                                                                            <td>{{10+1}}</td>
+                                                                            <td>{{fiscal.QuantidadeVerificada}}</td>
+                                                                            <td>{{fiscal.DescStatusFiscalizacao}}</td>
+                                                                            <td>
+                                                                                <a href="javascript:;" ng-click="openEditDialog(fiscal);"><i class="fa fa-2x fa-desktop" style="color: blue; font-size: 20px;"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <div class="email-footer clearfix">
+                                                                    <custom-pager page="{{page}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="carregarUsuario(page)"></custom-pager>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end panel -->
+            </div>
+            <!-- end col-12 -->
+
+        </div>
+
+    </div>

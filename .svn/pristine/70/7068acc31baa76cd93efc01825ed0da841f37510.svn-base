@@ -1,0 +1,88 @@
+﻿<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'OPERATION' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'OPERATION' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-6 -->
+        <div class="col-md-12">
+            <!-- begin panel -->
+            <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+                <div class="panel-heading">
+                    <h4 class="panel-title">{{ 'SEARCH' | translate }}</h4>
+                </div>
+                <div class="panel-body">
+                    <form name="formFiltroOperacao" role="form" novalidate>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>{{ 'OPERATION' | translate }}:</label>
+                                    <select class="form-control" id="ddlOperacao" ng-change="loadAtividades(modelOperacao.IdOperacao)" ng-model="modelOperacao.IdOperacao" ng-options="option.IdOperacao as option.DescOperacao for option in Operacoes" required></select>
+                                    <input type="hidden" name="modelOperacao.IdOperacao" ng-value="modelOperacao.IdOperacao"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>{{ 'ACTIVITY' | translate }}:</label>
+                                    <select class="form-control" id="ddlAtividade" ng-change="loadKor(modelOperacao.IdTipoFiscalizacao)" ng-model="modelOperacao.IdTipoFiscalizacao" ng-options="option.IdTipoFiscalizacao as option.DescTipoFiscalizacao for option in TiposFiscalizacao"></select>
+                                    <input type="hidden" name="modelOperacao.IdTipoFiscalizacao" ng-value="modelOperacao.IdTipoFiscalizacao" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>KOR:</label>
+                                    <select class="form-control" id="ddlKor" ng-change="loadProfissionais(modelOperacao.IdTipoFiscalizacao, modelOperacao.IdKor)" ng-model="modelOperacao.IdKor" ng-options="option.IdKor as option.Nome for option in Kor"></select>
+                                    <input type="hidden" name="modelOperacao.IdKor" ng-value="modelOperacao.IdKor" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>{{ 'USERS' | translate }}:</label>
+                                    <select class="form-control" id="ddlUsuarios" ng-model="modelOperacao.IdUsuario" ng-options="option.UsuarioId as option.DescNome for option in Usuarios"></select>
+                                    <input type="hidden" name="modelOperacao.IdUsuario" ng-value="modelOperacao.IdUsuario" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>{{ 'START_DATE' | translate }}:</label>
+                                    <input type="text" class="form-control" name="DataInicio" ng-model="modelOperacao.DataInicio" ui-mask="99/99/9999" ui-mask-placeholder ui-mask-placeholder-char="_" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>{{ 'END_DATE' | translate }}:</label>
+                                    <input type="text" class="form-control" name="DataTermino" ui-mask="99/99/9999" ui-mask-placeholder ui-mask-placeholder-char="_" ng-model="modelOperacao.DataTermino" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-md-6" style="height:71px;">
+                                    <button type="submit" class="btn btn-sm btn-success" ng-click="doSearch(modelOperacao, 'indicadores')" style="margin-top:23px;
+                                        float:right;">
+                                        <i class="fa fa-bar-chart" style="font-size:10px;">
+                                        </i>&nbsp;&nbsp;{{ 'INSPECTION_CHARTS' | translate }}
+                                    </button>
+                                </div>
+                                <div class="col-md-5">
+                                    <button type="submit" class="btn btn-sm btn-success" ng-click="doSearch(modelOperacao, 'listaeventos')" style="margin-top:23px;
+                                        float:right;">
+                                        <i class="fa fa-list-ul" style="font-size:10px;">
+                                        </i>&nbsp;&nbsp;{{ 'EVENTS' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- end panel -->
+        </div>
+    </div>
+</div>

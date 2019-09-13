@@ -1,0 +1,16 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+       {{ 'SEND_AUDIO' | translate}}
+    </div>
+    <div class="panel-body">
+
+
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-danger" ng-click="cancel()">
+                {{ 'CLOSE' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

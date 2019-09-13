@@ -1,0 +1,81 @@
+﻿
+<div id="sidebar" class="sidebar" style="background-color: #D9E0E7; margin-bottom: 0; height: 700px; overflow-y: auto; position: fixed">
+    
+    <div class="slimScrollDiv">
+        <ul class="nav" style="background-color: #C71313">
+            <li class="">
+                <img src="/Content/images/por-logo-header.png" alt="" height="58px;" width="180px;" style="margin-left: 20px;"/>
+            </li>
+        </ul>
+        <br/>
+
+        <div class="text-center" style="padding: 0 5px;">
+            <a class="btn btn-block button-menu" ng-href="#/index"><i class="fa fa-sidebar fa-laptop"></i>{{ 'HOME' | translate }}</a>
+            
+        </div>
+
+        <div class="text-center" style="padding: 0 5px;">
+            <a class="btn btn-block button-menu" ng-href="#/naturezaoperacao"><i class="fa fa-sidebar fa-crosshairs"></i>{{ 'OPERATIONS' | translate }}</a>
+        </div>
+
+
+        <div class="text-center" style="padding: 0 5px;">
+            <a class="btn btn-block button-menu" ng-href="#/mensagens" style="margin-bottom: 10px"><i class="fa fa-sidebar fa-envelope"></i>{{ 'MESSAGES' | translate }}</a>
+        </div>
+
+        <div class="text-center" style="padding: 0 5px;">
+            <a class="btn btn-block button-menu" ng-href="#/emailsrecebidos" data-toggle="collapse" style="margin-bottom: 10px; padding: 15px" data-target="#email"><i class="fa fa-sidebar fa-inbox"></i>{{ 'EMAILS' | translate }}</a>
+
+        </div>
+
+
+        <div class="text-center" style="padding: 0 5px;">
+            <a class="btn btn-block button-menu" ng-href="#/imagens"><i class="fa fa-sidebar fa-file-image-o"></i>{{ 'IMAGES' | translate }}</a>
+
+        </div>
+
+
+        <div class="text-center" style="padding: 0 5px;">
+            <a class="btn btn-block button-menu" ng-href="#/historicoAlarmes"><i class="fa fa-sidebar fa-exclamation-triangle"></i>{{ 'EVENTS' | translate }}</a>
+
+        </div>
+
+
+        <div class="text-center" style="padding: 0 5px;">
+            <a class="btn btn-block button-menu" ng-href="#/cadoperacoes"><i class="fa fa-sidebar fa-gear"></i>{{ 'CONFIGURATION' | translate }}</a>
+
+        </div>
+
+        <div class="text-center" style="padding:1px 5px; margin-bottom: 10px;">
+            <button type="button" class="btn btn-block button-menu " data-toggle="collapse" style="margin-bottom: 10px; padding: 15px" data-target="#acesso"><i class="fa fa-sidebar fa-edit"></i>{{ 'REGISTER' | translate }}</button>
+            <div id="acesso" class="collapse">
+
+                <a class="btn btn-danger btn-block" ng-href="#/cadoperacoes" ng-show="false" translate="OPERATION">Operação</a>
+
+                <a class="btn btn-danger btn-block" ng-href="#/cadkor" ng-show="true">Kor</a>
+
+
+                <a class="btn btn-danger btn-block" ng-href="#/cadnaturezaoperacao" ng-show="true" translate="NATURE">Natureza Operação</a>
+
+                <a class="btn btn-danger btn-block" ng-href="#/cadtipofiscalizacao" ng-show="true" translate="INSPECT">Tipo Fiscalização</a>
+
+                <a class="btn btn-danger btn-block" ng-href="#/cadusuario" ng-show="true" translate="USERS">Usuários</a>
+
+
+                <a class="btn btn-danger btn-block" ng-href="#/cadgrupo" ng-show="true" translate="GROUPS">Grupos</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center" style="margin-top:0; padding-bottom: 10px;">
+        <img src="../../../assets/img/LogoKronosKor-Colorido.png" height="60" width="150" />
+        
+    </div>
+  
+</div>
+
+
+
+
+

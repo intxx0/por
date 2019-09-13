@@ -1,0 +1,58 @@
+﻿<style>
+    .ng-map-info-window {
+        background-color: cadetblue;
+        color: #fff;
+    }
+
+        .ng-map-info-window div:first-child > div:nth-child(1) {
+            border-top-color: navy !important;
+        }
+
+        .ng-map-info-window div:first-child > div:nth-child(3) div {
+            background-color: transparent !important;
+        }
+
+        .ng-map-info-window div:first-child > div:nth-child(4) {
+            background-color: transparent !important;
+        }
+</style>
+
+<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        {{ 'LOCATION' | translate}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div ng-if="esconderMostrarMapa">
+                <div style="display:flex" map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJrJYOH27JqSwP3Uf8Ppmi_2mGzlzC3MQ&language={{locale.language}}&region={{locale.region}}" map-lazy-load-params="{{vm.googleMapsUrl}}">
+                    <ng-map style="height: 350px; width: 830px" zoom="9" center="[{{coordenadas.Latitude}}, {{coordenadas.Longitude}}]" name="operations">
+
+                        <marker id="marker"
+                                position="{{coordenadas.Latitude}},{{coordenadas.Longitude}}"
+                                icon="../Content/images/marcadorpreto.png"
+                                animation="Animation.BOUNCE">
+                        </marker>
+                        <info-window id="marker" visible-on-marker="marker">
+                            <div ng-non-bindable>
+                                <div id="bodyContent">
+                                    <p>
+                                        Latitude:  {{coordenadas.Latitude}} <br />
+                                        Longitude: {{coordenadas.Longitude}}
+                                    </p>
+                                </div>
+                            </div>
+
+                        </info-window>
+                    </ng-map>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="cancel()">
+                {{ 'CLOSE' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

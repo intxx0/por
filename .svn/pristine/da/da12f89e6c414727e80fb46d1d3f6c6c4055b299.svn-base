@@ -1,0 +1,532 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Description;
+using WebApiKor;
+using AutoMapper;
+using WebApiKor.InfraWeb;
+using WebApiKor.Models;
+
+namespace WebApiKor.Controllers
+{
+    [RoutePrefix("api/integracao")]
+    public class IntegracaoController : ApiController
+    {
+        private ModeloBancoEntities db = new ModeloBancoEntities();
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("operacao/{idKor:int=0}")]
+        public HttpResponseMessage OperacaoByIdKor(HttpRequestMessage request, int? idKor)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKor > 0)
+                {
+
+                    int korId = Convert.ToInt16(idKor);
+
+                    var korOperacao = db.kor_operacao.SingleOrDefault(koper => koper.id_kor == korId);
+
+                    if (korOperacao == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    var opr = db.operacao.SingleOrDefault(oper => oper.id_operacao == korOperacao.id_operacao);
+
+                    if (opr == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    OperacaoViewModel operacaoViewModel;
+                    operacaoViewModel = Mapper.Map<operacao, OperacaoViewModel>(opr);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, operacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("naturezaoperacao/{idOperacao:int=0}")]
+        public HttpResponseMessage NaturezaOperacaoByIdOperacao(HttpRequestMessage request, int? idOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idOperacao > 0)
+                {
+
+                    int operacaoId = Convert.ToInt16(idOperacao);
+
+                    var opr = db.operacao.SingleOrDefault(oper => oper.id_operacao == operacaoId);
+
+                    if (opr == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    var naturezaOperacao = db.natureza_operacao.SingleOrDefault(noper => noper.id_natureza_operacao == opr.id_natureza_operacao);
+
+                    if (naturezaOperacao == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    NaturezaOperacaoViewModel naturezaOperacaoViewModel;
+                    naturezaOperacaoViewModel = Mapper.Map<natureza_operacao, NaturezaOperacaoViewModel>(naturezaOperacao);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, naturezaOperacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("kor/{idKor:int=0}")]
+        public HttpResponseMessage KorById(HttpRequestMessage request, int? idKor)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKor > 0)
+                {
+
+                    int korId = Convert.ToInt16(idKor);
+
+                    var Kor = db.kor.SingleOrDefault(k => k.id_kor == korId);
+
+                    if (Kor == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    KorViewModel korViewModel;
+                    korViewModel = Mapper.Map<kor, KorViewModel>(Kor);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, korViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        /*[AllowAnonymous]
+        [HttpGet]
+        [Route("tipofiscalizacao/{idKor:int=0}")]
+        public HttpResponseMessage TipoFiscalizacaoByIdKor(HttpRequestMessage request, int? idKor)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKor > 0)
+                {
+
+                    int korId = Convert.ToInt16(idKor);
+                    var row = db.kor_operacao.SingleOrDefault(k => k.id_kor == korId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    var rowFiscalizacao = db.fiscalizacao.FirstOrDefault(f => f.id_operacao == row.id_operacao);
+
+                    if (rowFiscalizacao == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    var rowTipoFiscalizacao = db.tipo_fiscalizacao.SingleOrDefault(t => t.id_tipo_fiscalizacao == rowFiscalizacao.id_tipo_fiscalizacao);
+
+                    if (rowTipoFiscalizacao == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    TipoFiscalizacaoViewModel tipoFiscalizacaoViewModel;
+                    tipoFiscalizacaoViewModel = Mapper.Map<tipo_fiscalizacao, TipoFiscalizacaoViewModel>(rowTipoFiscalizacao);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, tipoFiscalizacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }*/
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("statusfiscalizacao/{idOperacao:int=0}")]
+        public HttpResponseMessage StatusFiscalizacaoByIdOperacao(HttpRequestMessage request, int? idOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idOperacao > 0)
+                {
+
+                    int operacaoId = Convert.ToInt16(idOperacao);
+                    var row = db.fiscalizacao.FirstOrDefault(fisc => fisc.id_operacao == operacaoId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    var rowStatusFiscalizacao = db.status_fiscalizacao.SingleOrDefault(s => s.id_status_fiscalizacao == row.id_status_fiscalizacao);
+
+                    if (rowStatusFiscalizacao == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    StatusFiscalizacaoViewModel statusFiscalizacaoViewModel;
+                    statusFiscalizacaoViewModel = Mapper.Map<status_fiscalizacao, StatusFiscalizacaoViewModel>(rowStatusFiscalizacao);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, statusFiscalizacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("missao/{idMissao:int=0}")]
+        public HttpResponseMessage MissaoById(HttpRequestMessage request, int? idMissao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idMissao > 0)
+                {
+
+                    int missaoId = Convert.ToInt16(idMissao);
+                    var row = db.missao.SingleOrDefault(m => m.id_missao == missaoId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    MissaoViewModel missaoViewModel;
+                    missaoViewModel = Mapper.Map<missao, MissaoViewModel>(row);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, missaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("koroperacao/{idKorOperacao:int=0}")]
+        public HttpResponseMessage KorOperacaoById(HttpRequestMessage request, int? idKorOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKorOperacao > 0)
+                {
+
+                    int korOperacaoId = Convert.ToInt16(idKorOperacao);
+                    var row = db.kor_operacao.SingleOrDefault(m => m.id_kor_operacao == korOperacaoId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    KorOperacaoViewModel korOperacaoViewModel;
+                    korOperacaoViewModel = Mapper.Map<kor_operacao, KorOperacaoViewModel>(row);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, korOperacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("usuariooperacao/{idUsuarioOperacao:int=0}")]
+        public HttpResponseMessage UsuarioOperacaoById(HttpRequestMessage request, int? idUsuarioOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idUsuarioOperacao > 0)
+                {
+
+                    int usuarioOperacaoId = Convert.ToInt16(idUsuarioOperacao);
+                    var row = db.usuario_operacao.SingleOrDefault(m => m.usuario_operacao_id == usuarioOperacaoId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    UsuarioOperacaoViewModel usuarioOperacaoViewModel;
+                    usuarioOperacaoViewModel = Mapper.Map<usuario_operacao, UsuarioOperacaoViewModel>(row);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, usuarioOperacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("missaooperacao/{idMissaoOperacao:int=0}")]
+        public HttpResponseMessage MissaoOperacaoById(HttpRequestMessage request, int? idMissaoOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idMissaoOperacao > 0)
+                {
+
+                    int missaoOperacaoId = Convert.ToInt16(idMissaoOperacao);
+                    var row = db.missao_operacao.SingleOrDefault(m => m.id_missao_operacao == missaoOperacaoId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    MissaoOperacaoViewModel missaoOperacaoViewModel;
+                    missaoOperacaoViewModel = Mapper.Map<missao_operacao, MissaoOperacaoViewModel>(row);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, missaoOperacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("usuarios/{idOperacao:int=0}")]
+        public HttpResponseMessage UsuariosByIdOperacao(HttpRequestMessage request, int? idOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idOperacao > 0)
+                {
+
+                    int operacaoId = Convert.ToInt16(idOperacao);
+                    List<usuario_operacao> rows = db.usuario_operacao.OrderBy(usu => usu.id_operacao == operacaoId).ToList();
+
+                    if (rows == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    IEnumerable<UsuarioOperacaoViewModel> usuariosViewModel = Mapper.Map<IEnumerable<usuario_operacao>, IEnumerable<UsuarioOperacaoViewModel>>(rows);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, usuariosViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("grupos/{idKor:int=0}")]
+        public HttpResponseMessage GruposByIdKor(HttpRequestMessage request, int? idKor)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKor > 0)
+                {
+
+                    int korId = Convert.ToInt16(idKor);
+                    var row = db.kor_operacao.SingleOrDefault(k => k.id_kor == korId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    List<usuario_operacao> rows = db.usuario_operacao.Where(u => u.id_operacao == row.id_operacao).ToList();
+
+                    if (rows == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    var grupos = new List<grupo>();
+                    
+
+                    foreach (var r in rows)
+                    {
+                        var rowUsuario = db.usuario.FirstOrDefault(usr => usr.usuario_id == r.usuario_id);
+                        var rowGrupo = db.grupo.FirstOrDefault(grp => grp.grupo_id == rowUsuario.grupo_id);
+                        if (!grupos.Contains(rowGrupo))
+                        {
+                            grupos.Add(rowGrupo);
+                        }
+                    }
+
+                    IEnumerable<GruposViewModel> gruposViewModel = Mapper.Map<IEnumerable<grupo>, IEnumerable<GruposViewModel>>(grupos);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, gruposViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+    }
+}

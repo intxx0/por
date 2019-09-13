@@ -1,0 +1,159 @@
+﻿<div class="stats-info text-center">
+    <h3>{{ 'DETAILS_OPERATION' | translate }}</h3>
+</div>
+<fieldset style="background-color: white; border-radius: 10px; padding: 10px;">
+    <div class="row">
+        <div class="text-center" style="background: #f0f3f4; color: #242a30; border-radius: 5px; margin-bottom: 20px; font-size: 18px; padding: 5px;">{{ 'OPERATION' | translate }}</div>
+        <div class="col-md-2">
+            <label>{{ 'OPERATION_NAME' | translate }}: </label>
+            <br />
+            <label>{{ 'NATURE' | translate }}: </label>
+            <br />
+            <label>{{ 'START' | translate }}: </label>
+            <br />
+            <label>{{ 'OPERATION_DESCRIPTION' | translate }}: </label>
+        </div>
+        <div class="col-md-9">
+            <label>{{operacao.NomeOperacao}}</label>
+            <br />
+            <label>{{operacao.DescNatureza}}</label>    
+            <label style="position:absolute; right:450px">{{ 'INSTITUTION' | translate }}: </label>    <label style="position:absolute; right:400px">{{operacao.DescInstituicao}}</label>
+            <br />
+            <label>{{operacao.DataInicioOperacao | date:'dd-MM-yyyy HH:mm'}}</label>
+            <label style="position:absolute; right:450px">{{ 'END' | translate }}: </label>    <label style="position:absolute; right:343px">{{operacao.DataFimOperacao | date:'dd-MM-yyyy HH:mm'}}</label>
+            <br />
+            <label>{{operacao.DescOperacao}}</label>
+            <label style="position:absolute; right:450px">{{ 'OPERATION_DESCRIPTION' | translate }}: </label>  <a href="javascript:;" ng-click="loadMap(operacao.Localizacao)"><label class="btn-link" style="position:absolute; right:300px">{{operacao.Localizacao}}</label></a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="text-center" style="background: #f0f3f4; color: #242a30; border-radius: 5px; margin-bottom: 20px; font-size: 18px; padding: 5px;">KOR</div>
+        <div class="col-md-2">
+            <label>{{ 'REMOTE_OPERATION' | translate }}: </label>
+        </div>
+        <div class="col-md-10">
+            <div class="row" ng-repeat="kor in kors">
+                <div class="col-md-3">
+                    <label>{{ 'NAME' | translate }}: </label> <label style="margin-left: 2px;">{{kor.NomeKor}}</label>
+                </div>
+                <div class="col-md-3">
+                    <label>{{ 'MODEL' | translate }}: </label> <label style="margin-left: 2px;">{{kor.ModeloKor}}</label>
+                </div>
+                <div class="col-md-3">
+                    <label>{{ 'SERIAL_NUMBER' | translate }}: </label> <label style="margin-left: 2px;">{{kor.NumeroSerie}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center" style="background: #f0f3f4; color: #242a30; border-radius: 5px; margin-bottom: 20px; font-size: 18px; padding: 5px;">{{ 'USERS' | translate }}</div>
+        <div class="col-md-2">
+            <label>{{ 'USERS' | translate }}: </label>
+        </div>
+        <div class="col-md-10">
+            <div class="row" ng-repeat="usuarioOperacao in UsuariosOperacao" style="padding: 0; margin: 0">
+                <div class="col-md-3" style="padding: 0; margin: 0">
+                    <label>{{ 'KOR' | translate }}: </label> <label style="margin-left: 2px;">{{usuarioOperacao.Kor}}</label>
+                </div>
+                <div class="col-md-3">
+                    <label>{{ 'USER' | translate }}: </label> <label style="margin-left: 2px;">{{usuarioOperacao.NomeUsuario}}</label>
+                </div>
+                <div class="col-md-3">
+                    <label>{{ 'PROFILE' | translate }}: </label> <label style="margin-left: 2px;">{{usuarioOperacao.Perfil}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--      Gráficos       -->
+    <div class="row">
+        <div class="text-center" style="background: #f0f3f4; color: #242a30; border-radius: 5px; margin-bottom: 20px; margin-top: 20px; font-size: 18px; padding: 5px;">{{ 'INSPECTION_CHARTS' | translate }}</div>
+        <div class="col-md-1">
+            <label>{{ 'INSPECTION_CHARTS' | translate }}: </label>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                    <div style="display:flex; margin-top:30px; justify-content: space-around">
+
+                        <div style="height: 300px; width: 400px; position: relative; margin-left: 24px;">
+                            <h5>Autuações por Matérias Primas</h5>
+                            <canvas id="bar" class="chart chart-bar dashboard"
+                                    chart-data="InfractionFeedStockdata" chart-labels="InfractionFeedStocklabels"
+                                    chart-series="InfractionFeedStockseries" chart-options="barOptions"></canvas>
+                        </div>
+                        <div style="height: 300px; width: 400px; position: relative; margin-left: 24px;">
+                            <h5>Autuações por tipo de Autuação</h5>
+                            <canvas id="pie" class="chart chart-pie dashboard"
+                                    chart-data="data" chart-labels="labels" chart-options="options" chart-colors="colors"></canvas>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div style="display:flex;margin-top:30px; justify-content: space-around">
+                    <div style="height: 300px;width: 400px;position: relative;margin-left: 24px;">
+                        <h5>Evolução das autuações por dia</h5>
+                        <canvas id="line" class="chart chart-line dashboard" chart-data="InfractionDaydata"
+                                chart-labels="InfractionDaylabels" chart-series="InfractionDayseries"></canvas>
+                    </div>
+
+                    <div style="height: 300px;width: 400px;position: relative;margin-left: 24px;">
+                        <h5>Total Fiscalização e % de Autuações</h5>
+                        <canvas id="bar" class="chart chart-bar dashboard" chart-options="barOptions"
+                                chart-data="InfractionPercentdata" chart-labels="InfractionPercentlabels"
+                                chart-series="InfractionPercentseries" chart-colors="InfractionPercentcolors"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------------------------->
+    <div class="row">
+        <div class="text-center" style="background: #f0f3f4; color: #242a30; border-radius: 5px; margin-bottom: 20px; margin-top:20px; font-size: 18px; padding: 5px;">{{ 'INSPECTION' | translate }}</div>
+        <div class="col-md-12">
+            <div class="panel panel-inverse" data-sortable-id="table-basic-4">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-toggle="collapse" data-target="#collapseTarget"><i class="fa fa-minus"></i></a>
+                    </div>
+                    <h4 class="panel-title">Total: {{TotalFiscalizacoes}} {{ 'INSPECTIONS' | translate }}</h4>
+                </div>
+                <div class="panel-title collapse" id="collapseTarget">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>{{ 'DESCRIPTION' | translate }}</th>
+                                <th>{{ 'EMISSION_GUIDE' | translate }}</th>
+                                <th>{{ 'OUTPOST' | translate }}</th>
+                                <th>{{ 'Status' | translate }}</th>
+                                <th>{{ 'INSPECTION_DATE' | translate }}</th>
+                                <th>{{ 'KOR' | translate }}</th>
+                                <th width="80">{{ 'ACTION' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="fisc in fiscalizacoes">
+                                <td>{{fisc.DescFisc}}</td>
+                                <td>{{fisc.NumeroGuia}}</td>
+                                <td>{{fisc.Posto}}</td>
+                                <td>{{fisc.Status}}</td>
+                                <td>{{fisc.DataFiscalizacao | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{fisc.Kor}}</td>
+                                <td>
+                                    <a href="javascript:;" ng-click="loadFiscalizacao(fisc.IdFiscalizacao)" class="btn col-md-6" style="padding:2px;"><i class="fa fa-2x fa-search" style="color: #777; font-size: 16px;"></i></a>
+                                    <a href="javascript:;" ng-click="loadFichaDigital(fisc.IdFiscalizacao)" class="btn col-md-6" style="padding:2px;" ng-show="fisc.NumeroAutuacao"><i class="fa fa-2x fa-file-text-o" style="color: #777; font-size: 16px;"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</fieldset>
+<div class="row" style="margin-top: 10px">
+    <div class="col-md-12">
+        <a href="javascript:;" ng-href="#/operacoes" class="btn btn-sm btn-success" style="float:left;"><i class="fa fa-arrow-left" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'BACK' | translate }}</a>
+    </div>
+</div>

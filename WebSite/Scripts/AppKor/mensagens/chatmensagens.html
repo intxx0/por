@@ -1,0 +1,190 @@
+﻿<style>
+    .mytext {
+        border: 0;
+        padding: 10px;
+        background: whitesmoke;
+    }
+
+    .text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text > p:first-of-type {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: auto;
+        line-height: 13px;
+        font-size: 12px;
+    }
+
+    .text > p:last-of-type {
+        width: 100%;
+        text-align: right;
+        color: silver;
+        margin-bottom: -7px;
+        margin-top: auto;
+        word-wrap: break-word;
+    }
+
+    .text-l {
+        float: left;
+        padding-right: 10px;
+    }
+
+    .text-r {
+        float: right;
+        padding-left: 10px;
+    }
+
+    .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+        float: left;
+        padding-right: 10px;
+    }
+
+    .macro {
+        margin-top: 5px;
+        width: 85%;
+        border-radius: 5px;
+        padding: 5px;
+        display: flex;
+    }
+
+    .msj-rta {
+        float: right;
+        background: whitesmoke;
+    }
+
+    .msj {
+        float: left;
+        background: white;
+    }
+
+    .frame {
+        background: #e0e0de;
+        height: 450px;
+        overflow: hidden;
+        padding: 0;
+    }
+
+        .frame > div:last-of-type {
+            position: absolute;
+            bottom: 1px;
+            width: 100%;
+            display: flex;
+            padding-left: 12px;
+        }
+
+    #chatList {
+        width: 100%;
+        list-style-type: none;
+        padding: 18px;
+        position: absolute;
+        bottom: 32px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .msj:before {
+        width: 0;
+        height: 0;
+        content: "";
+        top: -5px;
+        left: -14px;
+        position: relative;
+        border-style: solid;
+        border-width: 0 13px 13px 0;
+        border-color: transparent #ffffff transparent transparent;
+    }
+
+    .msj-rta:after {
+        width: 0;
+        height: 0;
+        content: "";
+        top: -5px;
+        left: 14px;
+        position: relative;
+        border-style: solid;
+        border-width: 13px 13px 0 0;
+        border-color: whitesmoke transparent transparent transparent;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #d4d4d4;
+    }
+
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: #d4d4d4;
+    }
+
+    :-ms-input-placeholder { /* IE 10+ */
+        color: #d4d4d4;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+        color: #d4d4d4;
+    }   
+</style>
+<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'CHAT' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'CHAT' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-sm-12 col-md-12 frame">
+                <!-- BEGIN CHAT -->
+                <ul id="chatList">
+                    <li style="width:26%">
+                        <div class="msj macro">
+                            <div class="text text-l">
+                                <p>BOM DIA</p>
+                                <p><small>10:15</small></p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li style="width:26%; margin-left:70%">
+                        <div class="msj-rta macro">
+                            <div class="text text-r">
+                               <p>TESTE</p>
+                               <p><small>19:25</small></p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- END CHAT -->
+                <div>
+                    <div class="msj-rta macro" style="margin:auto; width: 75%; padding-right: 10px">
+                        <div class="text text-r" style="background:whitesmoke !important">
+                            <input class="mytext" placeholder="Escreva uma mensagem" />
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 15px;">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm btn-success" ng-click="inserirMensagem(novaMensagem)"><i class="fa fa-play" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'SUBMIT' | translate }}</button>
+                            <button type="button" class="btn btn-sm btn-success" ng-click="abreModalImagens()"><i class="fa fa-photo" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'IMAGE' | translate }}</button>
+                            <button type="button" class="btn btn-sm btn-success" ng-click="abreModalVoz()"><i class="fa fa-microphone" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'AUDIO' | translate }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        <span class="label label-danger" style="font-size: 15px;">Guia - {{guia}}</span>
+        <br />
+
+        <div class="alert alert-warning" ng-show="alerta" style="margin-top:30px;">GUIA NÃO EXISTENTE NO BANCO DE DADOS!</div>
+
+    </div>
+    <div class="panel-body" ng-repeat="guia in Guias">
+        <br />
+
+        <div class="row">
+            <div class="col-md-2"><label>Numero da Guia: </label></div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.NumeroGuia}}</label></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <label>Emissor: </label>
+            </div>
+            <div class="col-md-8">
+                <label class="label label-success" style="font-size: 15px;">{{guia.NomeEmisssor}}</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <label>Cnpj: </label>
+            </div>
+            <div class="col-md-8">
+                <label class="label label-success" style="font-size: 15px;">{{guia.CnpjEmissor}}</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label>Mun. Emissor: </label></div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.MunicipioEmissor}}</label></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label>Nome Origem: </label></div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.NomeOrigem}}</label></div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label>Municipio Origem: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.MunicipioOrigem}}</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2"><label>Nome Destino: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.NomeDestino}}</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label>Municipio Destino: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.MunicipioDestino}}</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label>Placa Registro: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.PlacaRegistro}}</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label>Nota Fiscal: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.NumeroNotaFiscal}}</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label>Quantidade: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.Quantidade}}</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label>Unidade Medida: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.UnidadeMedida}}</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label>Valor: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.Valor | currency:"R$"}}</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <label>Data Emissão Guia: </label>
+            </div>
+            <div class="col-md-8">
+                <label class="label label-success" style="font-size: 15px;">{{guia.DataEmissaoGuia | date: 'dd/MM/yyyy HH:mm:ss'}}</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-2"><label>Data Validade Início: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.DataValidadeInicio | date: 'dd/MM/yyyy HH:mm:ss'}}</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2"><label>Data Validade Fim: </label>
+            </div>
+            <div class="col-md-8"><label class="label label-success" style="font-size: 15px;">{{guia.DataValidadeFim | date: 'dd/MM/yyyy HH:mm:ss'}}</label>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-danger" ng-click="cancel()">
+                Fechar
+            </button>
+        </div>
+    </div>
+</div>

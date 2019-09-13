@@ -1,0 +1,150 @@
+﻿<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'REGISTER_EMAIL_ACCOUNT' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'REGISTER_EMAIL_ACCOUNT' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-6 -->
+        <div class="col-md-12">
+            <!-- begin panel -->
+            <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+                <div class="panel-heading">
+                    <h4 class="panel-title">{{ 'REGISTER_EMAIL_ACCOUNT' | translate }}</h4>
+                </div>
+                <div class="panel-body">
+                    <form name="formCadContaEmail" role="form" ng-submit="verificaInserirAtualizarContaEmail(modelcontaemail.IdContaEmail)">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>{{ 'USER' | translate }}:</label>
+                                    <select name="usuarios" class="form-control" ng-model="modelcontaemail.UsuarioId" id="ddlUsuario" ng-options="option.UsuarioId as option.DescNome for option in Usuarios" required>
+                                        <option value="">{{ 'SELECT' | translate }}...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <fieldset>
+                            <legend>{{ 'SMTP_CONFIGURATION' | translate }}</legend>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label">{{ 'SMTP_HOST' | translate }}:</label>
+                                    <div class="m-b-15">
+                                        <input type="text" class="form-control" ng-model="modelcontaemail.SmtpHost" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="control-label">{{ 'SMTP_PORT' | translate }}:</label>
+                                    <div class="m-b-15">
+                                        <input type="text" class="form-control" ng-model="modelcontaemail.SmtpPort" required>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="control-label">{{ 'SMTP_AUTH' | translate }}:</label>
+                                    <div class="m-b-15">
+                                        <input type="checkbox" ng-model="modelcontaemail.SmtpAuth" ng-checked="modelcontaemail.SmtpAuth">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="control-label">{{ 'SMTP_USERNAME' | translate }}:</label>
+                                    <div class="m-b-15">
+                                        <input type="text" class="form-control" ng-model="modelcontaemail.SmtpUsername" ng-disabled="!modelcontaemail.SmtpAuth">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="control-label">{{ 'SMTP_PASSWORD' | translate }}:</label>
+                                    <div class="m-b-15">
+                                        <input type="password" class="form-control" ng-model="modelcontaemail.SmtpPassword" ng-disabled="!modelcontaemail.SmtpAuth">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>{{ 'POP3_CONFIGURATION' | translate }}</legend>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label">{{ 'POP3_HOST' | translate }}:</label>
+                                    <div class="m-b-15">
+                                        <input type="text" class="form-control" ng-model="modelcontaemail.Pop3Host" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="control-label">{{ 'POP3_PORT' | translate }}:</label>
+                                    <div class="m-b-15">
+                                        <input type="text" class="form-control" ng-model="modelcontaemail.Pop3Port" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label class="control-label">{{ 'POP3_USERNAME' | translate }}:</label>
+                                    <div class="m-b-13">
+                                        <input type="text" class="form-control" ng-model="modelcontaemail.Pop3Username" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="control-label">{{ 'POP3_PASSWORD' | translate }}:</label>
+                                    <div class="m-b-15">
+                                        <input type="password" class="form-control" ng-model="modelcontaemail.Pop3Password" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="control-label">{{ 'POP3_DELETE' | translate }}:</label>
+                                    <div class="m-b-15">
+                                        <input type="checkbox" ng-model="modelcontaemail.Pop3Delete" ng-checked="modelcontaemail.Pop3Delete">
+                                    </div>
+                                </div>
+                            </div>
+                            </fieldset>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-sm btn-success" ng-disabled="formCadContaEmail.$invalid"><i class="fa fa-play" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'SUBMIT' | translate }}</button>
+                                </div>
+                            </div>
+</form>
+                </div>
+            </div>
+            <!-- end panel -->
+
+            <div class="panel panel-inverse" data-sortable-id="table-basic-4">
+                <div class="panel-heading">
+                    <input type="text" value="" id="txtPesquisarEnviados" class="pull-right" style="color:black" ng-model="contaemail.$" placeholder="{{ SEARCH_SUBJECT | translate }}" />
+                    <h4 class="panel-title">{{ 'EMAIL_ACCOUNTS' | translate }}</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="50">ID</th>
+                                <th>{{ 'USER' | translate }}</th>
+                                <th width="76">{{ 'ACTION' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="contaemail in ContasEmails | filter:contaemail:restrict | orderBy:'Nome'">
+                                <td>{{contaemail.IdContaEmail}}</td>
+                                <td>{{contaemail.NomeUsuario}}</td>
+                                <td>
+                                    <a href="javascript:;" ng-click="pegaDadosContaEmail(contaemail)" class="btn" style="padding: 2px"><i class="fa fa-2x fa-pencil" style="color: #777; font-size: 16px;"></i></a>
+                                    <a href="javascript:;" ng-click="excluirContaEmail(contaemail)" class="btn" style="padding: 2px"><i class="fa fa-2x fa-times" style="color: #777; font-size: 20px;"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="email-footer clearfix">
+                        <custom-pager page="{{page}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="carregarContaEmail(page)"></custom-pager>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        <span class="label" style="font-size: 15px;">{{ 'EMAIL_DETAILS' | translate }}</span>
+        <br />
+    </div>
+    <div class="panel-body" style="padding-bottom:0;">
+
+        <div class="wrapper">
+            <h4 class="m-b-15 m-t-0 p-b-10 underline">{{email.Assunto}}</h4>
+            <ul class="media-list underline m-b-20 p-b-15">
+                <li class="media media-sm clearfix">
+                    <div class="media-body">
+                        <span class="email-from text-inverse f-w-600">
+                            {{ 'FROM' | translate }}: {{email.Remetente}}
+                        </span><span class="text-muted m-l-5"><i class="fa fa-clock-o fa-fw"></i>{{email.DataCriado | date: 'dd/MM/yyyy HH:mm:ss'}}</span><br />
+                        <span class="email-to">
+                            {{ 'TO' | translate }}: {{email.Destinatario}}
+                        </span>
+                        <br />
+                        <span class="email-to">
+                            {{ 'CC' | translate }}: {{email.Copia}}
+                        </span>
+                    </div>
+                </li>
+            </ul>
+            <ul class="media-list underline m-b-20 p-b-15" style="min-height:40px;" ng-show="Anexos.length>0">
+                <li ng-repeat="anexo in Anexos"><a href="http://{{Hostname}}/api/email/anexo/{{anexo.IdAnexo}}" class="text-inverse f-w-600" style="float:left; margin:0 10px 10px 0;"><i class="fa fa-paperclip" style="color: #777; font-size: 12px;" /> {{anexo.DescAnexo}}</a></li>
+            </ul>
+            <p class="f-s-12 text-inverse" style="overflow:scroll; min-height:230px;">
+                {{email.Texto}}
+            </p>
+        </div>
+        <br />
+    </div>
+    <br />
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-primary p-l-40 p-r-40" ng-click="cancel()">
+                {{ 'CLOSE' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

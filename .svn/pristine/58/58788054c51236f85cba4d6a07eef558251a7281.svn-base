@@ -1,0 +1,27 @@
+﻿(function (app) {
+    'use strict';
+
+    app.controller('detalhesEmailModalCtrl', detalhesEmailModalCtrl);
+
+    detalhesEmailModalCtrl.$inject = ['$scope', '$http', '$modalInstance', 'items', 'apiService', 'notificationService'];
+
+    function detalhesEmailModalCtrl($scope, $http, $uibModalInstance, items, apiService, notificationService) {
+
+        $scope.email = {};
+
+        $scope.email = items;
+
+        $scope.cancel = cancel;
+
+        $scope.Guias = [];
+
+        //----------------Fechar Modal------------------------------
+        function cancel() {
+            $uibModalInstance.dismiss();
+
+        };
+        //----------------Fim Modal----------------------------------
+
+    }
+
+})(angular.module('AppKor'));

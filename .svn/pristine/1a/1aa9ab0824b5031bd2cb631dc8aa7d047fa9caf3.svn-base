@@ -1,0 +1,188 @@
+﻿(function (app) {
+    'use strict';
+
+    app.controller('operacaoCtrl', operacaoCtrl);
+
+    operacaoCtrl.$inject = ['$scope', '$rootScope', 'apiService', 'notificationService', '$translate', '$modal', '$location'];
+
+    function operacaoCtrl($scope, $rootScope, apiService, notificationService, $translate, $modal, $location) {
+
+        $scope.clearFields = clearFields;
+        $scope.doSearch = doSearch;
+        
+        $scope.Usuarios = [];
+        $scope.Kor = [];
+        $scope.TiposFiscalizacao = [];
+        $scope.Operacoes = [];
+
+        $scope.loadAtividades = listarAtividades;
+        $scope.loadKor = listarKors;
+        $scope.loadProfissionais = listarProfissionais;
+
+        $scope.modelOperacao = {};
+
+
+        function doSearch(modelOp, rota) {
+
+            if (validaFiltro(modelOp)) {
+
+                modelOp.DataInicio = converterData(modelOp.DataInicio, "/", 1);
+                modelOp.DataTermino = converterData(modelOp.DataTermino, "/", 1);
+
+                $rootScope.FiltroOperacao = JSON.stringify(modelOp);
+
+                $location.path('/' + rota);
+            }
+        }
+
+
+        function validaFiltro(modelOp) {
+
+            if (modelOp.IdOperacao == undefined) {
+                notificationService.displayWarning($translate.instant('ENTER_OPERATION'));
+                return false;
+            }
+            if (modelOp.IdTipoFiscalizacao == undefined) {
+                notificationService.displayWarning($translate.instant('ENTER_ACTIVITY'));
+                return false;
+            }
+
+            if (modelOp.DataInicio == undefined) {
+                notificationService.displayWarning($translate.instant('ENTER_START_DATE'));
+                return false;
+            }
+            else if (!validateDate(modelOp.DataInicio)) {
+                notificationService.displayWarning($translate.instant('ENTER_CORRECT_START_DATE'));
+                return false;
+            }
+
+            if (modelOp.DataTermino == undefined) {
+                notificationService.displayWarning($translate.instant('ENTER_END_DATE'));
+                return false;
+            }
+            else if (!validateDate(modelOp.DataTermino)) {
+                notificationService.displayWarning($translate.instant('ENTER_CORRECT_END_DATE'));
+                return false;
+            }
+
+            var d1 = new Date(converterData(modelOp.DataInicio, "-", 0));
+            var d2 = new Date(converterData(modelOp.DataTermino, "-", 0));
+
+            if (d1 > d2) {
+                notificationService.displayWarning($translate.instant('START_DATE_GT_END_DATE'));
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateDate(data) {
+
+            var RegExPattern = /^((((0?[1-9]|[12]\d|3[01])[\.\-\/](0?[13578]|1[02])      [\.\-\/]((1[6-9]|[2-9]\d)?\d{2}))|((0?[1-9]|[12]\d|30)[\.\-\/](0?[13456789]|1[012])[\.\-\/]((1[6-9]|[2-9]\d)?\d{2}))|((0?[1-9]|1\d|2[0-8])[\.\-\/]0?2[\.\-\/]((1[6-9]|[2-9]\d)?\d{2}))|(29[\.\-\/]0?2[\.\-\/]((1[6-9]|[2-9]\d)?(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00)|00)))|(((0[1-9]|[12]\d|3[01])(0[13578]|1[02])((1[6-9]|[2-9]\d)?\d{2}))|((0[1-9]|[12]\d|30)(0[13456789]|1[012])((1[6-9]|[2-9]\d)?\d{2}))|((0[1-9]|1\d|2[0-8])02((1[6-9]|[2-9]\d)?\d{2}))|(2902((1[6-9]|[2-9]\d)?(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00)|00))))$/;
+
+            if (!(data.match(RegExPattern)))
+                return false;
+            else
+                return true;
+        }
+
+        function converterData(date, char, format) {
+
+            if (format == 0)
+                return date[2] + date[3] + char + date[0] + date[1] + char + date[4] + date[5] + date[6] + date[7];
+            else if (format == 1)
+                return date[0] + date[1] + char + date[2] + date[3] + char + date[4] + date[5] + date[6] + date[7];
+        }
+
+
+        function listarOperacoes() {
+
+            apiService.get('/api/operacoes/listaoperacao', null,
+                function (result) {
+                    $scope.Operacoes = result.data.Items;
+                    $scope.TotalOperacoes = result.data.Count;
+
+                    forEach($scope.Operacoes, function (value, key) {
+                        var descStatus = "";
+
+                        if ($scope.Operacoes[key].Ativo == 0)
+                            descStatus = "Ativo";
+                        else 
+                            descStatus = $scope.Operacoes[key].Ativo == 1 ? "Aguardando" : "Inativo";
+
+                        $scope.Operacoes[key].DescStatus = descStatus;
+                    });
+                },
+                function (result) {
+                    notificationService.displayError($translate.instant('ERROR_LOAD_INSPECTIONS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+
+        function listarAtividades(IdOperacao) {
+
+            apiService.get('/api/tipofiscalizacao/listaatividades/' + IdOperacao , null,
+                (result) => {
+                    $scope.TiposFiscalizacao = result.data;
+                },
+                (result) => {
+                    console.log(result.data);
+                    notificationService.displayError($translate.instant('ERROR_LOAD_INSPECTIONS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+
+        function listarKors(IdAtividade) {
+
+            apiService.get('/api/kor/listakorbyativadade/' + IdAtividade, null,
+                (result) => {
+                    var newItem = new function () {
+                        this.IdKor = undefined;
+                        this.Nome = $translate.instant('ALL');
+                    };
+                    var allUsers = new function () {
+                        this.UsuarioId = undefined;
+                        this.DescNome = $translate.instant('ALL');
+                    };
+
+                    $scope.Usuarios.push(allUsers);
+                    result.data.push(newItem);
+                    $scope.Kor = result.data;
+                },
+                (result) => {
+                    notificationService.displayError($translate.instant('ERROR_LOAD_KORS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                });
+        }
+
+        function listarProfissionais(IdAtividade, IdKor) {
+
+            var newItem = new function () {
+                this.UsuarioId = undefined;
+                this.DescNome = $translate.instant('ALL');
+            };
+
+            if (IdKor != undefined) {
+                apiService.get('/api/usuarios/listausuariosfiltro/' + IdAtividade + '/' + IdKor, null,
+                    (result) => {
+                        result.data.push(newItem);
+                        $scope.Usuarios = result.data;
+                    },
+                    (result) => {
+                        notificationService.displayError($translate.instant('ERROR_LOADING_USERS') + '. <br />' + $translate.instant('ERROR') + ': ' + result.status, $translate.instant('ATTENTION') + '!');
+                    });
+            }
+            else
+                $scope.Usuarios = [];
+                $scope.Usuarios.push(newItem);
+        }
+        
+
+        function clearFields() {
+            $scope.Operacao = [];
+            $scope.modelOperacao = {}; 
+        }
+
+
+        clearFields();
+        listarOperacoes();
+    }
+
+})(angular.module('AppKor'));

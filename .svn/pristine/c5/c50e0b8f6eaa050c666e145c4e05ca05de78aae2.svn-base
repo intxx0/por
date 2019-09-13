@@ -1,0 +1,55 @@
+﻿<style>
+    .userRows:nth-of-type(odd) {
+        background: #e0e0e0;
+    }
+
+    .userRows:nth-of-type(even) {
+        background: #FFFFFF;
+    }
+    .item span{
+        width: 100%;
+        position: absolute;
+    }
+</style>
+<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        {{ 'SEND_AUDIO' | translate}}
+    </div>
+
+    <div class="panel-body" style="padding-bottom: 0">
+        <div class="row userRows" style="margin: 0 -15px; padding: 7px"
+             ng-repeat="user in usuarios"
+              ng-click="selecionaUsuario(user)"
+               ng-style="usuario.UsuarioId == user.UsuarioId && {'border-color': 'blue', 'border-width': '1px', 'border-style': 'double'}">
+            <label class="item">
+                <span style="right: -1%">
+                    {{ 'USER' | translate }}:
+                    {{user.NomeUsuario}}
+                </span>
+                <span style="right: -25%">
+                    {{ 'EMAIL' | translate }}:
+                    {{user.EmailUsuario}}
+                </span>
+                <span style="right: -57%">
+                    {{ 'INSTITUTION' | translate }}:
+                    {{user.NomeInstituicao}}
+                </span>
+                <span style="right: -83%">
+                    {{ 'ROLE' | translate }}:
+                    {{user.NomeCargo}}
+                </span>
+            </label>
+        </div>
+    </div>
+
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="abrirConversa()">
+                {{ 'SELECT' | translate }}
+            </button>
+            <button type="button" class="btn btn-danger" ng-click="cancel()">
+                {{ 'CLOSE' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

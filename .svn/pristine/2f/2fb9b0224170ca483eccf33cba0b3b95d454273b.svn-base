@@ -1,0 +1,1054 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Description;
+using WebApiKor;
+using AutoMapper;
+using WebApiKor.InfraWeb;
+using WebApiKor.Models;
+
+namespace WebApiKor.Controllers
+{
+    [RoutePrefix("api/integracao")]
+    public class IntegracaoController : ApiController
+    {
+        private ModeloBancoEntities db = new ModeloBancoEntities();
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("operacao/{idKor:int=0}")]
+        public HttpResponseMessage OperacaoByIdKor(HttpRequestMessage request, int? idKor)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKor > 0)
+                {
+
+                    int korId = Convert.ToInt16(idKor);
+
+                    var korOperacao = db.kor_operacao.SingleOrDefault(koper => koper.id_kor == korId);
+
+                    if (korOperacao == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    var opr = db.operacao.SingleOrDefault(oper => oper.id_operacao == korOperacao.id_operacao);
+
+                    if (opr == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    OperacaoViewModel operacaoViewModel;
+                    operacaoViewModel = Mapper.Map<operacao, OperacaoViewModel>(opr);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, operacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("naturezaoperacao/{idOperacao:int=0}")]
+        public HttpResponseMessage NaturezaOperacaoByIdOperacao(HttpRequestMessage request, int? idOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idOperacao > 0)
+                {
+
+                    int operacaoId = Convert.ToInt16(idOperacao);
+
+                    var opr = db.operacao.SingleOrDefault(oper => oper.id_operacao == operacaoId);
+
+                    if (opr == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    var naturezaOperacao = db.natureza_operacao.SingleOrDefault(noper => noper.id_natureza_operacao == opr.id_natureza_operacao);
+
+                    if (naturezaOperacao == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    NaturezaOperacaoViewModel naturezaOperacaoViewModel;
+                    naturezaOperacaoViewModel = Mapper.Map<natureza_operacao, NaturezaOperacaoViewModel>(naturezaOperacao);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, naturezaOperacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        /*[AllowAnonymous]
+        [HttpGet]
+        [Route("kor/{idKor:int=0}")]
+        public HttpResponseMessage KorById(HttpRequestMessage request, int? idKor)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKor > 0)
+                {
+
+                    int korId = Convert.ToInt16(idKor);
+
+                    var Kor = db.kor.SingleOrDefault(k => k.id_kor == korId);
+
+                    if (Kor == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    KorViewModel korViewModel;
+                    korViewModel = Mapper.Map<kor, KorViewModel>(Kor);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, korViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }*/
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("kor/{idKorOrModel:int=0}")]
+        public HttpResponseMessage KorByIdOrModel(HttpRequestMessage request, string idKorOrModel)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+                int idKor = 0, i = 0;
+
+                if (int.TryParse(idKorOrModel, out i))
+                    idKor = Convert.ToInt16(idKorOrModel);
+
+                var Kor = db.kor.FirstOrDefault(k => k.id_kor == idKor || k.modelo_kor == idKorOrModel);
+
+                if (Kor == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                KorViewModel korViewModel;
+                korViewModel = Mapper.Map<kor, KorViewModel>(Kor);
+
+                response = request.CreateResponse(HttpStatusCode.OK, korViewModel);
+
+            }
+
+            return response;
+
+        }
+
+
+    /*[AllowAnonymous]
+    [HttpGet]
+    [Route("tipofiscalizacao/{idKor:int=0}")]
+    public HttpResponseMessage TipoFiscalizacaoByIdKor(HttpRequestMessage request, int? idKor)
+    {
+
+        HttpResponseMessage response = null;
+
+        if (!ModelState.IsValid)
+        {
+            response = request.CreateResponse(HttpStatusCode.BadRequest,
+                ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                    .Select(m => m.ErrorMessage).ToArray());
+        }
+        else
+        {
+
+            if (idKor > 0)
+            {
+
+                int korId = Convert.ToInt16(idKor);
+                var row = db.kor_operacao.SingleOrDefault(k => k.id_kor == korId);
+
+                if (row == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                var rowFiscalizacao = db.fiscalizacao.FirstOrDefault(f => f.id_operacao == row.id_operacao);
+
+                if (rowFiscalizacao == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                var rowTipoFiscalizacao = db.tipo_fiscalizacao.SingleOrDefault(t => t.id_tipo_fiscalizacao == rowFiscalizacao.id_tipo_fiscalizacao);
+
+                if (rowTipoFiscalizacao == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                TipoFiscalizacaoViewModel tipoFiscalizacaoViewModel;
+                tipoFiscalizacaoViewModel = Mapper.Map<tipo_fiscalizacao, TipoFiscalizacaoViewModel>(rowTipoFiscalizacao);
+
+                response = request.CreateResponse(HttpStatusCode.OK, tipoFiscalizacaoViewModel);
+
+            }
+
+        }
+
+        return response;
+
+    }*/
+
+    [AllowAnonymous]
+        [HttpGet]
+        [Route("operacaousuarioskor/{idKor:int=0}")]
+        public HttpResponseMessage OperacaoUsuariosKorByIdKor(HttpRequestMessage request, int? idKor)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKor > 0)
+                {
+
+                    int korId = Convert.ToInt16(idKor);
+
+                    var row = db.operacao_usuario_kor.SingleOrDefault(o => o.id_kor == korId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    OperacaoUsuariosKorViewModel operacaoUsuariosKorViewModel;
+                    operacaoUsuariosKorViewModel = Mapper.Map<operacao_usuario_kor, OperacaoUsuariosKorViewModel>(row);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, operacaoUsuariosKorViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("statusfiscalizacao")]
+        public HttpResponseMessage StatusFiscalizacao(HttpRequestMessage request)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                List<status_fiscalizacao> rows = db.status_fiscalizacao.OrderBy(s => s.id_status_fiscalizacao).ToList();
+
+                if (rows == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                IEnumerable<StatusFiscalizacaoViewModel> statusFiscalizacaoViewModel = Mapper.Map<IEnumerable<status_fiscalizacao>, IEnumerable<StatusFiscalizacaoViewModel>>(rows);
+
+                response = request.CreateResponse(HttpStatusCode.OK, statusFiscalizacaoViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("missao/{idMissao:int=0}")]
+        public HttpResponseMessage MissaoById(HttpRequestMessage request, int? idMissao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idMissao > 0)
+                {
+
+                    int missaoId = Convert.ToInt16(idMissao);
+                    var row = db.missao.SingleOrDefault(m => m.id_missao == missaoId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    MissaoViewModel missaoViewModel;
+                    missaoViewModel = Mapper.Map<missao, MissaoViewModel>(row);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, missaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("koroperacao/{idKorOperacao:int=0}")]
+        public HttpResponseMessage KorOperacaoById(HttpRequestMessage request, int? idKorOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKorOperacao > 0)
+                {
+
+                    int korOperacaoId = Convert.ToInt16(idKorOperacao);
+                    var row = db.kor_operacao.SingleOrDefault(m => m.id_kor_operacao == korOperacaoId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    KorOperacaoViewModel korOperacaoViewModel;
+                    korOperacaoViewModel = Mapper.Map<kor_operacao, KorOperacaoViewModel>(row);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, korOperacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("usuariooperacao/{idUsuarioOperacao:int=0}")]
+        public HttpResponseMessage UsuarioOperacaoById(HttpRequestMessage request, int? idUsuarioOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idUsuarioOperacao > 0)
+                {
+
+                    int usuarioOperacaoId = Convert.ToInt16(idUsuarioOperacao);
+                    var row = db.usuario_operacao.SingleOrDefault(m => m.usuario_operacao_id == usuarioOperacaoId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    UsuarioOperacaoViewModel usuarioOperacaoViewModel;
+                    usuarioOperacaoViewModel = Mapper.Map<usuario_operacao, UsuarioOperacaoViewModel>(row);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, usuarioOperacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("missaooperacao/{idOperacao:int=0}")]
+        public HttpResponseMessage MissaoOperacaoByIdOperacao(HttpRequestMessage request, int? idOperacao)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idOperacao > 0)
+                {
+
+                    int operacaoId = Convert.ToInt16(idOperacao);
+                    var row = db.missao_operacao.SingleOrDefault(m => m.id_operacao == operacaoId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    MissaoOperacaoViewModel missaoOperacaoViewModel;
+                    missaoOperacaoViewModel = Mapper.Map<missao_operacao, MissaoOperacaoViewModel>(row);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, missaoOperacaoViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("usuarios")]
+        public HttpResponseMessage UsuariosByIdOperacao(HttpRequestMessage request)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                List<usuario> rows = db.usuario.OrderBy(usu => usu.usuario_id).ToList();
+
+                if (rows == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                IEnumerable<UsuarioViewModel> usuariosViewModel = Mapper.Map<IEnumerable<usuario>, IEnumerable<UsuarioViewModel>>(rows);
+
+                response = request.CreateResponse(HttpStatusCode.OK, usuariosViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("grupos/{idKor:int=0}")]
+        public HttpResponseMessage GruposByIdKor(HttpRequestMessage request, int? idKor)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                if (idKor > 0)
+                {
+
+                    int korId = Convert.ToInt16(idKor);
+                    var row = db.kor_operacao.SingleOrDefault(k => k.id_kor == korId);
+
+                    if (row == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    List<usuario_operacao> rows = db.usuario_operacao.Where(u => u.id_operacao == row.id_operacao).ToList();
+
+                    if (rows == null)
+                    {
+                        return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                    }
+
+                    var grupos = new List<grupo>();
+                    
+
+                    foreach (var r in rows)
+                    {
+                        var rowUsuario = db.usuario.FirstOrDefault(usr => usr.usuario_id == r.usuario_id);
+                        var rowGrupo = db.grupo.FirstOrDefault(grp => grp.grupo_id == rowUsuario.grupo_id);
+                        if (!grupos.Contains(rowGrupo))
+                        {
+                            grupos.Add(rowGrupo);
+                        }
+                    }
+
+                    IEnumerable<GruposViewModel> gruposViewModel = Mapper.Map<IEnumerable<grupo>, IEnumerable<GruposViewModel>>(grupos);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, gruposViewModel);
+
+                }
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("cargos")]
+        public HttpResponseMessage Cargos(HttpRequestMessage request)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                List<cargo> rows = db.cargo.OrderBy(c => c.id_cargo).ToList();
+
+                if (rows == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                IEnumerable<CargoViewModel> cargoViewModel = Mapper.Map<IEnumerable<cargo>, IEnumerable<CargoViewModel>>(rows);
+
+                response = request.CreateResponse(HttpStatusCode.OK, cargoViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("instituicoes")]
+        public HttpResponseMessage Instituicoes(HttpRequestMessage request)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                List<instituicao> rows = db.instituicao.OrderBy(i => i.id_instituicao).ToList();
+
+                if (rows == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                IEnumerable<InstituicaoViewModel> instituicaoViewModel = Mapper.Map<IEnumerable<instituicao>, IEnumerable<InstituicaoViewModel>>(rows);
+
+                response = request.CreateResponse(HttpStatusCode.OK, instituicaoViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("perfis")]
+        public HttpResponseMessage Perfis(HttpRequestMessage request)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                List<perfil> rows = db.perfil.OrderBy(i => i.id_perfil).ToList();
+
+                if (rows == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                IEnumerable<PerfilViewModel> perfilViewModel = Mapper.Map<IEnumerable<perfil>, IEnumerable<PerfilViewModel>>(rows);
+
+                response = request.CreateResponse(HttpStatusCode.OK, perfilViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("tipomateriasprimas")]
+        public HttpResponseMessage TipoMateriasPrimas(HttpRequestMessage request)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                List<tipo_materia_prima> rows = db.tipo_materia_prima.OrderBy(m => m.id_tipo_materia_prima).ToList();
+
+                if (rows == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                IEnumerable<MateriaPrimaViewModel> tipoMateriaPrimaViewModel = Mapper.Map<IEnumerable<tipo_materia_prima>, IEnumerable<MateriaPrimaViewModel>>(rows);
+
+                response = request.CreateResponse(HttpStatusCode.OK, tipoMateriaPrimaViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("guias")]
+        public HttpResponseMessage Guias(HttpRequestMessage request)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                List<guia> rows = db.guia.OrderBy(g => g.id_guia).ToList();
+
+                if (rows == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                IEnumerable<GuiaViewModel> guiaViewModel = Mapper.Map<IEnumerable<guia>, IEnumerable<GuiaViewModel>>(rows);
+
+                response = request.CreateResponse(HttpStatusCode.OK, guiaViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("tiposguias")]
+        public HttpResponseMessage TiposGuias(HttpRequestMessage request)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                List<tipo_guia> rows = db.tipo_guia.OrderBy(g => g.id_tipo_guia).ToList();
+
+                if (rows == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                IEnumerable<TipoGuiaViewModel> tipoGuiaViewModel = Mapper.Map<IEnumerable<tipo_guia>, IEnumerable<TipoGuiaViewModel>>(rows);
+
+                response = request.CreateResponse(HttpStatusCode.OK, tipoGuiaViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("fiscalizacao")]
+        public HttpResponseMessage Fiscalizacao(HttpRequestMessage request, FiscalizacaoViewModel fiscalizacaoViewModel)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                fiscalizacao row = new fiscalizacao()
+                {
+                    desc_fiscalizacao = fiscalizacaoViewModel.DescFiscalizacao,
+                    data_fiscalizacao = fiscalizacaoViewModel.DataFiscalizacao,
+                    posto = fiscalizacaoViewModel.Posto,
+                    numero_guia = fiscalizacaoViewModel.NumeroGuia,
+                    qtd_verificada = fiscalizacaoViewModel.QtdVerificada,
+                    placa_registro = fiscalizacaoViewModel.PlacaRegistro,
+                    nota_fiscal = fiscalizacaoViewModel.NotaFiscal,
+                    validade_documento = fiscalizacaoViewModel.ValidadeDocumento,
+                    id_status_fiscalizacao = fiscalizacaoViewModel.IdStatusFiscalizacao,
+                    id_operacao = fiscalizacaoViewModel.IdOperacao,
+                    ativo = fiscalizacaoViewModel.Ativo,
+                    id_subtipo_fiscalizacao = fiscalizacaoViewModel.IdSubTipoFiscalizacao,
+                    finalizada = Convert.ToBoolean(fiscalizacaoViewModel.Finalizada),
+                    usuario_id = fiscalizacaoViewModel.UsuarioId,
+                    data_gravacao = fiscalizacaoViewModel.DataGravacao,
+                    numero_autuacao = fiscalizacaoViewModel.NumeroAutuacao,
+                    id_kor = fiscalizacaoViewModel.IdKor
+                };
+
+                db.fiscalizacao.Add(row);
+                db.SaveChanges();
+
+                FiscalizacaoViewModel novoFiscalizacaoViewModel = Mapper.Map<fiscalizacao, FiscalizacaoViewModel>(row);
+
+                response = request.CreateResponse(HttpStatusCode.Created, novoFiscalizacaoViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("email")]
+        public HttpResponseMessage Email(HttpRequestMessage request, EmailViewModel emailViewModel)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                caixa_email row = new caixa_email()
+                {
+                    caixa_email_id = emailViewModel.CaixaEmailId, 
+                    usuario_id = emailViewModel.UsuarioId, 
+                    destinatario = emailViewModel.Destinatario, 
+                    remetente = emailViewModel.Remetente, 
+                    assunto = emailViewModel.Assunto, 
+                    texto = emailViewModel.Texto, 
+                    tipo = emailViewModel.Tipo, 
+                    ativo = emailViewModel.Ativo, 
+                    enviado = emailViewModel.Enviado, 
+                    baixado = emailViewModel.Baixado, 
+                    datacriado = emailViewModel.DataCriado, 
+                    deleted = emailViewModel.Deletado, 
+                    visualizado = Convert.ToBoolean(emailViewModel.Visualizado)
+                };
+
+                db.caixa_email.Add(row);
+                db.SaveChanges();
+
+                EmailViewModel novoEmailViewModel = Mapper.Map<caixa_email, EmailViewModel>(row);
+
+                response = request.CreateResponse(HttpStatusCode.Created, novoEmailViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("mensagem")]
+        public HttpResponseMessage Mensagem(HttpRequestMessage request, MensagemViewModel mensagemViewModel)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                mensagem row = new mensagem()
+                {
+                    mensagem_id = mensagemViewModel.IdMensagem,
+                    usuario_id = mensagemViewModel.IdUsuario, 
+                    usuario_destino_id = mensagemViewModel.UsuarioDestino, 
+                    texto = mensagemViewModel.TextoMensagem, 
+                    visualizado = mensagemViewModel.Visualizado, 
+                    baixado = mensagemViewModel.Baixado, 
+                    datacriado = mensagemViewModel.DataCriado, 
+                    datamodificado = mensagemViewModel.DataModificado, 
+                    deleted = mensagemViewModel.Deletado, 
+                    sincronizado = mensagemViewModel.Sincronizado
+                };
+
+                db.mensagem.Add(row);
+                db.SaveChanges();
+
+                MensagemViewModel novoEmailViewModel = Mapper.Map<mensagem, MensagemViewModel>(row);
+
+                response = request.CreateResponse(HttpStatusCode.Created, novoEmailViewModel);
+
+            }
+
+            return response;
+
+        }
+
+
+
+
+
+
+
+
+
+        /*[AllowAnonymous]
+        [HttpGet]
+        [Route("emails/{idKor:int}")]
+        public HttpResponseMessage GetEmails(HttpRequestMessage request, int? idKor)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                var rowUsuariosOperacao = db.operacao_usuario_kor
+
+                caixa_email row = new caixa_email()
+                {
+                    caixa_email_id = emailViewModel.CaixaEmailId,
+                    usuario_id = emailViewModel.UsuarioId,
+                    destinatario = emailViewModel.Destinatario,
+                    remetente = emailViewModel.Remetente,
+                    assunto = emailViewModel.Assunto,
+                    texto = emailViewModel.Texto,
+                    tipo = emailViewModel.Tipo,
+                    ativo = emailViewModel.Ativo,
+                    enviado = emailViewModel.Enviado,
+                    baixado = emailViewModel.Baixado,
+                    datacriado = emailViewModel.DataCriado,
+                    deleted = emailViewModel.Deletado,
+                    visualizado = Convert.ToBoolean(emailViewModel.Visualizado)
+                };
+
+                db.caixa_email.Add(row);
+                db.SaveChanges();
+
+                EmailViewModel novoEmailViewModel = Mapper.Map<caixa_email, EmailViewModel>(row);
+
+                response = request.CreateResponse(HttpStatusCode.Created, novoEmailViewModel);
+
+            }
+
+            return response;
+
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("mensagem")]
+        public HttpResponseMessage Mensagem(HttpRequestMessage request, MensagemViewModel mensagemViewModel)
+        {
+
+            HttpResponseMessage response = null;
+
+            if (!ModelState.IsValid)
+            {
+                response = request.CreateResponse(HttpStatusCode.BadRequest,
+                    ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                        .Select(m => m.ErrorMessage).ToArray());
+            }
+            else
+            {
+
+                List<caixa_email> rows = db.caixa_email.OrderBy(e => e.caixa_email_id).ToList();
+
+                if (rows == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.NotFound, "NOT_FOUND");
+                }
+
+                IEnumerable<EmailViewModel> guiaViewModel = Mapper.Map<IEnumerable<caixa_email>, IEnumerable<EmailViewModel>>(rows);
+
+                response = request.CreateResponse(HttpStatusCode.OK, guiaViewModel);
+
+                mensagem row = new mensagem()
+                {
+                    mensagem_id = mensagemViewModel.IdMensagem,
+                    usuario_id = mensagemViewModel.IdUsuario,
+                    usuario_destino_id = mensagemViewModel.UsuarioDestino,
+                    texto = mensagemViewModel.TextoMensagem,
+                    visualizado = mensagemViewModel.Visualizado,
+                    baixado = mensagemViewModel.Baixado,
+                    datacriado = mensagemViewModel.DataCriado,
+                    datamodificado = mensagemViewModel.DataModificado,
+                    deleted = mensagemViewModel.Deletado,
+                    sincronizado = mensagemViewModel.Sincronizado
+                };
+
+                db.mensagem.Add(row);
+                db.SaveChanges();
+
+                MensagemViewModel novoEmailViewModel = Mapper.Map<mensagem, MensagemViewModel>(row);
+
+                response = request.CreateResponse(HttpStatusCode.Created, novoEmailViewModel);
+
+            }
+
+            return response;
+
+        }*/
+
+
+
+    }
+}

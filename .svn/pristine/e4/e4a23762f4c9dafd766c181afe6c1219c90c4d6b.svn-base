@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using AutoMapper;
+using WebApiKor.InfraWeb;
+using WebApiKor.Models;
+
+namespace WebApiKor.Controllers
+{
+    [Authorize(Roles = "Administrador")]
+    [RoutePrefix("api/operacoes")]
+    public class OperacoesController : ApiController
+    {
+
+        ModeloBancoEntities db = new ModeloBancoEntities();
+
+        [HttpGet]
+        [Route("listaoperacao/{page:int=0}/{pageSize=4}/{filter?}")]
+        public HttpResponseMessage GetPerfil(HttpRequestMessage request, int? page, int? pageSize, string filter = null)
+        {
+
+            int currentPage = page.Value;
+            int currentPageSize = pageSize.Value;
+            int totalOperacoes = new int();
+
+            List<operacao> operacoes = db.operacao.OrderBy(k => k.desc_operacao)
+                .Skip(currentPage * currentPageSize)
+                .Take(currentPageSize)
+                .ToList();
+
+            totalOperacoes = db.operacao.Count();
+
+            IEnumerable<OperacaoViewModel> operacoesVM = Mapper.Map<IEnumerable<operacao>, IEnumerable<OperacaoViewModel>>(operacoes);
+
+            PaginacaoConfig<OperacaoViewModel> pagSet = new PaginacaoConfig<OperacaoViewModel>()
+            {
+                Page = currentPage,
+                TotalCount = totalOperacoes,
+                TotalPages = (int)Math.Ceiling((decimal)totalOperacoes / currentPageSize),
+                Items = operacoesVM
+            };
+
+            return request.CreateResponse(HttpStatusCode.OK, pagSet);
+
+        }
+    }
+}

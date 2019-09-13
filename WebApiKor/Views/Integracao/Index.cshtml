@@ -1,0 +1,99 @@
+﻿@model IEnumerable<WebApiKor.operacao>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.desc_operacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome_responsavel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cargo_responsavel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.instituicao_responsavel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email_responsavel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel_responsavel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.desc_observacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_criado_operacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_final_operacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.natureza_operacao.desc_natureza_operacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.usuario.nome)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.desc_operacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome_responsavel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cargo_responsavel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.instituicao_responsavel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email_responsavel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tel_responsavel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.desc_observacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_criado_operacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_final_operacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.natureza_operacao.desc_natureza_operacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario.nome)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_operacao }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_operacao }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_operacao })
+        </td>
+    </tr>
+}
+
+</table>

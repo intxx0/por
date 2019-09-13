@@ -1,0 +1,234 @@
+﻿
+<div id="header" class="header navbar navbar-default navbar-fixed-top" ng-controller="topBarCtrl">
+    <style>
+        #logoPor {
+            margin-left: -107px;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+            position: absolute;
+            left: 200px;
+            bottom: -9px;
+        }
+
+        @media only screen and (max-width: 425px){
+            #logoPor{
+                bottom: 46px;
+                font-size: 12px;
+            }
+        }
+
+        @media only screen and (max-width: 767px){
+            #logoPor {
+                bottom: 46px;
+            }
+        }
+    </style>
+    <!-- begin container-fluid -->
+    <div class="container-fluid" style="padding-top:4px; padding-bottom:4px;">
+        <!-- begin mobile sidebar expand / collapse button -->
+        <div class="navbar-header">
+            <a href="index.html" class="navbar-brand"><img src="assets/img/por-logo-header.png" alt="POR" /></a>
+            <!--<span class="navbar-text" id="logoPor">{{ 'POR_TITLE' | translate }}</span>-->
+            <span class="navbar-text" style="margin:18px auto auto -107px; color: white; font-weight: bold; font-size: 13px;">{{ 'POR_TITLE' | translate }}</span>
+            <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- end mobile sidebar expand / collapse button -->
+        <!-- begin navbar-collapse -->
+        <div class="collapse navbar-collapse pull-left" id="top-navbar" ng-if="setting.layout.pageMegaMenu === true">
+            <ul class="nav navbar-nav">
+                <li class="dropdown dropdown-lg">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large fa-fw"></i> Mega <b class="caret"></b></a>
+                    <div class="dropdown-menu dropdown-menu-lg">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <h4 class="dropdown-header">UI Kits</h4>
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6">
+                                        <ul class="nav">
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> FontAwesome</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Ionicons</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Simple Line Icons</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Typography</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Media Object</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Widget Boxes</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Tabs & Accordions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+                                        <ul class="nav">
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Unlimited Nav Tabs</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Modal & Notification</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Buttons</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <h4 class="dropdown-header">Page Options <span class="label label-inverse">11</span></h4>
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6">
+                                        <ul class="nav">
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Blank Page</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Page with Footer <span class="badge badge-success">NEW</span></a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Page without Sidebar</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Page with Right Sidebar</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Page with Minified Sidebar</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Page with Two Sidebar</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Page with Line Icons</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+                                        <ul class="nav">
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Full Height Content</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Page with Mega Menu</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Page with Light Sidebar</a></li>
+                                            <li><a href="#" class="text-ellipsis"><i class="fa fa-angle-right fa-fw fa-lg text-inverse"></i> Page with Large Sidebar</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <h4 class="dropdown-header">Paragraph</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis libero purus, fermentum at libero convallis, auctor dignissim mauris. Nunc laoreet pellentesque turpis sodales ornare. Nunc vestibulum nunc lorem, at sodales velit malesuada congue. Nam est tortor, tincidunt sit amet eros vitae, aliquam finibus mauris.
+                                </p>
+                                <p>
+                                    Fusce ac ligula laoreet ante dapibus mattis. Nam auctor vulputate aliquam. Suspendisse efficitur, felis sed elementum eleifend, ipsum tellus sodales nisi, ut condimentum nisi sem in nibh. Phasellus suscipit vulputate purus at venenatis. Quisque luctus tincidunt tempor.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-diamond fa-fw"></i> Client
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-database fa-fw"></i> New <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- end navbar-collapse -->
+        <!-- begin header navigation right -->
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14" style="float:right;" ng-href="#/mensagens" tooltip="{{ 'RECEIVED_MESSAGES' | translate }}" title="{{ 'RECEIVED_MESSAGES' | translate }}">
+                    <i class="fa fa-comment" style="color:#e9e774; font-size:18px;"></i>
+                    <span class="label" ng-if="MensagensNaoLidas>0">{{MensagensNaoLidas}}</span>
+                </a>
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14" style="float:right;" ng-href="#/emailsrecebidos" tooltip="{{ 'RECEIVED_EMAILS' | translate }}" title="{{ 'RECEIVED_EMAILS' | translate }}">
+                    <i class="fa fa-inbox" style="color:#17e9da; font-size:18px;"></i>
+                    <span class="label" ng-if="EmailsNaoLidos>0">{{EmailsNaoLidos}}</span>
+                </a>
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14" style="float:right;" ng-href="#/historicoAlarmes" tooltip="{{ 'EMERGENCY' | translate }}" title="{{ 'EMERGENCY' | translate }}">
+                    <i class="fa fa-bell" style="color:red; font-size:18px;"></i>
+                    <span class="label" ng-if="EmergenciasAtivas>0">{{EmergenciasAtivas}}</span>
+                </a>
+                <!--<ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                    <li class="dropdown-header">Notifications (5)</li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
+                            <div class="media-body">
+                                <h6 class="media-heading">Server Error Reports</h6>
+                                <div class="text-muted f-s-11">3 minutes ago</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><img src="assets/img/user-1.jpg" class="media-object" alt="" /></div>
+                            <div class="media-body">
+                                <h6 class="media-heading">John Smith</h6>
+                                <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+                                <div class="text-muted f-s-11">25 minutes ago</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><img src="assets/img/user-2.jpg" class="media-object" alt="" /></div>
+                            <div class="media-body">
+                                <h6 class="media-heading">Olivia</h6>
+                                <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+                                <div class="text-muted f-s-11">35 minutes ago</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><i class="fa fa-plus media-object bg-green"></i></div>
+                            <div class="media-body">
+                                <h6 class="media-heading"> New User Registered</h6>
+                                <div class="text-muted f-s-11">1 hour ago</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><i class="fa fa-envelope media-object bg-blue"></i></div>
+                            <div class="media-body">
+                                <h6 class="media-heading"> New Email From John</h6>
+                                <div class="text-muted f-s-11">2 hour ago</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown-footer text-center">
+                        <a href="javascript:;">View more</a>
+                    </li>
+                </ul>-->
+            </li>
+            <li class="dropdown navbar-language" ng-if="setting.layout.pageLanguageBar === true">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="flag-icon flag-icon-us" title="us"></span>
+                    <span class="name">EN</span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu animated fadeInRight p-b-0">
+                    <li class="arrow"></li>
+                    <li><a href="javascript:;"><span class="flag-icon flag-icon-us" title="us"></span> English</a></li>
+                    <li><a href="javascript:;"><span class="flag-icon flag-icon-cn" title="cn"></span> Chinese</a></li>
+                    <li><a href="javascript:;"><span class="flag-icon flag-icon-jp" title="jp"></span> Japanese</a></li>
+                    <li><a href="javascript:;"><span class="flag-icon flag-icon-be" title="be"></span> Belgium</a></li>
+                    <li class="divider m-b-0"></li>
+                    <li class="text-center"><a href="javascript:;">more options</a></li>
+                </ul>
+            </li>
+            <li class="dropdown navbar-user">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <!--<img src="assets/img/user-13.jpg" alt="" />-->
+                    <span class="hidden-xs">{{UserName}}</span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft">
+                    <li class="arrow"></li>
+                    <li><a href="javascript:;" ng-click="editProfile(UserId)">{{ 'EDIT_PROFILE' | translate }}</a></li>
+                    <li class="divider"></li>
+                    <li><a href="javascript:;" ng-click="logout()">{{ 'LOGOUT' | translate }}</a></li>
+                </ul>
+            </li>
+            <li class="hidden-xs" ng-if="setting.layout.pageTwoSidebar === true">
+                <a href="javascript:;" data-click="right-sidebar-toggled" class="f-s-14">
+                    <i class="fa fa-th"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- end header navigation right -->
+    </div>
+    <!-- end container-fluid -->
+</div>

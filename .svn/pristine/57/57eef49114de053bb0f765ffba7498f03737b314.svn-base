@@ -1,0 +1,49 @@
+﻿<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">{{ 'HOME' | translate }}</a></li>
+        <li class="active">{{ 'REGISTERS' | translate }}</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">{{ 'REGISTERS' | translate }}</h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row registers">
+        <!-- begin col-6 -->
+        <div class="col-md-12">
+            <!-- begin panel -->
+            <div class="panel panel-inverse" data-sortable-id="form-stuff-1" style="background:#d9e0e7;">
+                <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>{{ 'OPERATION' | translate }}</h5>
+                                <ul class="register">
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.tabsAccordions" ng-href="#/cadtipofiscalizacao" translate="ACTIVITY">Activity</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.typography" ng-href="#/cadnaturezaoperacao" translate="NATURE">Operation Nature</a></li>
+                                    <!--<li ui-sref-active="active"><a ui-sref="app.ui.typography" ng-href="#/cadmissao" translate="MISSION">Mission</a></li>-->
+                                </ul>
+                                <h5>{{ 'USERS' | translate }}</h5>
+                                <ul class="register">
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.modalNotification" ng-href="#/cadusuario" translate="USERS">Users</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.widgetBoxes" ng-href="#/cadgrupo" translate="GROUPS">Groups</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.typography" ng-href="#/cadperfil" translate="PROFILE">Profile</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.typography" ng-href="#/cadcargo" translate="ROLE">Role</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.typography" ng-href="#/cadinstituicao" translate="INSTITUTION">Institution</a></li>
+                                </ul>
+                                <h5>{{ 'GUIDE' | translate }}</h5>
+                                <ul class="register">
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.typography" ng-href="#/cadtipoguia" translate="GUIDE_TYPE">Guide Type</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.typography" ng-href="#/cadmateriaprima" translate="FEEDSTOCK">Feedstock</a></li>
+                                </ul>
+                                <h5>{{ 'KOR' | translate }}</h5>
+                                <ul class="register">
+                                    <li ui-sref-active="active"><a ui-sref="app.ui.general" ng-href="#/cadkor" translate="">KOR</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

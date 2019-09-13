@@ -1,0 +1,178 @@
+﻿
+<style>
+    .ng-map-info-window {
+        background-color: cadetblue;
+        color: #fff;
+    }
+
+        .ng-map-info-window div:first-child > div:nth-child(1) {
+            border-top-color: navy !important;
+        }
+
+        .ng-map-info-window div:first-child > div:nth-child(3) div {
+            background-color: transparent !important;
+        }
+
+        .ng-map-info-window div:first-child > div:nth-child(4) {
+            background-color: transparent !important;
+        }
+</style>
+
+
+<!--<div class="content">-->
+<div ng-controller="homeCtrl">
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">Dashboard <small>operações remotas em andamento</small></h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row" style="margin-top:5px;">
+        <div class="col-md-12">
+            <div ng-if="!vm.pauseLoading">
+                <div style="display:flex" map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJrJYOH27JqSwP3Uf8Ppmi_2mGzlzC3MQ&language={{locale.language}}&region={{locale.region}}" map-lazy-load-params="{{vm.googleMapsUrl}}">
+                    <ng-map style="height: 350px; width: 830px" zoom="4" center="[-5.703559, -52.7906863]" name="operations">
+
+                        <!--Kor carregado dinamicamente com os usuários logados-->
+                        <marker ng-repeat="pos in positions" id="{{$index+1}}"
+                                position="{{pos.lat}},{{pos.lng}}"
+                                on-click="map.showInfoWindow('{{$index+1}}')">
+
+                        </marker>
+                        <info-window ng-repeat="pos in positions" id="">
+                            <div ng-non-bindable>
+                                <h4 id="firstHeading" class="firstHeading te text-center">
+                                    <a class="dropdown-toggle pull-left" data-toggle="dropdown" href="javascript:;" aria-expanded="false" ng-href="#/mensagens" tooltip-enable="true" tooltip-trigger="mouseenter" tooltip-placement="right" tooltip="Mensagens">
+                                        <i class="fa fa-comment" style="color: mediumspringgreen; font-size: 20px;"></i>
+                                    </a>
+                                    <a class="dropdown-toggle pull-right" style="margin-left:2px;" data-toggle="dropdown" href="javascript:;" aria-expanded="false" ng-href="#/emailsrecebidos" tooltip-enable="true" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip="E-mails">
+                                        <i class="fa fa-envelope" style="color: cornflowerblue; font-size: 20px;"></i>
+                                    </a>
+                                    Kor 10
+                                </h4>
+                                <div id="bodyContent">
+                                    <p>
+                                        Operação de combate ao transporte ilegal de madeiras!
+                                    </p>
+                                </div>
+                            </div>
+                        </info-window>
+
+
+                        <!--Kor Carregado ao clicar no mapa na tela de historicos de alarmes-->
+                        <marker ng-repeat="korMarker in infoKor" id="{{korMarker.IdEmergencia}}"
+                                position="{{korMarker.Latitude}},{{korMarker.Longitude}}"
+                                icon="../Content/images/marcadorpreto.png"
+                                on-click="pegaEmergenciaHistorico();"
+                                animation="Animation.BOUNCE">
+                        </marker>
+                        <info-window ng-repeat="kor in infoKor" id="{{kor.EventoId}}" visible-on-marker="{{kor.IdEmergencia}}">
+                            <div ng-non-bindable>
+                                <h4 id="firstHeading" class="firstHeading te text-center">{{kor.DescUsuario}}</h4>
+                                <div id="bodyContent">
+                                    <p>
+                                        Latitude:  {{kor.Latitude}} <br />
+                                        Longitude: {{kor.Longitude}}
+                                    </p>
+                                </div>
+                            </div>
+
+                        </info-window>
+
+
+                        <!--Kor 01-->
+                        <!--<marker id="kor01" position="{{-11.4861872}},{{-54.8423556}}" title="Operação de combate ao transporte ilegal de madeiras" on-click="map.showInfoWindow('bar1')"></marker>
+
+                        <info-window id="bar1" visible-on-marker="kor01">
+                            <div ng-non-bindable>
+                                <h4 id="firstHeading" class="firstHeading te text-center">Kor 01</h4>
+                                <div id="bodyContent">
+                                    <p>
+                                        Operação de combate ao transporte ilegal de madeiras!
+                                    </p>
+
+                                </div>
+                            </div>
+                        </info-window>-->
+                        <!--Kor 02-->
+                        <!--<marker id="kor02" position="{{-3.4861872}},{{-55.8423556}}" title="Operação de combate ao transporte ilegal de madeiras" on-click="map.showInfoWindow('bar2')"></marker>
+
+                        <info-window id="bar2" visible-on-marker="kor02">
+                            <div ng-non-bindable>
+                                <h4 id="firstHeading" class="firstHeading text-center">Kor 02</h4>
+                                <div id="bodyContent">
+                                    <p>
+                                        Operação de combate ao transporte ilegal de madeiras!
+                                    </p>
+
+                                </div>
+                            </div>
+                        </info-window>-->
+                        <!--Kor 03-->
+                        <!--<marker id="kor03" position="{{-6.4861872}},{{-70.8423556}}" title="Operação de combate ao transporte ilegal de madeiras" animation="Animation.BOUNCE" on-click="map.showInfoWindow('bar3')"></marker>
+
+                        <info-window id="bar3" visible-on-marker="kor03">
+                            <div ng-non-bindable>
+                                <h4 id="firstHeading" class="firstHeading text-center">Kor 03</h4>
+                                <div id="bodyContent">
+                                    <p>
+                                        Operação de combate ao transporte ilegal de madeiras!
+                                    </p>
+
+                                </div>
+                            </div>
+                        </info-window>-->
+                    </ng-map>
+
+                    <div style="height: 350px;width: 450px;position: relative;margin-left: 24px;">
+                        <h5>Total de fiscalizações por Operacão</h5>
+                        <canvas id="pie" class="chart chart-pie dashboard" chart-data="PieOperacaodata" chart-labels="PieOperacaolabels" chart-series="PieOperacaoseries" chart-colors="PieOperacaocolors" chart-options="options">         
+                        </canvas>
+ 
+                    </div>
+
+                </div>
+                <br />
+                <hr style="border:1px solid">
+                <h4>Autuações</h4>
+
+                <div style="display:flex; margin-top:30px; justify-content: space-around">
+
+                    <div style="height: 400px;width: 500px;position: relative;margin-left: 24px;">
+                        <h5>Autuações por Matérias Primas</h5>
+                        <canvas id="bar" class="chart chart-bar dashboard"
+                                chart-data="InfractionFeedStockdata" chart-labels="InfractionFeedStocklabels"
+                                chart-series="InfractionFeedStockseries" chart-options="barOptions"></canvas>
+                    </div>
+                    <div style="height: 400px;width: 500px;position: relative;margin-left: 24px;">
+                        <h5>Autuações por tipo de Autuação</h5>
+                        <canvas id="pie" class="chart chart-pie dashboard"
+                                chart-data="data" chart-labels="labels" chart-options="options" chart-colors="colors"></canvas>
+                    </div>
+
+                </div>
+
+                <div style="display:flex;margin-top:30px; justify-content: space-around">
+                    <div style="height: 400px;width: 500px;position: relative;margin-left: 24px;">
+                        <h5>Evolução das autuações por dia</h5>
+                        <canvas id="line" class="chart chart-line dashboard" chart-data="InfractionDaydata"
+                                chart-labels="InfractionDaylabels" chart-series="InfractionDayseries" ></canvas>
+                    </div>
+
+                    <div style="height: 400px;width: 500px;position: relative;margin-left: 24px;">
+                        <h5>Total Fiscalização e % de Autuações</h5>
+                        <canvas id="bar" class="chart chart-bar dashboard" chart-options="barOptions"
+                                chart-data="InfractionPercentdata" chart-labels="InfractionPercentlabels"
+                                chart-series="InfractionPercentseries" chart-colors="InfractionPercentcolors"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloBancoKorStoreContainer" CdmEntityContainer="ModeloBancoEntities">
+    <EntitySetMapping Name="caixa_email">
+      <EntityTypeMapping TypeName="ModeloBancoKor.caixa_email">
+        <MappingFragment StoreEntitySet="caixa_email">
+          <ScalarProperty Name="visualizado" ColumnName="visualizado" />
+          <ScalarProperty Name="caixa_email_id" ColumnName="caixa_email_id" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="destinatario" ColumnName="destinatario" />
+          <ScalarProperty Name="remetente" ColumnName="remetente" />
+          <ScalarProperty Name="assunto" ColumnName="assunto" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="enviado" ColumnName="enviado" />
+          <ScalarProperty Name="baixado" ColumnName="baixado" />
+          <ScalarProperty Name="datacriado" ColumnName="datacriado" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emergencia">
+      <EntityTypeMapping TypeName="ModeloBancoKor.emergencia">
+        <MappingFragment StoreEntitySet="emergencia">
+          <ScalarProperty Name="emergencia_id" ColumnName="emergencia_id" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="usuario_atendeu_id" ColumnName="usuario_atendeu_id" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="coordenada" ColumnName="coordenada" />
+          <ScalarProperty Name="datacriado" ColumnName="datacriado" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fiscalizacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.fiscalizacao">
+        <MappingFragment StoreEntitySet="fiscalizacao">
+          <ScalarProperty Name="id_tipo_fiscalizacao" ColumnName="id_tipo_fiscalizacao" />
+          <ScalarProperty Name="id_fiscalizacao" ColumnName="id_fiscalizacao" />
+          <ScalarProperty Name="data_fiscalizacao" ColumnName="data_fiscalizacao" />
+          <ScalarProperty Name="posto" ColumnName="posto" />
+          <ScalarProperty Name="numero_guia" ColumnName="numero_guia" />
+          <ScalarProperty Name="qtd_verificada" ColumnName="qtd_verificada" />
+          <ScalarProperty Name="placa_registro" ColumnName="placa_registro" />
+          <ScalarProperty Name="nota_fiscal" ColumnName="nota_fiscal" />
+          <ScalarProperty Name="validade_documento" ColumnName="validade_documento" />
+          <ScalarProperty Name="id_status_fiscalizacao" ColumnName="id_status_fiscalizacao" />
+          <ScalarProperty Name="id_operacao" ColumnName="id_operacao" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fiscalizacao_operacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.fiscalizacao_operacao">
+        <MappingFragment StoreEntitySet="fiscalizacao_operacao">
+          <ScalarProperty Name="id_fiscalizacao_operacao" ColumnName="id_fiscalizacao_operacao" />
+          <ScalarProperty Name="id_operacao" ColumnName="id_operacao" />
+          <ScalarProperty Name="id_fiscalizacao" ColumnName="id_fiscalizacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="grupo">
+      <EntityTypeMapping TypeName="ModeloBancoKor.grupo">
+        <MappingFragment StoreEntitySet="grupo">
+          <ScalarProperty Name="grupo_id" ColumnName="grupo_id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="datacriado" ColumnName="datacriado" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="datamodificado" ColumnName="datamodificado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="guia">
+      <EntityTypeMapping TypeName="ModeloBancoKor.guia">
+        <MappingFragment StoreEntitySet="guia">
+          <ScalarProperty Name="cadastro_manual" ColumnName="cadastro_manual" />
+          <ScalarProperty Name="tipo_transporte" ColumnName="tipo_transporte" />
+          <ScalarProperty Name="id_tipo_guia" ColumnName="id_tipo_guia" />
+          <ScalarProperty Name="id_guia" ColumnName="id_guia" />
+          <ScalarProperty Name="numero_guia" ColumnName="numero_guia" />
+          <ScalarProperty Name="nome_emissor" ColumnName="nome_emissor" />
+          <ScalarProperty Name="cnpj_emissor" ColumnName="cnpj_emissor" />
+          <ScalarProperty Name="municipio_emissor" ColumnName="municipio_emissor" />
+          <ScalarProperty Name="nome_origem" ColumnName="nome_origem" />
+          <ScalarProperty Name="municipio_origem" ColumnName="municipio_origem" />
+          <ScalarProperty Name="nome_destino" ColumnName="nome_destino" />
+          <ScalarProperty Name="municipio_destino" ColumnName="municipio_destino" />
+          <ScalarProperty Name="placa_registro" ColumnName="placa_registro" />
+          <ScalarProperty Name="numero_notafiscal" ColumnName="numero_notafiscal" />
+          <ScalarProperty Name="data_emissao_guia" ColumnName="data_emissao_guia" />
+          <ScalarProperty Name="data_validade_inicio" ColumnName="data_validade_inicio" />
+          <ScalarProperty Name="data_validade_fim" ColumnName="data_validade_fim" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+          <ScalarProperty Name="unidade_medida" ColumnName="unidade_medida" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="imagem">
+      <EntityTypeMapping TypeName="ModeloBancoKor.imagem">
+        <MappingFragment StoreEntitySet="imagem">
+          <ScalarProperty Name="img_base64" ColumnName="img_base64" />
+          <ScalarProperty Name="imagem_id" ColumnName="imagem_id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="id_fiscalizacao" ColumnName="id_fiscalizacao" />
+          <ScalarProperty Name="datacriado" ColumnName="datacriado" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="item_guia">
+      <EntityTypeMapping TypeName="ModeloBancoKor.item_guia">
+        <MappingFragment StoreEntitySet="item_guia">
+          <ScalarProperty Name="qtd_verificada" ColumnName="qtd_verificada" />
+          <ScalarProperty Name="id_item_guia" ColumnName="id_item_guia" />
+          <ScalarProperty Name="id_tipo_materia_prima" ColumnName="id_tipo_materia_prima" />
+          <ScalarProperty Name="descricao_item" ColumnName="descricao_item" />
+          <ScalarProperty Name="id_guia" ColumnName="id_guia" />
+          <ScalarProperty Name="qtd_item" ColumnName="qtd_item" />
+          <ScalarProperty Name="unidade_item" ColumnName="unidade_item" />
+          <ScalarProperty Name="valor_item" ColumnName="valor_item" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kor">
+      <EntityTypeMapping TypeName="ModeloBancoKor.kor">
+        <MappingFragment StoreEntitySet="kor">
+          <ScalarProperty Name="id_kor" ColumnName="id_kor" />
+          <ScalarProperty Name="nome_kor" ColumnName="nome_kor" />
+          <ScalarProperty Name="modelo_kor" ColumnName="modelo_kor" />
+          <ScalarProperty Name="numero_serie_kor" ColumnName="numero_serie_kor" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kor_operacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.kor_operacao">
+        <MappingFragment StoreEntitySet="kor_operacao">
+          <ScalarProperty Name="id_kor_operacao" ColumnName="id_kor_operacao" />
+          <ScalarProperty Name="id_kor" ColumnName="id_kor" />
+          <ScalarProperty Name="id_operacao" ColumnName="id_operacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mensagem">
+      <EntityTypeMapping TypeName="ModeloBancoKor.mensagem">
+        <MappingFragment StoreEntitySet="mensagem">
+          <ScalarProperty Name="mensagem_id" ColumnName="mensagem_id" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="usuario_destino_id" ColumnName="usuario_destino_id" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="visualizado" ColumnName="visualizado" />
+          <ScalarProperty Name="baixado" ColumnName="baixado" />
+          <ScalarProperty Name="datacriado" ColumnName="datacriado" />
+          <ScalarProperty Name="datamodificado" ColumnName="datamodificado" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="natureza_operacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.natureza_operacao">
+        <MappingFragment StoreEntitySet="natureza_operacao">
+          <ScalarProperty Name="id_natureza_operacao" ColumnName="id_natureza_operacao" />
+          <ScalarProperty Name="desc_natureza_operacao" ColumnName="desc_natureza_operacao" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="operacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.operacao">
+        <MappingFragment StoreEntitySet="operacao">
+          <ScalarProperty Name="localizacao" ColumnName="localizacao" />
+          <ScalarProperty Name="id_instituicao" ColumnName="id_instituicao" />
+          <ScalarProperty Name="id_operacao" ColumnName="id_operacao" />
+          <ScalarProperty Name="desc_operacao" ColumnName="desc_operacao" />
+          <ScalarProperty Name="id_natureza_operacao" ColumnName="id_natureza_operacao" />
+          <ScalarProperty Name="desc_observacao" ColumnName="desc_observacao" />
+          <ScalarProperty Name="data_criado_operacao" ColumnName="data_criado_operacao" />
+          <ScalarProperty Name="data_final_operacao" ColumnName="data_final_operacao" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="smtp_email">
+      <EntityTypeMapping TypeName="ModeloBancoKor.smtp_email">
+        <MappingFragment StoreEntitySet="smtp_email">
+          <ScalarProperty Name="id_smtp" ColumnName="id_smtp" />
+          <ScalarProperty Name="desc_smtp" ColumnName="desc_smtp" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status_fiscalizacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.status_fiscalizacao">
+        <MappingFragment StoreEntitySet="status_fiscalizacao">
+          <ScalarProperty Name="id_status_fiscalizacao" ColumnName="id_status_fiscalizacao" />
+          <ScalarProperty Name="desc_status_fiscalizacao" ColumnName="desc_status_fiscalizacao" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ModeloBancoKor.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_fiscalizacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.tipo_fiscalizacao">
+        <MappingFragment StoreEntitySet="tipo_fiscalizacao">
+          <ScalarProperty Name="id_natureza_operacao" ColumnName="id_natureza_operacao" />
+          <ScalarProperty Name="id_tipo_fiscalizacao" ColumnName="id_tipo_fiscalizacao" />
+          <ScalarProperty Name="desc_tipo_fiscalizacao" ColumnName="desc_tipo_fiscalizacao" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_materia_prima">
+      <EntityTypeMapping TypeName="ModeloBancoKor.tipo_materia_prima">
+        <MappingFragment StoreEntitySet="tipo_materia_prima">
+          <ScalarProperty Name="id_tipo_materia_prima" ColumnName="id_tipo_materia_prima" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="desc_materia_prima" ColumnName="desc_materia_prima" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="ModeloBancoKor.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="id_instituicao" ColumnName="id_instituicao" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="id_cargo" ColumnName="id_cargo" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="grupo_id" ColumnName="grupo_id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="identificador" ColumnName="identificador" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="imap_server" ColumnName="imap_server" />
+          <ScalarProperty Name="email_senha" ColumnName="email_senha" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="coordenada" ColumnName="coordenada" />
+          <ScalarProperty Name="data_posicao" ColumnName="data_posicao" />
+          <ScalarProperty Name="data_criado" ColumnName="data_criado" />
+          <ScalarProperty Name="ultimo_acesso" ColumnName="ultimo_acesso" />
+          <ScalarProperty Name="qtd_acessos" ColumnName="qtd_acessos" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario_logado">
+      <EntityTypeMapping TypeName="ModeloBancoKor.usuario_logado">
+        <MappingFragment StoreEntitySet="usuario_logado">
+          <ScalarProperty Name="usuario_logado_id" ColumnName="usuario_logado_id" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario_operacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.usuario_operacao">
+        <MappingFragment StoreEntitySet="usuario_operacao">
+          <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+          <ScalarProperty Name="usuario_operacao_id" ColumnName="usuario_operacao_id" />
+          <ScalarProperty Name="id_operacao" ColumnName="id_operacao" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cargo">
+      <EntityTypeMapping TypeName="ModeloBancoKor.cargo">
+        <MappingFragment StoreEntitySet="cargo">
+          <ScalarProperty Name="nome_cargo" ColumnName="nome_cargo" />
+          <ScalarProperty Name="id_cargo" ColumnName="id_cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="instituicao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.instituicao">
+        <MappingFragment StoreEntitySet="instituicao">
+          <ScalarProperty Name="nome_instituicao" ColumnName="nome_instituicao" />
+          <ScalarProperty Name="id_instituicao" ColumnName="id_instituicao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="perfil">
+      <EntityTypeMapping TypeName="ModeloBancoKor.perfil">
+        <MappingFragment StoreEntitySet="perfil">
+          <ScalarProperty Name="desc_perfil" ColumnName="desc_perfil" />
+          <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="missao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.missao">
+        <MappingFragment StoreEntitySet="missao">
+          <ScalarProperty Name="desc_missao" ColumnName="desc_missao" />
+          <ScalarProperty Name="id_missao" ColumnName="id_missao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="missao_operacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.missao_operacao">
+        <MappingFragment StoreEntitySet="missao_operacao">
+          <ScalarProperty Name="id_operacao" ColumnName="id_operacao" />
+          <ScalarProperty Name="id_missao" ColumnName="id_missao" />
+          <ScalarProperty Name="id_missao_operacao" ColumnName="id_missao_operacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subtipo_fiscalizacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.subtipo_fiscalizacao">
+        <MappingFragment StoreEntitySet="subtipo_fiscalizacao">
+          <ScalarProperty Name="id_tipo_fiscalizacao" ColumnName="id_tipo_fiscalizacao" />
+          <ScalarProperty Name="desc_subtipo" ColumnName="desc_subtipo" />
+          <ScalarProperty Name="id_subtipo_fiscalizacao" ColumnName="id_subtipo_fiscalizacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_guia">
+      <EntityTypeMapping TypeName="ModeloBancoKor.tipo_guia">
+        <MappingFragment StoreEntitySet="tipo_guia">
+          <ScalarProperty Name="desc_tipo_guia" ColumnName="desc_tipo_guia" />
+          <ScalarProperty Name="id_tipo_guia" ColumnName="id_tipo_guia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="anexo">
+      <EntityTypeMapping TypeName="ModeloBancoKor.anexo">
+        <MappingFragment StoreEntitySet="anexo">
+          <ScalarProperty Name="desc_anexo" ColumnName="desc_anexo" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="datacriado" ColumnName="datacriado" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_anexo" ColumnName="id_anexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="anexo_caixa_email">
+      <EntityTypeMapping TypeName="ModeloBancoKor.anexo_caixa_email">
+        <MappingFragment StoreEntitySet="anexo_caixa_email">
+          <ScalarProperty Name="caixa_email_id" ColumnName="caixa_email_id" />
+          <ScalarProperty Name="id_anexo" ColumnName="id_anexo" />
+          <ScalarProperty Name="id_anexo_caixa_email" ColumnName="id_anexo_caixa_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="anexo_fiscalizacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.anexo_fiscalizacao">
+        <MappingFragment StoreEntitySet="anexo_fiscalizacao">
+          <ScalarProperty Name="id_fiscalizacao" ColumnName="id_fiscalizacao" />
+          <ScalarProperty Name="id_anexo" ColumnName="id_anexo" />
+          <ScalarProperty Name="id_anexo_fiscalizacao" ColumnName="id_anexo_fiscalizacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="anexo_mensagem">
+      <EntityTypeMapping TypeName="ModeloBancoKor.anexo_mensagem">
+        <MappingFragment StoreEntitySet="anexo_mensagem">
+          <ScalarProperty Name="mensagem_id" ColumnName="mensagem_id" />
+          <ScalarProperty Name="id_anexo" ColumnName="id_anexo" />
+          <ScalarProperty Name="id_anexo_mensagem" ColumnName="id_anexo_mensagem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipofiscalizacao_operacao">
+      <EntityTypeMapping TypeName="ModeloBancoKor.tipofiscalizacao_operacao">
+        <MappingFragment StoreEntitySet="tipofiscalizacao_operacao">
+          <ScalarProperty Name="id_tipo_fiscalizacao" ColumnName="id_tipo_fiscalizacao" />
+          <ScalarProperty Name="id_operacao" ColumnName="id_operacao" />
+          <ScalarProperty Name="id_fiscalizacao_operacao" ColumnName="id_fiscalizacao_operacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="operacao_usuario_kor">
+      <EntityTypeMapping TypeName="ModeloBancoKor.operacao_usuario_kor">
+        <MappingFragment StoreEntitySet="operacao_usuario_kor">
+          <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="id_kor" ColumnName="id_kor" />
+          <ScalarProperty Name="id_operacao" ColumnName="id_operacao" />
+          <ScalarProperty Name="operacao_usuario_kor_id" ColumnName="operacao_usuario_kor_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

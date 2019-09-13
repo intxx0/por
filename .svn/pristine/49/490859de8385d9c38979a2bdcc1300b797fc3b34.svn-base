@@ -1,0 +1,87 @@
+﻿<div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{ 'CHANGE_USER' | translate }}</h4>
+    </div>
+    <div class="panel-body">
+        <form name="cadUsuario" role="form" ng-submit="atualizarUsuario()">
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>{{ 'NAME' | translate }}:</label>
+                            <input type="text" ng-model="novoUsuario.DescNome" placeholder="{{ 'ENTER_NAME' | translate }}" id="txtNomeUsuario" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>{{ 'INSTITUTION' | translate }}:</label>
+                            <select class="form-control" id="ddlInstituicao" ng-model="novoUsuario.IdInstituicao" ng-options="option.IdInstituicao as option.NomeInstituicao for option in Instituicoes" required></select>
+                            <input type="hidden" name="novoUsuario.IdInstituicao" ng-value="novoUsuario.IdInstituicao" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>{{ 'ROLE' | translate }}:</label>
+                            <select class="form-control" id="ddlCargo" ng-model="novoUsuario.IdCargo" ng-options="option.IdCargo as option.NomeCargo for option in Cargos" required></select>
+                            <input type="hidden" name="novoUsuario.IdCargo" ng-value="novoUsuario.IdCargo" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>{{ 'TELEPHONE' | translate }}:</label>
+                            <input type="text" ng-model="novoUsuario.Tel" placeholder="{{ 'TELEPHONE' | translate }}" id="txtTelefone" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>{{ 'EMAIL' | translate }}:</label>
+                            <input type="email" ng-model="novoUsuario.Email" placeholder="{{ 'ENTER_EMAIL' | translate }}" id="txtEmail" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>{{ 'USER' | translate }}:</label>
+                            <input type="text" ng-model="novoUsuario.DescLogin" placeholder="{{ 'ENTER_USER' | translate }}" id="txtUsuario" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>{{ 'POR_PASSWORD' | translate }}:</label>
+                            <input type="password" ng-model="novoUsuario.Senha" placeholder="{{ 'ENTER_POR_PASSWORD' | translate }}" id="txtSenha" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>{{ 'CONFIRM_POR_PASSWORD' | translate }}:</label>
+                            <input type="password" placeholder="{{ 'CONFIRM_POR_PASSWORD' | translate }}" ng-model="confirmSenha" id="txtConfirmarSenha" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="">Status:</label>
+                        <select class="form-control" id="ddlAtivo" ng-model="novoUsuario.Ativo" required>
+                            <option value="">{{ 'SELECT' | translate }}...</option>
+                            <option value="0">{{ 'INACTIVE' | translate }}</option>
+                            <option value="1">{{ 'ACTIVE' | translate }}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>{{ 'GROUP' | translate }}:</label>
+                            <select class="form-control" id="ddlGrupo" ng-model="novoUsuario.IdGrupo" ng-options="option.IdGrupo as option.DescGrupo for option in Grupos" required></select>
+                            <input type="hidden" name="novoUsuario.IdGrupo" ng-value="novoUsuario.IdGrupo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-sm btn-success" ng-disabled="cadUsuario.$invalid"><i class="fa fa-play" style="font-size:10px;"></i>&nbsp;&nbsp;{{ 'CHANGE' | translate }}</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+﻿(function (app) {
+    'use strict';
+
+    app.controller('historicoAlarmesCtrl', historicoAlarmesCtrl);
+
+    historicoAlarmesCtrl.$inject = ['$scope', '$http', 'apiService', 'notificationService', '$timeout'];
+
+    function historicoAlarmesCtrl($scope, $http, apiService, notificationService, $timeout) {
+
+        var promiseEmergencias;
+        var contadorEmergencias = 5;
+
+
+        $scope.carregaAlarmes = carregaAlarmes;
+        $scope.atualizaHistoricoEmergencia = atualizaHistoricoEmergencia;
+
+        $scope.Emergencias = [];
+
+
+        //1--------Carrega Alarmes ----------------------
+
+        function carregaAlarmes(page) {
+
+            page = page || 0;
+
+            var config = {
+                params: {
+                    page: page,
+                    pageSize: 20,
+                    filter: $scope.filtroEmergencia
+                }
+            };
+
+
+            apiService.get('/api/emergencia/listaemergencia', config,
+                loadAlarmesSuccess,
+                loadAlarmesFailed);
+        }
+
+        function loadAlarmesSuccess(result) {
+
+            $scope.Emergencias = result.data.Items;
+
+            $scope.page = result.data.Page;
+            $scope.pagesCount = result.data.TotalPages;
+            $scope.totalCount = result.data.TotalCount;
+        }
+
+        function loadAlarmesFailed(result) {
+
+            notificationService.displayError("Erro ao carregar lista de emergências !", "Atenção !\n");
+        }
+
+
+        //1----------------------------------------------
+
+
+        //2-----------------Atualiza histórico emergência-----------------------------------------
+
+        function atualizaHistoricoEmergencia(emergencia) {
+
+            if (emergencia.Ativo == 1) {
+
+                apiService.post('/api/emergencia/atualizaHistoricoAlarme', emergencia,
+             atualizaHistoricoAlarmeSuccess,
+             atualizaHistoricoAlarmeFailed);
+            }
+
+        }
+
+        function atualizaHistoricoAlarmeSuccess(result) {
+
+            var resultado = result.data.Items;
+
+            carregaAlarmes();
+        }
+
+        function atualizaHistoricoAlarmeFailed(result) {
+            notificationService.displayError('Erro ao atualizar campo ativo no banco de dados!');
+        }
+
+
+        //2----------------------------------------------------------------------------------------
+
+        
+
+
+        function ativarRefreshEmergenciasAtivas() {
+            contadorEmergencias--;
+            if (contadorEmergencias === 0) {
+                carregaAlarmes();
+                contadorEmergencias = 5;
+
+
+            }
+            promiseEmergencias = $timeout(ativarRefreshEmergenciasAtivas, 1000);
+        }
+        
+        $scope.$on('$destroy', function () {
+            $timeout.cancel(promiseEmergencias);
+        });
+
+
+        carregaAlarmes();
+
+        //Carregando todos os alarmes de tempos em tempos
+        ativarRefreshEmergenciasAtivas();
+    }
+
+})(angular.module('AppKor'));
